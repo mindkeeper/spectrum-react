@@ -1,0 +1,40 @@
+.list-product-home-right {
+    /* padding: 0 0 !important; */
+    padding-right: 70px;
+    padding-left: 0 !important;
+}
+.list-product-home-left {
+    padding-left: 75px;
+    padding-right: 0 !important;
+}
+
+.home-name-product {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: 2px;
+    color: #1A1A1A;
+    padding: 100px 50px 30px 50px;
+}
+
+.home-desc-product {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 37px;
+    color: #4D4D4D;
+    padding: 20px 35px 50px 50px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .list-product-home-right {
+        padding-right: 0px !important;
+    }
+    .list-product-home-left {
+        padding-left: 0px !important;
+    }
+}
