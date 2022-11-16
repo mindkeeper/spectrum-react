@@ -1,0 +1,217 @@
+.background-footer {
+    background-color: #1A1A1A;
+}
+
+
+
+
+/* Footer Content 1 */
+.content-one {
+    width: 35%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
+}
+.content-four {
+    width: 20%;
+}
+.content-two {
+    width: 13%;
+}
+.content-third {
+    width: 17%;
+}
+
+.raz-title {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 69px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.raz-desc {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 38px;
+    align-items: justify;
+    color: #B4B4B4;
+    /* margin-right: 100px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.icon-style span i {
+    font-size: 15px;
+    margin: 10px;
+}
+
+.icon-style span {
+    border: 1px solid white;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+
+.facebook-container {
+    border: 1px solid white;
+    align-items: center;
+    border-radius: 50%;
+    padding: 0 3px;
+    margin-right: 20px;
+}
+
+
+
+/* Footer Content 2 */
+.content-company-title {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.content-company-desc {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 48px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #B4B4B4;
+    cursor: pointer;
+}
+
+
+/* Footer Content 3 */
+.content-userful-title {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.content-userful-desc {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 48px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #B4B4B4;
+    cursor: pointer;
+}
+
+
+/* Footer Content 4 */
+.content-contact-title {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.content-contact-desc {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 48px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #B4B4B4;
+    cursor: pointer;
+}
+
+.icon-right > i {
+    font-size: 20px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid white;
+    border-radius: 50px;
+    /* margin-right: 10px; */
+}
+
+.icon-right {
+    width: 200px;
+}
+.info {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #B4B4B4;
+}
+
+/* .icon-style span {
+    border: 1px solid white;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 20px;
+} */
+
+
+/* Footer Bottom */
+.copyright {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 1.71429px;
+    text-transform: uppercase;
+    color: #B4B4B4;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .content-one {
+        width: 100%;
+        /* padding: 25px; */
+        text-align: center;
+    }
+
+    .raz-desc, .raz-title {
+        text-align: center;
+        width: 100%;
+    }
+    .icon-style {
+        width: 100%;
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .content-four {
+        width: 100%;
+    }
+    .content-two, .content-third {
+        width: 50%;
+    }
+
+    .content-company-title, .content-userful-title, .content-contact-title {
+        margin-top: 40px;
+    }
+
+}
