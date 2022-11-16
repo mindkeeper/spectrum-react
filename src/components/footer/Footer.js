@@ -4,6 +4,9 @@ import React from 'react'
 // Import CSS
 import css from "./Footer.module.css"
 
+// import image
+import logo from "../../asset/logo/logo-black.png";
+
 
 function Footer() {
     return (
@@ -11,11 +14,12 @@ function Footer() {
             <footer>
                 <div className={`container-fluid ${css["background-footer"]}`}>
                     {/* Footer Top */}
-                    <div className='py-5'>
+                    <div className={css['footer-content']}>
                         <div className='row d-flex justify-content-center'>
                             {/* Content RAZ */}
                             <div className={`col-lg-3 col-md-12 d-flex flex-column align-items-start ${css["content-one"]}`}>
-                                <p className={`${css["raz-title"]}`}>RAZ</p>
+
+                                <p className={`${css["raz-title"]}`}><img src={logo} alt="" width="50px" /> SPECTRUM</p>
                                 <p className={`${css["raz-desc"]}`}>Donec nunc nunc, gravida vitae diam vel,<br /> varius interdum erat. Quisque a nunc vel <br /> diam auctor commodo.</p>
                                 <div className={`d-flex flex-row justify-content-start ${css["icon-style"]}`}>
                                     <span className={`${css["facebook-container"]}`}><i className="fa-brands fa-facebook-f text-white"></i></span>
@@ -74,7 +78,7 @@ function Footer() {
 
                     {/* Footer Bottom */}
                     <div>
-                        <p className={`w-100 pb-2 text-center ${css["copyright"]}`}>© 2019 RAZ Store All rights reserved</p>
+                        <p className={`w-100 pt-5 pb-2 text-center ${css["copyright"]}`}>© 2019 RAZ Store All rights reserved</p>
                     </div>
                 </div>
 

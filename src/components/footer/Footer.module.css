@@ -2,7 +2,9 @@
     background-color: #1A1A1A;
 }
 
-
+.footer-content {
+    padding-top: 100px;
+}
 
 
 /* Footer Content 1 */
@@ -26,7 +28,7 @@
     font-family: 'Arimo';
     font-style: normal;
     font-weight: 700;
-    font-size: 60px;
+    font-size: 45px;
     line-height: 69px;
     text-align: center;
     color: #FFFFFF;
