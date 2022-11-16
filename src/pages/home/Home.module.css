@@ -1,0 +1,127 @@
+/* Add font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
+.bg-top {
+    background-image: url('../../asset/bg-home/bg_home.png');
+    width: 100%;
+}
+
+
+
+/* Content TOP */
+.content-top-home {
+    margin-top: 250px;
+}
+
+.title-bar-top {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 87px;
+    text-align: center;
+    color: #1A1A1A;
+}
+
+.desc-bar-top {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 37px;
+    text-align: center;
+    color: #4D4D4D;
+    margin-top: 20px;
+}
+
+
+.explore-more {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #4D4D4D;
+    margin: 100px 0 10px 0;
+}
+.arrow-down {
+    cursor: pointer;
+    font-size: 25px;
+    margin: 0 0 120px 0;
+}
+
+
+
+.content-bottom-home {
+    background: #161616;
+}
+
+.promo-home {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 55px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 0 20px;
+}
+
+.ceo {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.rule {
+    color: white;
+    background: #D8D8D8;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    width: 70px;
+    height: 3px;
+    margin: 40px 0 0 350px;
+}
+
+.name-ceo {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.logo-parter {
+    padding-bottom: 120px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .rule {
+        color: white;
+        background: #D8D8D8;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+        width: 70px;
+        height: 3px;
+        margin: 40px 0 0 350px;
+    }
+}
+@media only screen and (max-width: 428px) {
+    .rule {
+        color: white;
+        background: #D8D8D8;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+        width: 70px;
+        height: 3px;
+        margin: 40px 0 0 170px;
+    }
+}
