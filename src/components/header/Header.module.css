@@ -1,0 +1,148 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .logo-content .logo {
+    padding: 1rem;
+}
+
+.navbar .logo-content .logo img{
+    width: 2rem;
+}
+
+.navbar .logo-content .logo-title h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar .menu-bar ol {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0 2rem;
+    gap: 6rem;
+}
+
+.navbar .menu-bar ol li {
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+}
+
+.navbar .menu-bar ol li:hover {
+    border-bottom: .2rem solid black;
+}
+
+.navbar .right-responsive {
+    display: none;
+}
+
+.navbar .right-content {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.navbar .right-content .icon {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .right-content .icon i {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+    justify-content: space-around;
+}
+
+.menu-toggle span:nth-child(2) {
+    position: relative;
+    right: -10px;
+    display: block;
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    border-radius: 3px;
+    transition: all .5s;
+}
+
+.menu-toggle span:nth-child(3) {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 3px;
+    transition: all .5s;
+}
+
+.menu-toggle span:nth-child(4) {
+    display: block;
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    border-radius: 3px;
+    transition: all .5s;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 29px;
+    height: 28px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 11;
+}
+
+/* responsive */
+
+@media screen and (max-width: 767px) {
+
+    .navbar .logo-content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .navbar .menu-bar ol {
+        gap: 8rem;
+    }
+
+    .navbar .menu-bar ol li {
+        font-size: 1rem;
+    }
+
+    .navbar .right-responsive {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .navbar .right-none {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navbar .logo-content .logo-title h1 {
+       display: none;
+    }
+
+    .navbar .menu-bar ol {
+        gap: 3rem;
+    }
+}
