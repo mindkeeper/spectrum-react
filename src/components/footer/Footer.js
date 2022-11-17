@@ -5,7 +5,7 @@ import React from 'react'
 import css from "./Footer.module.css"
 
 // import image
-import logo from "../../asset/logo/logo-black.png";
+import logo from "../../asset/logo/logo-white.png";
 
 
 function Footer() {
