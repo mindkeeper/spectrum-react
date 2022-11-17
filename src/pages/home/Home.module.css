@@ -5,6 +5,8 @@
 .bg-top {
     background-image: url('../../asset/bg-home/bg_home.png');
     width: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -112,6 +114,10 @@
         width: 70px;
         height: 3px;
         margin: 40px 0 0 350px;
+    }
+
+    .main-content {
+        padding-top: 6rem;
     }
 }
 @media only screen and (max-width: 428px) {
