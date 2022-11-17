@@ -2,11 +2,23 @@ import React, { useState } from "react";
 import styles from "../header/Header.module.css";
 import logo from "../../asset/logo/logo-black.png";
 import glass from "../../asset/product/glass.png";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import authActions from "../../redux/actions/auths";
 
 function Header() {
+  const navigate = useNavigate();
+  const dispacth = useDispatch();
   const [toggle, setToggle] = useState(false);
   const [pages, setPages] = useState(false);
   const [shop, setShop] = useState(false);
+  const token = useSelector((state) => state.auth.userInfo.token);
+  console.log(token);
+
+  const toLogin = () => navigate("/login");
+  const logoutHandler = () => {
+    dispacth(authActions.logoutThunk(token, toLogin));
+  };
 
   const showHamburger = () => {
     setToggle(!toggle);
@@ -38,13 +50,13 @@ function Header() {
             <div className={styles["right-content"]}>
               <div className={styles["icon"]}>
                 <div className={styles["search"]}>
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div className={styles["love"]}>
-                  <i class="fa-regular fa-heart"></i>
+                  <i className="fa-regular fa-heart"></i>
                 </div>
                 <div className={styles["shop"]}>
-                  <i class="fa-solid fa-cart-shopping"></i>
+                  <i className="fa-solid fa-cart-shopping"></i>
                 </div>
               </div>
               <div className={styles["menu-toggle"]} onClick={showHamburger}>
@@ -93,7 +105,7 @@ function Header() {
                     <li>Profile</li>
                     <li>Chat</li>
                     <li>Notification</li>
-                    <li>Logout</li>
+                    <li onClick={logoutHandler}>Logout</li>
                   </ol>
                 </div>
               )}

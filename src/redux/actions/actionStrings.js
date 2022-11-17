@@ -1,6 +1,7 @@
 export const ACTION_STRING = {
   authLogin: "AUTH_LOGIN",
   authLogout: "AUTH_LOGOUT",
+  register: "REGISTER",
   pending: "_PENDING",
   fulfilled: "_FULFILLED",
   rejected: "_REJECTED",

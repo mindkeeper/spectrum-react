@@ -12,7 +12,7 @@ import Productdetail from "./pages/productdetail/Productdetail";
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/login", element: <Login /> },
-  { path: "/registration", element: <Regist /> },
+  { path: "/register", element: <Regist /> },
   { path: "/profile/customer", element: <ProfileCustomer /> },
   { path: "/profile/seller", element: <ProfileSeller /> },
   { path: "/forgotpassword", element: <ForgotPassword /> },
