@@ -11,7 +11,7 @@ import ProfileSeller from "./pages/profile/profile seller/ProfileSeller";
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/login", element: <Login /> },
-  { path: "/registration", element: <Regist /> },
+  { path: "/register", element: <Regist /> },
   { path: "/profile/customer", element: <ProfileCustomer /> },
   { path: "/profile/seller", element: <ProfileSeller /> },
   { path: "/forgotpassword", element: <ForgotPassword /> },
