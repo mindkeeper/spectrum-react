@@ -80,6 +80,8 @@
     letter-spacing: 2px;
     color: #FFFFFF;
     margin-bottom: 40px;
+    margin-right: 20px;
+    
 }
 
 .content-company-desc {
@@ -105,6 +107,7 @@
     letter-spacing: 2px;
     color: #FFFFFF;
     margin-bottom: 40px;
+    margin-right: 40px;
 }
 
 .content-userful-desc {
@@ -130,6 +133,7 @@
     letter-spacing: 2px;
     color: #FFFFFF;
     margin-bottom: 40px;
+    margin-right: 85px;
 }
 
 .content-contact-desc {
