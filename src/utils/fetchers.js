@@ -22,3 +22,7 @@ export const logout = (token) => {
     headers: { "x-access-token": token },
   });
 };
+
+export const register = (body) => {
+  return axiosRequest("POST", "/users/register", body);
+};
