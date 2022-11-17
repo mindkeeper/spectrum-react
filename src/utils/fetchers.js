@@ -12,5 +12,13 @@ const axiosRequest = (method, url, data, params) => {
 };
 
 export const login = (data) => {
-  return axiosRequest("GET", "/login", data);
+  return axiosRequest("POST", "/auth/login", data);
+};
+
+export const logout = (token) => {
+  return axios({
+    method: "DELETE",
+    url: `${baseUrl}/auth/logout`,
+    headers: { "x-access-token": token },
+  });
 };
