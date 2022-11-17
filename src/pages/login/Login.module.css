@@ -106,3 +106,53 @@
     position: relative;
     top: .2rem;
 }
+
+/* responsive */
+
+@media screen and (max-width:768px) {
+    .account {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .form-container {
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .page-title p {
+        font-size: .8rem;
+        padding: 1rem;
+    }
+
+    .form-container {
+        padding: 2rem;
+    }
+
+    .account {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .login-account h1, .regist-account h1 {
+        font-size: 1.4rem;
+    }
+
+    .form .title-form {
+        padding: 1rem 0;
+    }
+
+    .form .title-form h1 {
+        font-size: 1.4rem;
+        padding: 0;
+    }
+
+    .form .form-login input {
+        max-width: 100%;
+    }
+
+    .form .btn-login button {
+        width: 100%;
+       }
+}

@@ -29,7 +29,7 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="col-lg-6 offset-lg-1">
+          <div className="col-lg-6 offset-lg-1 col-12">
             <div className={styles["form"]}>
               <div className={styles["title-form"]}>
                 <h1>Login</h1>
