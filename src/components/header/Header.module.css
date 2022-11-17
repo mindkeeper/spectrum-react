@@ -269,7 +269,7 @@
     
 /* responsive */
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 
     .navbar .logo-content {
         display: flex;
