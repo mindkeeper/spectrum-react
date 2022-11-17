@@ -124,6 +124,7 @@
     right: 5rem;
     background-color: #1A1A1A;
     transition: all .5s;
+    z-index: 11;
 }
 
 .hamburger-list ol {
@@ -174,6 +175,7 @@
     right: 33.5rem;
     background-color: #1A1A1A;
     transition: all .5s;
+    z-index: 11;
 }
 
 .pages-list ol {
@@ -202,6 +204,7 @@
     padding: 2rem;
     background-color: #1A1A1A;
     transition: all .5s;
+    z-index: 11;
 }
 
 .shop-list ol {
