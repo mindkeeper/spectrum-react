@@ -47,7 +47,7 @@ function Header() {
                   <i class="fa-solid fa-cart-shopping"></i>
                 </div>
               </div>
-              <div className={styles["menu-toggle"]}>
+              <div className={styles["menu-toggle"]} onClick={showHamburger}>
                 <input type="checkbox" />
                 <span></span>
                 <span></span>
@@ -59,19 +59,15 @@ function Header() {
             <div className={styles["menu-bar"]}>
               <ol>
                 <li>HOME</li>
-                <li onClick={showPages}>
-                  PAGES <span>&gt;</span>
-                </li>
-                <li onClick={showShop}>
-                  SHOP <span>&gt;</span>
-                </li>
+                <li onClick={showPages}>PAGES</li>
+                <li onClick={showShop}>SHOP</li>
                 <li>BLOG</li>
               </ol>
             </div>
           </div>
-          <div className={`col-lg-3 ${styles["right-none"]}`}>
+          <div className={`col-lg-3 `}>
             <div className={styles["right-content"]}>
-              <div className={styles["icon"]}>
+              <div className={`${styles["icon"]} ${styles["right-none"]}`}>
                 <div className={styles["search"]}>
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
@@ -82,7 +78,10 @@ function Header() {
                   <i class="fa-solid fa-cart-shopping"></i>
                 </div>
               </div>
-              <div className={styles["menu-toggle"]} onClick={showHamburger}>
+              <div
+                className={`${styles["menu-toggle"]} ${styles["right-none"]}`}
+                onClick={showHamburger}
+              >
                 <input type="checkbox" />
                 <span></span>
                 <span></span>
