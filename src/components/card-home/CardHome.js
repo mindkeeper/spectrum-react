@@ -17,6 +17,10 @@ function CardHome() {
                     <div className="col-lg-6 col-md-12 col-sm-12">
                         <p className={`${css["home-name-product"]}`}>Mid-Century 1929 Sofa with Pilow</p>
                         <p className={`${css["home-desc-product"]}`}>Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam</p>
+                        <div className={`d-flex flex-row align-items-center ${css['content-rule']}`}>
+                            <div className={`${css["rules"]}`}></div>
+                            <p className={`${css["shop-now"]}`}>SHOP NOW</p>
+                        </div>
                     </div>
                 </div>
                 <div className="row d-flex flex-row-reverse">
@@ -26,6 +30,10 @@ function CardHome() {
                     <div className="col-lg-6 col-md-12 col-sm-12">
                         <p className={`${css["home-name-product"]}`}>Mid-Century 1929 Sofa with Pilow</p>
                         <p className={`${css["home-desc-product"]}`}>Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam</p>
+                        <div className={`d-flex flex-row align-items-center ${css['content-rule']}`}>
+                            <div className={`${css["rules"]}`}></div>
+                            <p className={`${css["shop-now"]}`}>SHOP NOW</p>
+                        </div>
                     </div>
                 </div>
             </div>

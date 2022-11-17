@@ -29,12 +29,41 @@
     padding: 20px 35px 50px 50px;
 }
 
+.content-rule {
+    padding-left: 45px;
+    padding-bottom: 60px;
+}
+.rules {
+    border-bottom: 3px solid black;
+    width: 15%;
+}
+.shop-now {
+    margin-left: 20px;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #1A1A1A;
+    cursor: pointer;
+}
+
 
 @media only screen and (max-width: 768px) {
     .list-product-home-right {
-        padding-right: 0px !important;
+        padding-right: 50px !important;
+        padding-left: 50px !important;
+    }
+    .list-product-home-right > img{
+        height: 100%;
     }
     .list-product-home-left {
-        padding-left: 0px !important;
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+
+    .list-product-home-left > img {
+        height: 100%;
     }
 }
