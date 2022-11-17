@@ -15,9 +15,8 @@ export default function ProfileCustomer() {
     return (
         <>
             {/* Header */}
-            <div className="py-4">
-                <Header />
-            </div>
+            <Header />
+
 
             {/* Content Profile Tittle*/}
             <div className={`container-fluid ${css['background-profile-customer']}`}>
@@ -79,13 +78,9 @@ export default function ProfileCustomer() {
                 </div>
 
                 {/* Action Button */}
-                <div className="d-flex flex-row justify-content-between">
-                    <div className="my-4 mx-2">
-                        <button className={css['logout']}><i class="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
-                    </div>
-                    <div className="my-4 mx-2">
-                        <button className={`bg-dark ${css['save-change']}`}>Save Change</button>
-                    </div>
+                <div className={`d-flex flex-row justify-content-between ${css['submit-form']}`}>
+                    <button className={css['logout']}><i class="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
+                    <button className={`bg-dark ${css['save-change']}`}>Save Change</button>
                 </div>
 
             </form>
