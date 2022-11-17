@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 2rem 0;
 }
 
 .navbar .logo-content {
@@ -65,6 +66,7 @@
 .navbar .right-content .icon {
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .navbar .right-content .icon i {
@@ -120,7 +122,7 @@
 
 .hamburger-list {
     position: absolute;
-    top: 4rem;
+    top: 5rem;
     right: 5rem;
     background-color: #1A1A1A;
     transition: all .5s;
@@ -171,7 +173,7 @@
 
 .pages-list {
     position: absolute;
-    top: 4rem;
+    top: 5rem;
     right: 33.5rem;
     background-color: #1A1A1A;
     transition: all .5s;
@@ -191,6 +193,11 @@
     user-select: none;
 }
 
+.pages-list ol li:hover {
+    color: white;
+    cursor: pointer;
+}
+
 .shop-list ol li:hover {
     color: white;
     cursor: pointer;
@@ -199,7 +206,7 @@
 .shop-list {
     position: absolute;
     display: flex;
-    top: 4rem;
+    top: 5rem;
     right: 18rem;
     padding: 2rem;
     background-color: #1A1A1A;
@@ -300,7 +307,7 @@
 
     .hamburger-list {
         position: absolute;
-        top: 6rem;
+        top: 8rem;
         right: 1rem;
         background-color: #1A1A1A;
         transition: all .5s;
@@ -308,15 +315,15 @@
 
     .pages-list {
         position: absolute;
-        top: 6rem;
-        right: 15.5rem;
+        top: 8rem;
+        right: 17rem;
     }
 
     .shop-list {
         position: absolute;
         display: flex;
-        top: 6rem;
-        right: 1rem;
+        top: 8rem;
+        right: 2rem;
         padding: 1rem;
         background-color: #1A1A1A;
         transition: all .5s;
@@ -339,14 +346,14 @@
 
     .pages-list {
         position: absolute;
-        top: 6rem;
+        top: 8rem;
         right: 7.5rem;
     }
 
     .shop-list {
-    flex-direction: column-reverse;
-    top: 6rem;
-    right: 0rem;
+        flex-direction: column-reverse;
+        top: 8rem;
+        right: 0rem;
     }
 
     .shop-list ol {
