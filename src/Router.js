@@ -8,8 +8,8 @@ import ForgotPassword from "./pages/forgotpassword/ForgotPassword";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
-  { path: "/my-account/login", element: <Login /> },
-  { path: "/my-account/new", element: <Regist /> },
+  { path: "/login", element: <Login /> },
+  { path: "/registration", element: <Regist /> },
   { path: "/forgotpassword", element: <ForgotPassword /> },
 ]);
 
