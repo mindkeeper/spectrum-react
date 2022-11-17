@@ -18,11 +18,11 @@ function Home() {
   return (
     <>
       <div className={`container-fluid ${css["bg-top"]}`}>
+        {/* isi header */}
+        <div className="pt-4">
+          <Header />
+        </div>
         <div className="container">
-          {/* isi header */}
-          <div className="pt-4">
-            <Header />
-          </div>
           {/* content-top-home */}
           <div className="row">
             <div
@@ -45,12 +45,12 @@ function Home() {
           </div>
         </div>
       </div>
-
-      {/* Card Product Home */}
-      <CardHome />
-      <CardHome />
-      <CardHome />
-
+      <div className={css["main-content"]}>
+        {/* Card Product Home */}
+        <CardHome />
+        <CardHome />
+        <CardHome />
+      </div>
       <div className={`container-fluid ${css["content-bottom-home"]}`}>
         <div className="row d-flex flex-column align-items-center">
           <div className={`col-lg-7 col-md-12 col-sm-12 ${css["ceo"]}`}>
