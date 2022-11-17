@@ -1,0 +1,108 @@
+.page-title {
+    position: relative;
+    background-image: url(../../asset/bg/bg-title-page.png);
+    background-position: center;
+    background-blend-mode: soft-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+    padding: 2rem 0;
+}
+
+.page-title::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: white;
+    z-index: -1;
+    opacity: .9;
+}
+
+.page-title h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    color: #1A1A1A;
+}
+
+.page-title p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #1A1A1A;
+    padding: 1rem 0;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.login-account h1, .regist-account h1 {
+    color: #B4B4B4;
+    font-size: 2.5rem;
+    font-weight: 400;
+    user-select: none;
+    cursor: pointer;
+    padding-bottom: .5rem;
+}
+
+.login-account h1:hover, .regist-account h1:hover {
+    color: #1A1A1A;
+    border-bottom: 2px solid #B4B4B4;
+}
+
+.form-container {
+    padding: 2rem 0 7rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form .title-form {
+    padding-bottom: 2rem;
+}
+
+.form .title-form h1 {
+    font-size: 2.5rem;
+    color: #1A1A1A;
+    font-weight: 400;
+}
+
+.form .form-login form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.form .form-login input {
+    padding: 1rem;
+    border: 1px solid #CECECE;
+    max-width: 75%;
+}
+
+.form .form-login p {
+    font-size: 1rem;
+    color: #D25B5B;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form .btn-login {
+    padding-top: 1rem;
+}
+
+.form .btn-login button {
+ border: none;
+ background-color: #1A1A1A;
+ color: #CECECE;
+ padding: .5rem 2rem;
+}
+
+.form .btn-login button:active {
+    position: relative;
+    top: .2rem;
+}
