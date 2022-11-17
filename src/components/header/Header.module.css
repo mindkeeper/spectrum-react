@@ -1,4 +1,5 @@
 .navbar {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,6 +42,14 @@
 
 .navbar .menu-bar ol li:hover {
     border-bottom: .2rem solid black;
+}
+
+.navbar .menu-bar ol li span {
+    /* webkit-transform: rotate(-90deg); */
+    /* -moz-transform: rotate(-90deg); */
+    /* -ms-transform: rotate(-90deg); */
+    /* -o-transform: rotate(-90deg); */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .navbar .right-responsive {
@@ -109,6 +118,156 @@
     z-index: 11;
 }
 
+.hamburger-list {
+    position: absolute;
+    top: 4rem;
+    right: 5rem;
+    background-color: #1A1A1A;
+    transition: all .5s;
+}
+
+.hamburger-list ol {
+    padding: 1rem 6rem 1rem 1rem;
+    margin: 0;
+}
+
+.hamburger-list ol li {
+    list-style: none;
+    color: #919191;
+    margin: 0;
+    padding: 1rem;
+    user-select: none;
+}
+
+.hamburger-list ol li:hover {
+    color: white;
+    cursor: pointer;
+}
+
+/* hamburger animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+    
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+    
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: black;
+    transform: rotate(45deg) translate(-1px, 4px);
+}
+    
+.menu-toggle input:checked ~ span:nth-child(4) {
+    background-color: black;
+    transform: rotate(-45deg) translate(9px, 2px);
+}
+    
+.menu-toggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.pages-list {
+    position: absolute;
+    top: 4rem;
+    right: 33.5rem;
+    background-color: #1A1A1A;
+    transition: all .5s;
+}
+
+.pages-list ol {
+    padding: 1rem 6rem 1rem 1rem;
+    margin: 0;
+}
+
+.pages-list ol li {
+    list-style: none;
+    color: #919191;
+    margin: 0;
+    padding: 1rem;
+    user-select: none;
+}
+
+.shop-list ol li:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.shop-list {
+    position: absolute;
+    display: flex;
+    
+    top: 4rem;
+    right: 18rem;
+    padding: 2rem;
+    background-color: #1A1A1A;
+    transition: all .5s;
+}
+
+.shop-list ol {
+    padding: 1rem 6rem 1rem 1rem;
+    margin: 0;
+}
+
+.shop-list ol li {
+    list-style: none;
+    color: #919191;
+    margin: 0;
+    padding: 1rem;
+    user-select: none;
+}
+
+.shop-list ol li:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.shop-list .promo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #F9F9F9;
+    margin: 2rem 0;
+}
+
+.shop-list .promo .promo-detail {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.shop-list .promo .promo-title {
+    max-width: 70%;
+}
+
+.shop-list .promo .promo-title h1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.shop-list .promo .promo-discount h2 {
+    color: #D94141;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.shop-list .promo .btn-shop button {
+    border: none;
+    background-color: #262626;
+    color: white;
+    padding: .5rem 1rem;
+}
+
+.shop-list .promo .btn-shop button:active {
+    position: relative;
+    top: .2rem;
+}
+
+
+
+    
 /* responsive */
 
 @media screen and (max-width: 767px) {

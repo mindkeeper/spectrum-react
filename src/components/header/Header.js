@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../header/Header.module.css";
 import logo from "../../asset/logo/logo-black.png";
+import glass from "../../asset/product/glass.png";
 
 function Header() {
+  const [toggle, setToggle] = useState(false);
+  const [pages, setPages] = useState(false);
+  const [shop, setShop] = useState(false);
+
+  const showHamburger = () => {
+    setToggle(!toggle);
+  };
+
+  const showPages = () => {
+    setPages(!pages);
+  };
+
+  const showShop = () => {
+    setShop(!shop);
+  };
+
   return (
     <>
       <header className={`container-fluid `}>
@@ -42,8 +59,12 @@ function Header() {
             <div className={styles["menu-bar"]}>
               <ol>
                 <li>HOME</li>
-                <li>PAGE</li>
-                <li>SHOP</li>
+                <li onClick={showPages}>
+                  PAGES <span>&gt;</span>
+                </li>
+                <li onClick={showShop}>
+                  SHOP <span>&gt;</span>
+                </li>
                 <li>BLOG</li>
               </ol>
             </div>
@@ -61,12 +82,60 @@ function Header() {
                   <i class="fa-solid fa-cart-shopping"></i>
                 </div>
               </div>
-              <div className={styles["menu-toggle"]}>
+              <div className={styles["menu-toggle"]} onClick={showHamburger}>
                 <input type="checkbox" />
                 <span></span>
                 <span></span>
                 <span></span>
               </div>
+              {toggle && (
+                <div className={styles["hamburger-list"]}>
+                  <ol className={styles["show"]}>
+                    <li>Profile</li>
+                    <li>Chat</li>
+                    <li>Notification</li>
+                    <li>Logout</li>
+                  </ol>
+                </div>
+              )}
+              {pages && (
+                <div className={styles["pages-list"]}>
+                  <ol className={styles["show"]}>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Coming Soon</li>
+                    <li>404 Page</li>
+                    <li>FAQ Page</li>
+                  </ol>
+                </div>
+              )}
+              {shop && (
+                <div className={styles["shop-list"]}>
+                  <ol className={styles["show"]}>
+                    <li>Other Page</li>
+                    <li>Shopping Cart</li>
+                    <li>Check Out</li>
+                    <li>My Account</li>
+                    <li>Order Tracking</li>
+                  </ol>
+                  <div className={styles["promo"]}>
+                    <div className={styles["img"]}>
+                      <img src={glass} alt="glass" />
+                    </div>
+                    <div className={styles["promo-detail"]}>
+                      <div className={styles["promo-title"]}>
+                        <h1>Decorative Ceramic Accent Vases</h1>
+                      </div>
+                      <div className={styles["promo-discount"]}>
+                        <h2>Off 50%</h2>
+                      </div>
+                      <div className={styles["btn-shop"]}>
+                        <button>Shop Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
