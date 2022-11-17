@@ -197,7 +197,6 @@
 .shop-list {
     position: absolute;
     display: flex;
-    
     top: 4rem;
     right: 18rem;
     padding: 2rem;
@@ -280,6 +279,7 @@
 
     .navbar .menu-bar ol {
         gap: 8rem;
+        justify-content: space-between;
     }
 
     .navbar .menu-bar ol li {
@@ -291,17 +291,73 @@
         justify-content: flex-end;
     }
 
-    .navbar .right-none {
+    .navbar .right-content .right-none {
         display: none;
+    }
+
+    .hamburger-list {
+        position: absolute;
+        top: 6rem;
+        right: 1rem;
+        background-color: #1A1A1A;
+        transition: all .5s;
+    }
+
+    .pages-list {
+        position: absolute;
+        top: 6rem;
+        right: 15.5rem;
+    }
+
+    .shop-list {
+        position: absolute;
+        display: flex;
+        top: 6rem;
+        right: 1rem;
+        padding: 1rem;
+        background-color: #1A1A1A;
+        transition: all .5s;
+    }
+
+    .shop-list ol {
+        padding: 1rem 4rem 1rem 1rem;
+        margin: 0;
     }
 }
 
 @media screen and (max-width: 576px) {
     .navbar .logo-content .logo-title h1 {
-       display: none;
+        display: none;
     }
 
     .navbar .menu-bar ol {
         gap: 3rem;
+    }
+
+    .pages-list {
+        position: absolute;
+        top: 6rem;
+        right: 7.5rem;
+    }
+
+    .shop-list {
+    flex-direction: column-reverse;
+    top: 6rem;
+    right: 0rem;
+    }
+
+    .shop-list ol {
+        padding: 0 4rem 1rem 1rem;
+        margin: 0;
+    }
+
+    .shop-list .promo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        background-color: #F9F9F9;
+        padding: 1rem;
+        margin: 2rem 0;
     }
 }
