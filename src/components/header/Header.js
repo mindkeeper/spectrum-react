@@ -69,13 +69,13 @@ function Header() {
             <div className={styles["right-content"]}>
               <div className={`${styles["icon"]} ${styles["right-none"]}`}>
                 <div className={styles["search"]}>
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div className={styles["love"]}>
-                  <i class="fa-regular fa-heart"></i>
+                  <i className="fa-regular fa-heart"></i>
                 </div>
                 <div className={styles["shop"]}>
-                  <i class="fa-solid fa-cart-shopping"></i>
+                  <i className="fa-solid fa-cart-shopping"></i>
                 </div>
               </div>
               <div
