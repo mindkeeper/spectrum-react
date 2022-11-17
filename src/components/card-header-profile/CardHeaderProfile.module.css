@@ -1,0 +1,111 @@
+.box {
+    margin-left: -10px ;
+}
+
+
+
+/* Navbar Profile */
+.header-profile-one span {
+    list-style: none;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 37px;
+    color: #B4B4B4;
+    text-align: center;
+    /* width: 40%; */
+}
+
+.header-profile-one span:hover {
+    list-style: none;
+    color: #1A1A1A;
+    font-weight: 600;
+    user-select: none;
+    border-bottom: 3px solid black;
+}
+
+.header-profile-two span {
+    list-style: none;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 37px;
+    color: #B4B4B4;
+    text-align: center;
+    /* width: 85%; */
+}
+
+.header-profile-two span:hover {
+    list-style: none;
+    color: #1A1A1A;
+    font-weight: 600;
+    user-select: none;
+    border-bottom: 3px solid black;
+}
+
+
+.header-profile-three span {
+    list-style: none; 
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 37px;
+    color: #B4B4B4;
+    text-align: center;
+    /* width: 90%; */
+}
+
+.header-profile-three span:hover {
+    list-style: none;
+    color: #1A1A1A;
+    font-weight: 600;
+    user-select: none;
+    border-bottom: 3px solid black;
+}
+
+
+.header-profile-four span {
+    list-style: none; 
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 37px;
+    color: #B4B4B4;
+    text-align: center;
+    /* width: 75%; */
+}
+
+.header-profile-four span:hover {
+    list-style: none;
+    color: #1A1A1A;
+    font-weight: 600;
+    user-select: none;
+    border-bottom: 3px solid black;
+}
+
+
+
+@media only screen and (max-width: 1366px) {
+    .box {
+        margin-left: 55px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .box {
+        margin-left: 0;
+        
+    }
+}
