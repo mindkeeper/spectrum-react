@@ -1,0 +1,40 @@
+.card-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-product .name h1 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #1A1A1A;
+}
+
+.card-product .price p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1A1A1A;
+}
+
+@media screen and (max-width: 768px) {
+    .card-product .image img {
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .card-product .image img {
+        width: 14rem;
+    }
+
+    .card-product .name h1 {
+        font-size: 1rem;
+    }
+    
+    .card-product .price p {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1A1A1A;
+    }
+}
