@@ -1,30 +1,31 @@
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import styles from "./ForgotPassword.module.css";
+import styles from "./OTP.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import authActions from "../../redux/actions/auths";
 
-function ForgotPassword() {
+function OTP() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const [body, setBody] = useState({});
+  const email = JSON.parse(localStorage.getItem("email"));
 
   const changeHandler = (e) =>
     setBody({
       ...body,
       [e.target.name]: e.target.value,
+      email: email,
     });
   console.log(body);
 
-  const to = () => navigate("/forget-password/new");
+  const toLogin = () => navigate("/login");
 
   const submitHandler = () => {
-    dispacth(authActions.resetThunk(body, to));
-    localStorage.setItem("email", JSON.stringify(body.email));
+    dispacth(authActions.resetThunk(body, toLogin));
+    localStorage.removeItem("email");
   };
-
   return (
     <>
       <Header />
@@ -52,15 +53,21 @@ function ForgotPassword() {
                 <form action="">
                   <input
                     type="text"
-                    name="email"
-                    placeholder="User name or email address *"
+                    name="code"
+                    placeholder="Input Code OTP *"
+                    onChange={changeHandler}
+                  />
+                  <input
+                    type="password"
+                    name="new_password"
+                    placeholder="Input Your New Password *"
                     onChange={changeHandler}
                   />
                   {/* <p>Forget your password?</p> */}
                 </form>
               </div>
               <div className={styles["btn-login"]}>
-                <button onClick={submitHandler}>Get Code</button>
+                <button onClick={submitHandler}>Reset Password</button>
               </div>
             </div>
           </div>
@@ -71,4 +78,4 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword;
+export default OTP;

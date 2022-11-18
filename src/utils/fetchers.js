@@ -23,6 +23,10 @@ export const logout = (token) => {
   });
 };
 
+export const reset = (data) => {
+  return axiosRequest("POST", "/auth/reset", data);
+};
+
 export const register = (body) => {
   return axiosRequest("POST", "/users/register", body);
 };
