@@ -44,7 +44,7 @@ function Productdetail() {
 
                 {/* Content Picture */}
                 <div className={`container ${css.content_product_preview}`}>
-                    <div className="row d-flex justify-content-between">
+                    <div className={`row ${css['c-product']}`}>
                         <div className={`col-lg-3 col-md-12 ${css.list_product}`}>
                             <img src={list_product_1} alt="list_product_1" />
                             <img src={list_product_1} alt="list_product_1" />
@@ -60,7 +60,7 @@ function Productdetail() {
 
 
                 {/* detail product */}
-                <div className="container">
+                <div className={`container ${css['c-detail']}`}>
                     <p className={`${css.detail_title}`}>Coaster Home Furnishings Sofa in Oatmeal</p>
                     <div className={`${css.detail_review}`}>
                         <i className="fa-solid fa-star"></i>
@@ -79,9 +79,9 @@ function Productdetail() {
                         <p>Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices exurabitur ut magna dignissim, dignissiNullam vitae venenatis elit. Proin dui lacus, viverra at imperdiet non, facilisis eget orci. Vivamus ac elit tellus. Vestibulum nulla dui, consequat vitae diam eu, pretium finibus libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam vitae neque tellus.</p>
                     </div>
 
-                    <div className={`d-flex flex-row ${css.detail_submit}`}>
+                    <div className={`${css.detail_submit}`}>
                         {/* button + or - product */}
-                        <div className={`d-flex align-items-center ${css['add-product']}`}>
+                        <div className={` ${css['add-product']}`}>
                             <button><i class="fa-solid fa-minus"></i></button>
                             <input type="text" value="01" />
                             <button><i className="fa-solid fa-plus"></i></button>
@@ -110,23 +110,23 @@ function Productdetail() {
                 </div>
 
 
-                <div className="container d-flex flex-row">
-                    <div className={`d-flex flex-row align-items-center ${css.location}`}>
+                <div className={`container ${css["detail-location"]}`}>
+                    <div className={`${css.location}`}>
                         <i className="fa-solid fa-truck"></i>
                         <p>Delivery and return</p>
                     </div>
-                    <div className={`d-flex flex-row align-items-center ${css.location}`}>
+                    <div className={`${css.location}`}>
                         <i className="fa-solid fa-ruler-horizontal"></i>
                         <p>Size guides</p>
                     </div>
-                    <div className={`d-flex flex-row align-items-center ${css.location}`}>
+                    <div className={`${css.location}`}>
                         <i className="fa-solid fa-location-dot"></i>
                         <p>Store availability</p>
                     </div>
                 </div>
 
                 <div className={`container ${css.sosial_media}`}>
-                    <div className={`d-flex flex-row justify-content-start ${css["icon-style"]}`}>
+                    <div className={`${css["icon-style"]}`}>
                         <span className={`${css["facebook-container"]}`}>
                             <i className="fa-brands fa-facebook-f"></i>
                         </span>
@@ -141,8 +141,8 @@ function Productdetail() {
 
 
                 {/* Navbar product detail */}
-                <div className="container d-flex justify-content-center">
-                    <div className={`d-flex justify-content-center ${css['bar-product-detail']}`}>
+                <div className={`container ${css['detail-bar-product']}`}>
+                    <div className={`${css['bar-product-detail']}`}>
                         <p>Description</p>
                         <p>Review</p>
                         <p>Additional Information</p>
@@ -151,8 +151,8 @@ function Productdetail() {
                     </div>
                 </div>
 
-                <div className="container">
-                    <div className={`row d-flex justify-content-center ${css['content-bar-description']}`}>
+                <div className={`container ${css['desc-bar']}`}>
+                    <div className={`row ${css['content-bar-description']}`}>
                         <div className={`col-lg-5 col-md-12 col-sm-12 ${css['image-description']}`}>
                             <img src={list_product_2} alt="product_image" />
                         </div>
@@ -166,24 +166,24 @@ function Productdetail() {
                         </div>
                     </div>
                     <p className={`${css.relate}`}>Related Products</p>
-                    <div className="row d-flex justify-content-center">
-                        <div className="col-lg-4 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
+                    <div className={`row ${css['relate-1']}`}>
+                        <div className={`col-lg-4 col-md-12 col-sm-12 ${css['relate-2']}`}>
                             <img src={list_product_3} alt="product" />
                             <p className={`${css.type}`}>Coaster 506222-CO Loveseat</p>
                             <p className={`${css.type_price}`}>$765.99</p>
                         </div>
-                        <div className="col-lg-4 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
+                        <div className={`col-lg-4 col-md-12 col-sm-12 ${css['relate-2']}`}>
                             <img src={list_product_3} alt="product" />
                             <p className={`${css.type}`}>Coaster 506222-CO Loveseat</p>
                             <p className={`${css.type_price}`}>$765.99</p>
                         </div>
-                        <div className="col-lg-4 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
+                        <div className={`col-lg-4 col-md-12 col-sm-12 ${css['relate-2']}`}>
                             <img src={list_product_3} alt="product" />
                             <p className={`${css.type}`}>Coaster 506222-CO Loveseat</p>
                             <p className={`${css.type_price}`}>$765.99</p>
                         </div>
                     </div>
-                    <div className={`d-flex justify-content-center ${css['circle']}`}>
+                    <div className={`${css['circle']}`}>
                         <i class="fa-solid fa-circle"></i>
                         <i class="fa-regular fa-circle"></i>
                         <i class="fa-regular fa-circle"></i>

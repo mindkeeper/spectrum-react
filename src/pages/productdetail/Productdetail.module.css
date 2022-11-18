@@ -59,9 +59,16 @@
 }
 
 
+
+
+/* List product detail utama */
 .content_product_preview{
     margin-top: 40px;
-    margin-bottom: 150px;
+}
+
+.c-product {
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -104,6 +111,10 @@
 
 
 /* content detail product */
+.c-detail {
+    margin-top: 150px;
+}
+
 .detail_title {
     font-family: 'Arimo';
     font-style: normal;
@@ -175,10 +186,14 @@
 
 
 .detail_submit {
+    display: flex;
+    flex-direction: row;
     margin-top: 40px;
 }
 
 .add-product {
+    display: flex;
+    align-items: center;
     border: 2px solid #B4B4B4;
     height: 50px;
     margin-right: 10px;
@@ -261,10 +276,17 @@ margin-top: 30px;
 
 
 
+.detail-location {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
 
 .location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-right: 20px;
-    margin-top: 20px;
 }
 
 .location i {
@@ -290,6 +312,11 @@ margin-top: 30px;
     cursor: pointer;
 }
 
+.icon-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
 .icon-style span i {
     font-size: 15px;
     padding: 10px;
@@ -312,6 +339,18 @@ margin-top: 30px;
 }
 
 
+
+.detail-bar-product {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+.bar-product-detail {
+    display: flex;
+    gap: 60px;
+}
+
 .bar-product-detail p {
     cursor: pointer;
     font-family: 'Arimo';
@@ -320,7 +359,6 @@ margin-top: 30px;
     font-size: 26px;
     line-height: 30px;
     color: #1A1A1A;
-    margin: 100px 15px 20px 15px;
 }
 
 .bar-product-detail p:hover {
@@ -337,8 +375,13 @@ margin-top: 30px;
 
 
 /* bar description */
-.content-bar-description {
+.desc-bar {
     margin-top: 20px;
+}
+
+.content-bar-description {
+    display: flex;
+    justify-content: center;
 }
 
 .image-description {
@@ -392,6 +435,17 @@ margin-top: 30px;
     margin: 30px 0 50px 0;
 }
 
+.relate-1 {
+    display: flex;
+    justify-content: center;
+}
+
+.relate-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 
 .type {
@@ -415,8 +469,15 @@ margin-top: 30px;
     margin-bottom: 10px;
 }
 
+.circle {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
 .circle i {
-    margin: 40px 5px 60px 5px;
+    margin: 0px 5px 60px 5px;
+    cursor: pointer;
 }
 
 
@@ -446,11 +507,14 @@ margin-top: 30px;
         font-family: 'Arimo';
         font-style: normal;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 19px;
         line-height: 30px;
         color: #1A1A1A;
         text-align: center;
-        margin: 100px 15px 20px 15px;
+        
+    }
+    .bar-product-detail {
+        gap: 20px;
     }
     
     .bar-product-detail p:hover {
@@ -458,10 +522,18 @@ margin-top: 30px;
         font-family: 'Arimo';
         font-style: normal;
         font-weight: 700;
-        font-size: 12px;
+        font-size: 17px;
         line-height: 30px;
         text-align: center;
         color: #1A1A1A;
+    }
+
+    .c-product {
+        flex-direction: column-reverse;
+    }
+
+    .list_product {
+        flex-direction: row;
     }
 }
 
@@ -469,15 +541,71 @@ margin-top: 30px;
 @media only screen and (max-width: 428px) {
     .detail_price > i {
         margin-right: 10px;
-        margin-left: 150px;
+        margin-left: 115px;
     }
 
     .relate {
         margin: 50px;
     }
 
+    .detail_list {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .detail-location {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .sosial_media {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+
+    .list_product img {
+        width: 25%;
+    }
+
     .add_cart button {
         font-size: 12px;
         padding: 0;
+    }
+
+    .bar-product-detail p {
+        cursor: pointer;
+        font-family: 'Arimo';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 30px;
+        color: #1A1A1A;
+        text-align: center;
+        
+    }
+    .bar-product-detail {
+        gap: 8px;
+    }
+    
+    .bar-product-detail p:hover {
+        border-bottom: 3px solid black;
+        font-family: 'Arimo';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 30px;
+        text-align: center;
+        color: #1A1A1A;
+    }
+
+    .c-detail {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .image-description_1 {
+        padding-right: 30px;
+        padding-left: 30px;
     }
 }
