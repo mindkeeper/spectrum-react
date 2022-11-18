@@ -20,6 +20,7 @@ function Login() {
 
   const goHome = () => navigate("/");
   const toRegister = () => navigate("/register");
+  const toForget = () => navigate("/forget-password");
 
   const submitHandler = () => {
     dispacth(authActions.loginThunk(body, goHome));
@@ -85,7 +86,7 @@ function Login() {
                     name="password"
                     placeholder="Password *"
                   />
-                  <p>Forget your password?</p>
+                  <p onClick={toForget}>Forget your password?</p>
                 </form>
               </div>
               <div className={styles["btn-login"]}>
