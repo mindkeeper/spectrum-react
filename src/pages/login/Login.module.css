@@ -53,6 +53,11 @@
     border-bottom: 2px solid #B4B4B4;
 }
 
+.login-account h1.selected {
+    color: #1A1A1A;
+    border-bottom: 2px solid #B4B4B4;
+}
+
 .form-container {
     padding: 2rem 0 7rem;
 }
@@ -96,10 +101,10 @@
 }
 
 .form .btn-login button {
- border: none;
- background-color: #1A1A1A;
- color: #FFFFFF;
- padding: .5rem 2rem;
+    border: none;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    padding: .5rem 2rem;
 }
 
 .form .btn-login button:active {
