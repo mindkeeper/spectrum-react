@@ -19,9 +19,8 @@ function Home() {
     <>
       <div className={`container-fluid ${css["bg-top"]}`}>
         {/* isi header */}
-        <div className="pt-4">
-          <Header />
-        </div>
+        <Header />
+
         <div className="container">
           {/* content-top-home */}
           <div className="row">

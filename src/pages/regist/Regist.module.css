@@ -53,6 +53,11 @@
     border-bottom: 2px solid #B4B4B4;
 }
 
+.regist-account h1.selected {
+    color: #1A1A1A;
+    border-bottom: 2px solid #B4B4B4;
+}
+
 .form-container {
     padding: 2rem 0 7rem;
 }

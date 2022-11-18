@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import styles from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import authActions from "../../redux/actions/auths";
 
 function Login() {
+  const navigate = useNavigate();
+  const dispacth = useDispatch();
+  const [body, setBody] = useState({});
+  const [selected, setSelected] = useState("login");
+
+  const changeHandler = (e) =>
+    setBody({ ...body, [e.target.name]: e.target.value });
+  console.log(body);
+
+  const goHome = () => navigate("/");
+  const toRegister = () => navigate("/register");
+
+  const submitHandler = () => {
+    dispacth(authActions.loginThunk(body, goHome));
+    return toast.success(`Congrats! ${body.email} login success`, {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   return (
     <>
       <Header />
@@ -22,10 +52,17 @@ function Login() {
           <div className="col-lg-3 offset-lg-2">
             <div className={styles["account"]}>
               <div className={styles["login-account"]}>
-                <h1>Login Account</h1>
+                <h1
+                  onClick={() => {
+                    setSelected("login");
+                  }}
+                  className={selected === "login" && `${styles["selected"]}`}
+                >
+                  Login Account
+                </h1>
               </div>
               <div className={styles["regist-account"]}>
-                <h1>Register Account</h1>
+                <h1 onClick={toRegister}>Register Account</h1>
               </div>
             </div>
           </div>
@@ -37,20 +74,28 @@ function Login() {
               <div className={styles["form-login"]}>
                 <form action="">
                   <input
+                    onChange={changeHandler}
                     type="text"
+                    name="email"
                     placeholder="User name or email address *"
                   />
-                  <input type="password" placeholder="Password *" />
+                  <input
+                    onChange={changeHandler}
+                    type="password"
+                    name="password"
+                    placeholder="Password *"
+                  />
                   <p>Forget your password?</p>
                 </form>
               </div>
               <div className={styles["btn-login"]}>
-                <button>Login</button>
+                <button onClick={submitHandler}>Login</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ToastContainer />
       <Footer />
     </>
   );

@@ -4,12 +4,12 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import reducers from "./reducers/index";
 
-const persisConfig = {
+const persistConfig = {
   key: "spectrum",
   storage,
 };
 
-const persistedReducer = persistReducer(persisConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, reducers);
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
