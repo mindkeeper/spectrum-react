@@ -30,3 +30,7 @@ export const reset = (data) => {
 export const register = (body) => {
   return axiosRequest("POST", "/users/register", body);
 };
+
+export const getProduct = (data) => {
+  return axiosRequest("GET", "/products", data);
+};
