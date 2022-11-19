@@ -37,6 +37,12 @@
     font-size: 24px;
     line-height: 28px;
     color: #1A1A1A;
+    border: none;
+    width: 200px;
+}
+
+.saller-name:focus {
+    outline: none;
 }
 
 .saller-role {
