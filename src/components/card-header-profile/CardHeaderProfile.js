@@ -9,6 +9,7 @@ function CardHeaderProfile(props) {
 
   const toMyProduct = () => navigate("/profile/seller/product");
   const toSelling = () => navigate("/profile/seller/selling-product");
+  const toOrder = () => navigate("/profile/seller/order");
 
   return (
     <>
@@ -39,8 +40,12 @@ function CardHeaderProfile(props) {
             <div
               className={`col-lg-2 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-four"]}`}
             >
-              <span>
-                My Order<i className="fa-solid fa-chevron-down fs-6 ms-3"></i>
+              <span onClick={toOrder}>
+                My Order
+                <i
+                  className="fa-solid fa-chevron-down fs-6 ms-3"
+                  onClick={props.order}
+                ></i>
               </span>
             </div>
           </div>
