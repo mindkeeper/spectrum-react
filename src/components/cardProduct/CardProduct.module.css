@@ -5,8 +5,15 @@
     gap: 1rem;
 }
 
+.card-product:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
 .card-product .image {
-    min-height: 2rem;
+    min-height: 25rem;
+    box-shadow: 0px 30px 60px rgb(57 57 57 / 10%);
 }
 
 .card-product .image img {
