@@ -12,6 +12,7 @@ import ProductDetail from "./pages/productdetail/Productdetail";
 import Product from "./pages/product/Product";
 import Blog from "./pages/blog/Blog"
 import NotFound from "./pages/Error404/NotFound"
+import Blogdetail from "./pages/blogdetail/Blogdetail";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
   { path: "/product/detail", element: <ProductDetail /> },
   { path: "/product", element: <Product /> },
   { path: "/blog", element: <Blog /> },
+  { path: "/blog/detail", element: <Blogdetail /> },
 ]);
 
 export default router;
