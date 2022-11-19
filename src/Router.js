@@ -11,9 +11,10 @@ import ProfileSeller from "./pages/profile/profile seller/ProfileSeller";
 import ProductDetail from "./pages/productdetail/Productdetail";
 import Product from "./pages/product/Product";
 import Blog from "./pages/blog/Blog"
+import NotFound from "./pages/Error404/NotFound"
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
+  { path: "/", element: <Home />, errorElement: <NotFound /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Regist /> },
   { path: "/profile/customer", element: <ProfileCustomer /> },
