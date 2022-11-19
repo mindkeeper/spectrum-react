@@ -1,0 +1,73 @@
+.content-inti {
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+
+.content-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-text-1 {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 86px;
+  line-height: 99px;
+  color: #1A1A1A;
+}
+
+.content-text-2{
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 53px;
+  color: #1A1A1A;
+  margin-top: 20px;
+}
+
+.content-text-3 {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 37px;
+  color: #4D4D4D;
+}
+
+.content-right-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.rules {
+  border: 2px solid black;
+  width: 100px;
+  margin: 10px;
+}
+
+.content-text-4 {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #1A1A1A;
+  text-decoration: none;
+}
+
+.content-text-4:hover {
+  color: #1A1A1A;
+}
+
+@media only screen and (max-width: 768px) {
+  .oval {
+    display: none;
+  }
+}
