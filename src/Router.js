@@ -10,6 +10,7 @@ import ProfileCustomer from "./pages/profile/profile customer/ProfileCustomer";
 import ProfileSeller from "./pages/profile/profile seller/ProfileSeller";
 import ProductDetail from "./pages/productdetail/Productdetail";
 import Product from "./pages/product/Product";
+import MyProduct from "./pages/seller/myProduct/MyProduct";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
   { path: "/forget-password/new", element: <Code /> },
   { path: "/product/detail", element: <ProductDetail /> },
   { path: "/product", element: <Product /> },
+  { path: "/profile/seller/product", element: <MyProduct /> },
 ]);
 
 export default router;
