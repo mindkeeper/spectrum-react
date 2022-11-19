@@ -1,9 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // import CSS
 import css from "./CardHeaderProfile.module.css";
 
-function CardHeaderProfile() {
+function CardHeaderProfile(props) {
+  const navigate = useNavigate();
+
+  const toMyProduct = () => navigate("/profile/seller/product");
   return (
     <>
       <div className="container-fluid">
@@ -15,14 +19,18 @@ function CardHeaderProfile() {
               <span>Profile</span>
             </div>
             <div
-              className={`col-lg-2 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-two"]}`}
+              className={`col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-two"]}`}
             >
-              <span>
-                My Product<i className="fa-solid fa-chevron-down fs-6 ms-3"></i>
+              <span onClick={toMyProduct}>
+                My Product
+                <i
+                  className="fa-solid fa-chevron-down fs-6 ms-3"
+                  onClick={props.show}
+                ></i>
               </span>
             </div>
             <div
-              className={`col-lg-2 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-three"]}`}
+              className={`col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-three"]}`}
             >
               <span>Selling Product</span>
             </div>
