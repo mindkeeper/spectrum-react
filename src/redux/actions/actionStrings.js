@@ -2,6 +2,8 @@ export const ACTION_STRING = {
   authLogin: "AUTH_LOGIN",
   authLogout: "AUTH_LOGOUT",
   register: "REGISTER",
+  dataProfile: 'GET_PROFILE',
+  editProfile: "EDIT_PROFILE",
   authReset: "AUTH_RESET",
   pending: "_PENDING",
   fulfilled: "_FULFILLED",
