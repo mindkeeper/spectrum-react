@@ -30,3 +30,20 @@ export const reset = (data) => {
 export const register = (body) => {
   return axiosRequest("POST", "/users/register", body);
 };
+
+export const getProfile = (token) => {
+  return axios({
+    method: "GET",
+    url: `${baseUrl}/users/profile`,
+    headers: { "x-access-token": token },
+  })
+}
+
+export const patchProfile = (body, token) => {
+  return axios({
+    method: "PATCH",
+    url: `${baseUrl}/users/profile/edit`,
+    body,
+    headers: { "x-access-token": token },
+  })
+}
