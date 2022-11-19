@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import styles from "./Product.module.css";
 
 import Card from "../../components/cardProduct/CardProduct";
+import { useDispatch, useSelector } from "react-redux";
+import productActions from "../../redux/actions/product";
 
 function Product() {
   const [show, setShow] = useState(false);
+  const products = useSelector((state) => state.products.products);
+  const dispacth = useDispatch();
   const dropdownHandler = () => {
     setShow(!show);
   };
+
+  console.log(products);
+
+  useEffect(() => {
+    dispacth(productActions.getProductThunk());
+  }, [dispacth]);
   return (
     <>
       <Header />
@@ -150,18 +160,15 @@ function Product() {
                 </div>
               )}
               <div className={styles["card-container"]}>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {products?.map((e) => (
+                  <Card
+                    productName={e.product_name}
+                    price={e.price}
+                    image={e.image}
+                    id={e.id}
+                    key={e.id}
+                  />
+                ))}
               </div>
               <div className={styles["paginate-page"]}>
                 <div className={styles["page-container"]}>
