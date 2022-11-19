@@ -13,9 +13,11 @@ import Product from "./pages/product/Product";
 import MyProduct from "./pages/seller/myProduct/MyProduct";
 import Selling from "./pages/seller/sellingProduct/Selling";
 import Order from "./pages/seller/myOrder/Order";
+import Blog from "./pages/blog/Blog";
+import NotFound from "./pages/Error404/NotFound";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
+  { path: "/", element: <Home />, errorElement: <NotFound /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Regist /> },
   { path: "/profile/customer", element: <ProfileCustomer /> },
@@ -27,6 +29,7 @@ const router = createBrowserRouter([
   { path: "/profile/seller/product", element: <MyProduct /> },
   { path: "/profile/seller/selling-product", element: <Selling /> },
   { path: "/profile/seller/order", element: <Order /> },
+  { path: "/blog", element: <Blog /> },
 ]);
 
 export default router;
