@@ -13,9 +13,10 @@ function Header() {
   const [pages, setPages] = useState(false);
   const [shop, setShop] = useState(false);
   const token = useSelector((state) => state.auth.userInfo.token);
-  console.log(token);
+  // console.log(token);
 
   const toLogin = () => navigate("/login");
+  const toProfileCustomer = () => navigate("/profile/customer")
   const logoutHandler = () => {
     dispacth(authActions.logoutThunk(token, toLogin));
   };
@@ -102,7 +103,7 @@ function Header() {
               {toggle && (
                 <div className={styles["hamburger-list"]}>
                   <ol className={styles["show"]}>
-                    <li>Profile</li>
+                    <li onClick={toProfileCustomer}>Profile</li>
                     <li>Chat</li>
                     <li>Notification</li>
                     <li onClick={logoutHandler}>Logout</li>
