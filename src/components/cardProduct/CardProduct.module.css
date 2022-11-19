@@ -5,6 +5,14 @@
     gap: 1rem;
 }
 
+.card-product .image {
+    min-height: 2rem;
+}
+
+.card-product .image img {
+    width: 18rem;
+}
+
 .card-product .name h1 {
     font-size: 1rem;
     font-weight: 400;
