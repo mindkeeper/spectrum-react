@@ -8,6 +8,8 @@ function CardHeaderProfile(props) {
   const navigate = useNavigate();
 
   const toMyProduct = () => navigate("/profile/seller/product");
+  const toSelling = () => navigate("/profile/seller/selling-product");
+
   return (
     <>
       <div className="container-fluid">
@@ -32,7 +34,7 @@ function CardHeaderProfile(props) {
             <div
               className={`col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-three"]}`}
             >
-              <span>Selling Product</span>
+              <span onClick={toSelling}>Selling Product</span>
             </div>
             <div
               className={`col-lg-2 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-four"]}`}
