@@ -47,3 +47,7 @@ export const patchProfile = (body, token) => {
     headers: { "x-access-token": token },
   })
 }
+
+export const getProduct = (data) => {
+  return axiosRequest("GET", "/products", data);
+};
