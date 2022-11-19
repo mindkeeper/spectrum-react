@@ -8,7 +8,6 @@ import ForgotPassword from "./pages/forgotpassword/ForgotPassword";
 import Code from "./pages/forgotpassword/OTP";
 import ProfileCustomer from "./pages/profile/profile customer/ProfileCustomer";
 import ProfileSeller from "./pages/profile/profile seller/ProfileSeller";
-import Product from "./pages/product/Product";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -18,7 +17,6 @@ const router = createBrowserRouter([
   { path: "/profile/seller", element: <ProfileSeller /> },
   { path: "/forget-password", element: <ForgotPassword /> },
   { path: "/forget-password/new", element: <Code /> },
-  { path: "/product", element: <Product /> },
 ]);
 
 export default router;
