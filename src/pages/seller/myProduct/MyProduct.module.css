@@ -1,0 +1,75 @@
+.page-title {
+    position: relative;
+    background-image: url(../../../asset/bg/bg-title-page.png);
+    background-position: center;
+    background-blend-mode: soft-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+    padding: 2rem 0;
+}
+
+.page-title::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: white;
+    z-index: -1;
+    opacity: .9;
+}
+
+.page-title h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    color: #1A1A1A;
+}
+
+.page-title p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #1A1A1A;
+    padding: 1rem 0;
+}
+
+.product-tab {
+    border-top: 1px solid #D7D7D7;
+    border-bottom: 1px solid #D7D7D7;
+    padding: 1rem 0;
+}
+
+.product-tab h1{
+    font-size: 18px;
+    font-weight: 400;
+    color: #1A1A1A;
+}
+
+.product-content {
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.dropdown {
+    position: absolute;
+    left: 18rem;
+    background-color: #1A1A1A;
+    padding-right: 6rem;
+}
+
+.dropdown ol {
+    padding: 0;
+}
+
+.dropdown ol li {
+    list-style: none;
+    color: #919191;
+    padding: 1rem;
+    user-select: none;
+}
+
+.dropdown ol li:hover {
+    color: white;
+    cursor: pointer;
+}
