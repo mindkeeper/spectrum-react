@@ -18,11 +18,11 @@ const getProductFulfilled = (data) => ({
   payload: { data },
 });
 
-const getProductThunk = () => {
+const getProductThunk = (params) => {
   return async (dispacth) => {
     try {
       dispacth(getProductPending());
-      const result = await getProduct();
+      const result = await getProduct(params);
       dispacth(getProductFulfilled(result.data));
     } catch (error) {
       dispacth(getProductRejected(error));
