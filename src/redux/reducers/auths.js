@@ -12,6 +12,7 @@ const initialState = {
     role: null,
     email: null,
   },
+  code: "",
 };
 
 const authReducer = (prevState = initialState, { type, payload }) => {
@@ -75,7 +76,7 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         isLoading: false,
         isError: true,
         isFulfilled: false,
-        error: payload.error.message,
+        error: payload.error.response.data.msg,
       };
     case authReset.concat("_", Fulfilled):
       return {
@@ -83,6 +84,7 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         isLoading: false,
         isError: false,
         isFulfilled: true,
+        code: !payload.data.data ? "" : payload.data.data.otp,
       };
     default:
       return prevState;

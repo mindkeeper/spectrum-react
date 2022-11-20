@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import LoadingBar from "../../components/loading/Loading";
 import styles from "./Product.module.css";
 
 import Card from "../../components/cardProduct/CardProduct";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../redux/actions/product";
+import CardCategory from "../../components/cardCategory/CardCategory";
+import categoriesActions from "../../redux/actions/categories";
 
 function Product() {
   const [show, setShow] = useState(false);
   const products = useSelector((state) => state.products.products);
+  const categories = useSelector((state) => state.categories.categories);
+  const isLoading = useSelector((state) => state.products.isLoading);
   const dispacth = useDispatch();
   const dropdownHandler = () => {
     setShow(!show);
   };
 
-  console.log(products);
+  console.log(categories);
 
   useEffect(() => {
     dispacth(productActions.getProductThunk());
+  }, [dispacth]);
+
+  useEffect(() => {
+    dispacth(categoriesActions.getCategoriesThunk());
   }, [dispacth]);
   return (
     <>
@@ -51,28 +60,14 @@ function Product() {
                   <h1>Categories</h1>
                 </div>
                 <div className={styles["content"]}>
-                  <div className={styles["name"]}>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                  </div>
-                  <div className={styles["qty"]}>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                  </div>
+                  {categories?.map((e) => (
+                    <CardCategory
+                      name={e.category_name}
+                      unit={e.total_product}
+                      id={e.id}
+                      key={e.id}
+                    />
+                  ))}
                 </div>
               </div>
               <div className={styles["product-price"]}>
@@ -160,15 +155,19 @@ function Product() {
                 </div>
               )}
               <div className={styles["card-container"]}>
-                {products?.map((e) => (
-                  <Card
-                    productName={e.product_name}
-                    price={e.price}
-                    image={e.image}
-                    id={e.id}
-                    key={e.id}
-                  />
-                ))}
+                {isLoading ? (
+                  <LoadingBar />
+                ) : (
+                  products?.map((e) => (
+                    <Card
+                      productName={e.product_name}
+                      price={e.price}
+                      image={e.image}
+                      id={e.id}
+                      key={e.id}
+                    />
+                  ))
+                )}
               </div>
               <div className={styles["paginate-page"]}>
                 <div className={styles["page-container"]}>

@@ -6,7 +6,7 @@ import css from "./ProfileSeller.module.css"
 
 // import image
 import pencil from '../../../asset/profile/pencil.png'
-import imageProfile from '../../../asset/profile/pic_default.png'
+// import imageProfile from '../../../asset/profile/pic_default.png'
 
 // import component
 import Header from '../../../components/header/Header'

@@ -69,7 +69,7 @@ const logoutThunk = (token, navigate) => {
   };
 };
 
-const resetThunk = (body, navigate) => {
+const resetThunk = (body, navigate, cbError) => {
   return async (dispacth) => {
     try {
       dispacth(resetPending());
@@ -77,8 +77,10 @@ const resetThunk = (body, navigate) => {
       dispacth(resetFulfilled(result.data));
       console.log(result.data.data);
       if (typeof navigate === "function") navigate();
+      // if (typeof cbSuccess === "function") cbSuccess();
     } catch (error) {
       dispacth(resetRejected(error));
+      if (typeof cbError === "function") cbError();
     }
   };
 };

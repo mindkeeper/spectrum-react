@@ -38,8 +38,8 @@ export const getProfile = (token) => {
     method: "GET",
     url: `${baseUrl}/users/profile`,
     headers: { "x-access-token": token },
-  })
-}
+  });
+};
 
 export const patchProfile = (data) => {
   return axios({
@@ -55,4 +55,8 @@ export const patchProfile = (data) => {
 
 export const getProduct = (data) => {
   return axiosRequest("GET", "/products", data);
+};
+
+export const getCategories = (data) => {
+  return axiosRequest("Get", "/categories", data);
 };
