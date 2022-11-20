@@ -14,15 +14,17 @@ function Header() {
   const [shop, setShop] = useState(false);
   const token = useSelector((state) => state.auth.userInfo.token);
   const roles = useSelector((state) => state.auth.userInfo.roles);
-  console.log(roles)
+  console.log(roles);
 
   const toProfile = () => {
-    if (roles === 1) return navigate('/profile/customer')
-    if (roles === 2) return navigate('/profile/seller')
-    return navigate('/')
-  }
+    if (roles === 1) return navigate("/profile/customer");
+    if (roles === 2) return navigate("/profile/seller");
+    return navigate("/");
+  };
   const toLogin = () => navigate("/login");
   const toBlog = () => navigate("/blog");
+  const toRegister = () => navigate("/register");
+
   const logoutHandler = () => {
     dispacth(authActions.logoutThunk(token, toLogin));
   };
@@ -106,16 +108,24 @@ function Header() {
                 <span></span>
                 <span></span>
               </div>
-              {toggle && (
-                <div className={styles["hamburger-list"]}>
-                  <ol className={styles["show"]}>
-                    <li onClick={toProfile}>Profile</li>
-                    <li>Chat</li>
-                    <li>Notification</li>
-                    <li onClick={logoutHandler}>Logout</li>
-                  </ol>
-                </div>
-              )}
+              {toggle &&
+                (token ? (
+                  <div className={styles["hamburger-list"]}>
+                    <ol className={styles["show"]}>
+                      <li onClick={toProfile}>Profile</li>
+                      <li>Chat</li>
+                      <li>Notification</li>
+                      <li onClick={logoutHandler}>Logout</li>
+                    </ol>
+                  </div>
+                ) : (
+                  <div className={styles["hamburger-list"]}>
+                    <ol className={styles["show"]}>
+                      <li onClick={toLogin}>Login</li>
+                      <li onClick={toRegister}>Register</li>
+                    </ol>
+                  </div>
+                ))}
               {pages && (
                 <div className={styles["pages-list"]}>
                   <ol className={styles["show"]}>
