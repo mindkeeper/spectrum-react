@@ -41,11 +41,11 @@ const getProfileThunk = (token) => {
     }
 }
 
-const editProfileThunk = (body, token) => {
+const editProfileThunk = (body) => {
     return async (dispacth) => {
         try {
             dispacth(patchProfilePending())
-            const result = await patchProfile(body, token)
+            const result = await patchProfile(body)
             dispacth(patchProfileFulfilled(result.data))
             console.log(result.data)
         } catch (error) {

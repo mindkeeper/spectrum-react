@@ -7,6 +7,6 @@ import profileReducer from './profile'
 export default combineReducers({
   auth: authReducer,
   register: registerReducer,
-  data_profile: profileReducer,
+  data_profile: profileReducer.getProfileReducer,
   products: productReducer,
 });
