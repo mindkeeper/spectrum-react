@@ -1,0 +1,238 @@
+.main-sec {
+  background-image: url("../../asset/aboutUs/jumbotron.png");
+  /* background-size: cover; */
+  /* background-position: center; */
+  max-width: 135vw;
+  height: 250px;
+}
+.about {
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+
+  color: #1a1a1a;
+}
+
+.quality {
+  /* background-color: aqua; */
+  text-align: center;
+  margin: auto;
+  width: 70vw;
+  justify-content: center;
+  margin-top: 5%;
+  /* margin-left: -4%; */
+}
+
+.quality3 {
+  /* background-color: aqua; */
+  text-align: center;
+  margin: auto;
+  width: 70vw;
+  justify-content: center;
+  margin-top: 5%;
+  margin-left: -2%;
+}
+
+.unique {
+  /* background-color: aquamarine; */
+  width: 18vw;
+  margin-left: -5%;
+  font-family: "Arimo";
+  font-style: normal;
+  /* font-weight: 700; */
+  font-size: 18px;
+  /* line-height: 21px; */
+
+  text-align: center;
+
+  color: #1a1a1a;
+}
+
+.warranty {
+  /* background-color: aquamarine; */
+  width: 18vw;
+  margin-left: 10%;
+  font-family: "Arimo";
+  font-style: normal;
+  /* font-weight: 700; */
+  font-size: 18px;
+  /* line-height: 21px; */
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #1a1a1a;
+}
+.handcraft {
+  /* background-color: aquamarine; */
+  width: 18vw;
+  margin-left: 10%;
+  font-family: "Arimo";
+  font-style: normal;
+  /* font-weight: 700; */
+  font-size: 18px;
+  /* line-height: 21px; */
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #1a1a1a;
+}
+
+.aboutus {
+  text-align: center;
+  margin-top: 5vh;
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 64px;
+  text-align: center;
+
+  color: #1a1a1a;
+}
+.furniture {
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 53px;
+  /* identical to box height */
+
+  color: #1a1a1a;
+}
+
+.desc1 {
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 56px;
+  color: #1a1a1a;
+}
+.first-sect {
+  margin-top: 5%;
+}
+
+.img1 {
+  width: 27vw;
+}
+
+.choose {
+  text-align: center;
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 53px;
+  color: #1a1a1a;
+  margin-top: 5%;
+}
+
+.meet {
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 53px;
+  margin-top: 5%;
+  /* margin-left: -5%; */
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.img2 {
+  width: 20vw;
+}
+
+.img3 {
+  width: 20vw;
+  height: 46vh;
+}
+.img4 {
+  width: 20vw;
+  height: 46vh;
+}
+
+.name {
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  margin-top: 5%;
+
+  color: #1a1a1a;
+}
+
+.endtext {
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 55px;
+  text-align: center;
+  color: #4d4d4d;
+  padding: 10px;
+  padding-top: 5%;
+}
+
+.endbody {
+  background-color: #f9f9f9;
+  width: 75vw;
+  margin-left: -1%;
+  margin-top: 5%;
+}
+
+.img5 {
+  width: 5%;
+  height: 5%;
+  border-radius: 50%;
+}
+
+.endimg {
+  text-align: center;
+}
+
+.trevor {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #4d4d4d;
+}
+
+@media screen and (max-width: 768px) {
+  .desc1 {
+    line-height: 25px;
+    margin-top: 5%;
+  }
+  .img1 {
+    width: 70vw;
+    margin-top: 5%;
+    margin-left: 10%;
+  }
+  .img3 {
+    width: 20vw;
+    height: 20vh;
+  }
+  .img4 {
+    width: 20vw;
+    height: 20vh;
+  }
+  .quality3 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 5%;
+  }
+  .endbody {
+    width: fit-content;
+  }
+}

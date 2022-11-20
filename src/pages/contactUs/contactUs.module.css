@@ -1,0 +1,7 @@
+.main-sec {
+    background-image: url("../../asset/contact/jumbotron.png");
+    /* background-size: cover; */
+    /* background-position: center; */
+    max-width: 135vw;
+    height: 250px;
+}
