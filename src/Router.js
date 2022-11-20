@@ -13,6 +13,9 @@ import Product from "./pages/product/Product";
 import Blog from "./pages/blog/Blog"
 import NotFound from "./pages/Error404/NotFound"
 import Blogdetail from "./pages/blogdetail/Blogdetail";
+import MyProduct from "./pages/seller/myProduct/MyProduct";
+import Selling from "./pages/seller/sellingProduct/Selling";
+import Order from "./pages/seller/myOrder/Order";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -24,6 +27,9 @@ const router = createBrowserRouter([
   { path: "/forget-password/new", element: <Code /> },
   { path: "/product/detail", element: <ProductDetail /> },
   { path: "/product", element: <Product /> },
+  { path: "/profile/seller/product", element: <MyProduct /> },
+  { path: "/profile/seller/selling-product", element: <Selling /> },
+  { path: "/profile/seller/order", element: <Order /> },
   { path: "/blog", element: <Blog /> },
   { path: "/blog/detail", element: <Blogdetail /> },
 ]);
