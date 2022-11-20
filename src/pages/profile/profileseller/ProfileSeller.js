@@ -75,8 +75,8 @@ function ProfileSeller() {
             }
             // console.log(formData);
             if (formData) {
-                await dispacth(profileActions.editProfileThunk(formData));
-                await dispacth(profileActions.getProfileThunk(token));
+                dispacth(profileActions.editProfileThunk(formData, token));
+                dispacth(profileActions.getProfileThunk(token));
                 setEdit_display(true)
                 setEdit_gender(true)
                 setEdit_store_name(true)
@@ -299,8 +299,8 @@ function ProfileSeller() {
                 <Modal.Body>are you sure you want to log out?</Modal.Body>
                 <Modal.Footer>
                     <Button
-                        variant="success"
-                        className="fw-bold text-bg-success text-white"
+                        variant="dark"
+                        className="fw-bold text-bg-dark text-white"
                         onClick={logoutHandler}
                     >
                         Yes

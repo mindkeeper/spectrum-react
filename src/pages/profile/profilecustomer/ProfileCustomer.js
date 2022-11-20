@@ -31,6 +31,7 @@ export default function ProfileCustomer() {
     const navigate = useNavigate();
     const profile = useSelector((state) => state.data_profile.profile)
     const token = useSelector((state) => state.auth.userInfo.token);
+    console.log(token);
 
     const [email, setEmail] = useState(profile.email);
     const [role, setRole] = useState(profile.role);
@@ -73,8 +74,8 @@ export default function ProfileCustomer() {
             }
             // console.log(formData);
             if (formData) {
-                await dispacth(profileActions.editProfileThunk(formData));
-                await dispacth(profileActions.getProfileThunk(token));
+                dispacth(profileActions.editProfileThunk(formData, token));
+                dispacth(profileActions.getProfileThunk(token));
                 setEdit_display(true)
                 setEdit_gender(true)
                 setEdit_store_desc(true)
@@ -269,8 +270,8 @@ export default function ProfileCustomer() {
                 <Modal.Body>are you sure you want to log out?</Modal.Body>
                 <Modal.Footer>
                     <Button
-                        variant="success"
-                        className="fw-bold text-bg-success text-white"
+                        variant="dark"
+                        className="fw-bold text-bg-dark text-white"
                         onClick={logoutHandler}
                     >
                         Yes
