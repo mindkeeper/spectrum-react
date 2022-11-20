@@ -2,7 +2,6 @@ import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-
 const axiosRequest = (method, url, data, params) => {
   return axios({
     method,
@@ -49,11 +48,11 @@ export const patchProfile = (data, token) => {
       "Content-Type": "multipart/form-data",
     },
     data,
-  })
-}
+  });
+};
 
-export const getProduct = (data) => {
-  return axiosRequest("GET", "/products", data);
+export const getProduct = (params, data) => {
+  return axiosRequest("GET", "/products", data, params);
 };
 
 export const getCategories = (data) => {
