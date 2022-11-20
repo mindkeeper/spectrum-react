@@ -11,29 +11,35 @@ const ContactUs = () => {
       <main className={`${css["main-head"]}`}>
         <main className={`container-fluid ${css["sec-head"]}`}>
           <section className={`container ${css["main-sec"]}`}>
-            <p className={`container ${css["about"]}`}>FAQ {">"} Contact Us</p>
-            <p className={`container ${css["aboutus"]}`}>Contact Us</p>
+            <p className={`container ${css["contact"]}`}>FAQ {">"} Contact Us</p>
+            <p className={`container ${css["contactus"]}`}>Contact Us</p>
           </section>
-          <section>
-            <div class="container">
+          <section className={`${css["second-sec"]}`}>
+            <div className={`container ${css["div-sec"]}`}>
               <div class="row">
-                <div class="col">
-                  <img src={map} alt="" />
+                <div className={`col ${css["img-wrap"]}`}>
+                  <img className={` ${css["mapimg"]}`} src={map} alt="" />
                 </div>
-                <div class="col">
+                <div className={`col ${css["form-wrap"]}`}>
                   <form action="">
-                    <p>Name</p>
-                    <input type="text" placeholder="Enter Something"/>
-                    <p>Name</p>
-                    <input type="text" placeholder="Enter Something"/>
-                    <p>Name</p>
-                    <input type="text" placeholder="Enter Something"/>
-                    <p>Name</p>
-                    <input type="text" placeholder="Enter Something"/>
-                    <p>Name</p>
-                    <input type="text" placeholder="Enter Something"/>
+                    <p className={` ${css["pdesc"]}`}>Name *</p>
+                    <input className={` ${css["inp"]}`} type="text" placeholder=""/> 
+                    <br /> <br />
+                    <p className={` ${css["pdesc"]}`}>Your Email *</p>
+                    <input className={` ${css["inp"]}`} type="text" placeholder=""/>
+                    <br /> <br />
+                    <p className={` ${css["pdesc"]}`}>You Website</p>
+                    <input className={` ${css["inp"]}`} type="text" placeholder=""/>
+                    <br /> <br />
+                    <p className={` ${css["pdesc"]}`}>Business Plan</p>
+                    <input className={` ${css["inp"]}`} type="text" placeholder=""/>
+                    <br /> <br />
+                    <p className={` ${css["pdesc"]}`}>Message</p> <br /> <br /> <br /> <br /> 
+                    <input className={` ${css["inp"]}`} type="text" placeholder=""/>
+                    <br /> <br /> 
                   </form>
-                  <button>
+                  
+                  <button className={` ${css["button-send"]}`}>
                     Send Message
                   </button>
 
