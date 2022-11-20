@@ -17,6 +17,7 @@ import MyProduct from "./pages/seller/myProduct/MyProduct";
 import Selling from "./pages/seller/sellingProduct/Selling";
 import Order from "./pages/seller/myOrder/Order";
 import ProductDetailReview from "./pages/productdetail/review/ProductdetailReview";
+import CartDetail from "./pages/cart/cart-detail/CartDetail"
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
   { path: "/blog", element: <Blog /> },
   { path: "/blog/detail", element: <Blogdetail /> },
   { path: "/product/detail/review", element: <ProductDetailReview /> },
+  { path: "/cart", element: <CartDetail /> },
 ]);
 
 export default router;
