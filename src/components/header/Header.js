@@ -13,10 +13,16 @@ function Header() {
   const [pages, setPages] = useState(false);
   const [shop, setShop] = useState(false);
   const token = useSelector((state) => state.auth.userInfo.token);
-  // console.log(token);
+  const roles = useSelector((state) => state.auth.userInfo.roles);
+  console.log(roles)
 
+  const toProfile = () => {
+    if (roles === 1) return navigate('/profile/customer')
+    if (roles === 2) return navigate('/profile/seller')
+    return navigate('/')
+  }
   const toLogin = () => navigate("/login");
-  const toProfileCustomer = () => navigate("/profile/customer")
+  const toBlog = () => navigate("/blog");
   const logoutHandler = () => {
     dispacth(authActions.logoutThunk(token, toLogin));
   };
@@ -74,7 +80,7 @@ function Header() {
                 <li>HOME</li>
                 <li onClick={showPages}>PAGES</li>
                 <li onClick={showShop}>SHOP</li>
-                <li>BLOG</li>
+                <li onClick={toBlog}>BLOG</li>
               </ol>
             </div>
           </div>
@@ -103,7 +109,7 @@ function Header() {
               {toggle && (
                 <div className={styles["hamburger-list"]}>
                   <ol className={styles["show"]}>
-                    <li onClick={toProfileCustomer}>Profile</li>
+                    <li onClick={toProfile}>Profile</li>
                     <li>Chat</li>
                     <li>Notification</li>
                     <li onClick={logoutHandler}>Logout</li>
