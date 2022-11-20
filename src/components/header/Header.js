@@ -12,6 +12,7 @@ function Header() {
   const [toggle, setToggle] = useState(false);
   const [pages, setPages] = useState(false);
   const [shop, setShop] = useState(false);
+  const [search, setSearch] = useState(false);
   const token = useSelector((state) => state.auth.userInfo.token);
   const roles = useSelector((state) => state.auth.userInfo.roles);
   // console.log(roles);
@@ -42,6 +43,10 @@ function Header() {
     setShop(!shop);
   };
 
+  const showSearch = () => {
+    setSearch(!search);
+  };
+
   return (
     <>
       <header className={`container-fluid `}>
@@ -60,7 +65,10 @@ function Header() {
             <div className={styles["right-content"]}>
               <div className={styles["icon"]}>
                 <div className={styles["search"]}>
-                  <i className="fa-solid fa-magnifying-glass"></i>
+                  <i
+                    className="fa-solid fa-magnifying-glass"
+                    onClick={showSearch}
+                  ></i>
                 </div>
                 <div className={styles["love"]}>
                   <i className="fa-regular fa-heart"></i>
@@ -91,7 +99,10 @@ function Header() {
             <div className={styles["right-content"]}>
               <div className={`${styles["icon"]} ${styles["right-none"]}`}>
                 <div className={styles["search"]}>
-                  <i className="fa-solid fa-magnifying-glass"></i>
+                  <i
+                    className="fa-solid fa-magnifying-glass"
+                    onClick={showSearch}
+                  ></i>
                 </div>
                 <div className={styles["love"]}>
                   <i className="fa-regular fa-heart"></i>
@@ -169,6 +180,18 @@ function Header() {
           </div>
         </div>
       </header>
+      {search && (
+        <div className="container">
+          <div className="row">
+            <div className="col-10 offset-1">
+              <div className={styles["search-bar"]}>
+                <input type="text" placeholder="Search here ..." />
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
