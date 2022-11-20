@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import css from './Blogdetail.module.css'
 import Header from '../../components/header/Header'
@@ -16,6 +16,10 @@ import image_2 from '../../asset/blogdetail/image-1.png'
 
 
 function Blogdetail() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <>
             <Header />
