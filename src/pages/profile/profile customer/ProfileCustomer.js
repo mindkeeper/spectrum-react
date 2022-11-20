@@ -51,22 +51,26 @@ export default function ProfileCustomer() {
 
 
             {/* Content Profile Tittle*/}
-            <div className={`container-fluid ${css['background-profile-customer']}`}>
-                <div className={`d-flex flex-column align-items-center ${css['tittle-content']}`}>
-                    <p className={`${css['profile-tittle-one']}`}>Profile</p>
-                    <p className={`${css['profile-tittle-two']}`}>See your notifications for the latest updates</p>
+            <div className="container-fluid">
+                <div className="row">
+                    <main className={`col-lg-12 ${css["page-title"]}`}>
+                        <h1>Profile</h1>
+                        <p>
+                            See your notifications for the latest updates
+                        </p>
+                    </main>
                 </div>
             </div>
 
 
             {/* Form Data Profile */}
-            <form className="container pt-5">
-                <div className="d-flex flex-row">
+            <form className={`container ${css.top_1}`}>
+                <div className={css.data_form}>
                     <label htmlFor="profile-image">
                         <img src={profile.image || imageProfile} alt="Profile" width='50px' height='50px' className='rounded-circle' />
                         <input type="file" name='file' id="profile-image" className='d-none' />
                     </label>
-                    <div className="ms-4">
+                    <div className={css.top_2}>
                         <input type="text"
                             name="display_name"
                             className={css["saller-name"]}
@@ -81,9 +85,9 @@ export default function ProfileCustomer() {
                 </div>
 
                 {/* Data Profile */}
-                <div className="mt-4">
-                    <div className="d-flex flex-row justify-content-between p-5 border">
-                        <div className="d-flex flex-column">
+                <div className={css.top_content}>
+                    <div className={css.box_size_form}>
+                        <div className={css.box_size_form_1}>
                             <label className={`${css["label-profile"]} mb-3`}>Gender</label>
                             <input className={css["input-profile"]}
                                 type="text"
@@ -92,13 +96,13 @@ export default function ProfileCustomer() {
                                 onChange={changeHandler}
                                 placeholder='Input gender' />
                         </div>
-                        <div className="mt-4">
+                        <div className={css.top_content}>
                             <span className={css['edit-profile']}>Edit</span>
                             <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
                         </div>
                     </div>
-                    <div className="d-flex flex-row justify-content-between p-5 border">
-                        <div className="d-flex flex-column">
+                    <div className={css.box_size_form}>
+                        <div className={css.box_size_form_1}>
                             <label className={`${css["label-profile"]} mb-3`}>Your Email</label>
                             <input className={css["input-profile"]}
                                 type="text"
@@ -107,13 +111,13 @@ export default function ProfileCustomer() {
                                 onChange={changeHandler}
                                 placeholder='Input your email address' />
                         </div>
-                        <div className="mt-4">
+                        <div className={css.top_content}>
                             <span className={css['edit-profile']}>Edit</span>
                             <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
                         </div>
                     </div>
-                    <div className="d-flex flex-row justify-content-between p-5 border">
-                        <div className="d-flex flex-column">
+                    <div className={css.box_size_form}>
+                        <div className={css.box_size_form_1}>
                             <label className={`${css["label-profile"]} mb-3`}>Store Description</label>
                             <input className={css["input-profile"]}
                                 type="textarea"
@@ -122,7 +126,7 @@ export default function ProfileCustomer() {
                                 onChange={changeHandler}
                                 placeholder='Input store description' />
                         </div>
-                        <div className="mt-4">
+                        <div className={css.top_content}>
                             <span className={css['edit-profile']}>Edit</span>
                             <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
                         </div>
@@ -130,8 +134,8 @@ export default function ProfileCustomer() {
                 </div>
 
                 {/* Action Button */}
-                <div className={`d-flex flex-row justify-content-between ${css['submit-form']}`}>
-                    <button className={css['logout']}><i class="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
+                <div className={`${css['submit-form']}`}>
+                    <button className={css['logout']}><i className="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
                     <button className={`bg-dark ${css['save-change']}`} onClick={submitEditProfile}>Save Change</button>
                 </div>
 

@@ -33,25 +33,33 @@ function ProfileSeller() {
 
 
             {/* Content Profile Tittle*/}
-            <div className={`container-fluid ${css['background-profile-customer']}`}>
-                <div className={`d-flex flex-column align-items-center ${css['tittle-content']}`}>
-                    <p className={`${css['profile-tittle-one']}`}>Profile</p>
-                    <p className={`${css['profile-tittle-two']}`}>See your notifications for the latest updates</p>
+            <div className="container-fluid">
+                <div className="row">
+                    <main className={`col-lg-12 ${css["page-title"]}`}>
+                        <h1>Profile</h1>
+                        <p>
+                            See your notifications for the latest updates
+                        </p>
+                    </main>
                 </div>
             </div>
-
             {/* Navbar Profile */}
             <CardHeaderProfile />
 
             {/* Form Data Profile */}
-            <form className="container pt-4">
-                <div className="d-flex flex-row">
+            <form className={`container ${css.top_1}`}>
+                <div className={css.data_form}>
                     <label htmlFor="profile-image">
                         <img src={profile.image || imageProfile} alt="Profile" width='50px' height='50px' className='rounded-circle' />
                         <input type="file" name='file' id="profile-image" className='d-none' />
                     </label>
-                    <div className="ms-4">
-                        <input type="text" value={profile.display_name} className={css["saller-name"]} />
+                    <div className={css.top_2}>
+                        <input type="text"
+                            name="display_name"
+                            className={css["saller-name"]}
+                            defaultValue={profile.display_name}
+                        // onChange={changeHandler}
+                        />
                         <p className={css["saller-role"]}>as {profile.role}</p>
                     </div>
                     <div className={css["edit-pencil"]}>
@@ -60,55 +68,63 @@ function ProfileSeller() {
                 </div>
 
                 {/* Data Profile */}
-                <div className="mt-4">
-                    <div className="d-flex flex-row justify-content-between p-5 border">
-                        <div className="d-flex flex-column">
+                <div className={css.top_content}>
+                    <div className={css.box_size_form}>
+                        <div className={css.box_size_form_1}>
                             <label className={`${css["label-profile"]} mb-3`}>Gender</label>
                             <input className={css["input-profile"]}
                                 type="text"
-                                value={profile.gender}
+                                name='gender'
+                                defaultValue={profile.gender}
+                                // onChange={changeHandler}
                                 placeholder='Input gender' />
                         </div>
-                        <div className="mt-4">
+                        <div className={css.top_content}>
                             <span className={css['edit-profile']}>Edit</span>
                             <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
                         </div>
                     </div>
-                    <div className="d-flex flex-row justify-content-between p-5 border">
-                        <div className="d-flex flex-column">
+                    <div className={css.box_size_form}>
+                        <div className={css.box_size_form_1}>
                             <label className={`${css["label-profile"]} mb-3`}>Your Email</label>
                             <input className={css["input-profile"]}
                                 type="text"
-                                value={profile.email}
+                                name='email'
+                                defaultValue={profile.email}
+                                // onChange={changeHandler}
                                 placeholder='Input your email address' />
                         </div>
-                        <div className="mt-4">
+                        <div className={css.top_content}>
                             <span className={css['edit-profile']}>Edit</span>
                             <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
                         </div>
                     </div>
-                    <div className="d-flex flex-row justify-content-between p-5 border">
-                        <div className="d-flex flex-column">
-                            <label className={`${css["label-profile"]} mb-3`}>Store Name</label>
+                    <div className={css.box_size_form}>
+                        <div className={css.box_size_form_1}>
+                            <label className={`${css["label-profile"]} mb-3`}>Store name</label>
                             <input className={css["input-profile"]}
-                                type="text"
-                                value={profile.store_name}
-                                placeholder='Input store name' />
+                                type="textarea"
+                                name='store_desc'
+                                defaultValue={profile.store_name}
+                                // onChange={changeHandler}
+                                placeholder='Input store description' />
                         </div>
-                        <div className="mt-4">
+                        <div className={css.top_content}>
                             <span className={css['edit-profile']}>Edit</span>
                             <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
                         </div>
                     </div>
-                    <div className="d-flex flex-row justify-content-between p-5 border">
-                        <div className="d-flex flex-column">
+                    <div className={css.box_size_form}>
+                        <div className={css.box_size_form_1}>
                             <label className={`${css["label-profile"]} mb-3`}>Store Description</label>
                             <input className={css["input-profile"]}
                                 type="textarea"
-                                value={profile.store_desc}
+                                name='store_desc'
+                                defaultValue={profile.store_desc}
+                                // onChange={changeHandler}
                                 placeholder='Input store description' />
                         </div>
-                        <div className="mt-4">
+                        <div className={css.top_content}>
                             <span className={css['edit-profile']}>Edit</span>
                             <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
                         </div>
@@ -116,8 +132,7 @@ function ProfileSeller() {
                 </div>
 
                 {/* Action Button */}
-                {/* Action Button */}
-                <div className={`d-flex flex-row justify-content-between ${css['submit-form']}`}>
+                <div className={`${css['submit-form']}`}>
                     <button className={css['logout']}><i className="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
                     <button className={`bg-dark ${css['save-change']}`}>Save Change</button>
                 </div>

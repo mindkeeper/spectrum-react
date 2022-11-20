@@ -22,15 +22,15 @@ function CardHeaderProfile(props) {
   return (
     <>
       <div className="container-fluid">
-        <div className={`container py-5 ${css["box"]}`}>
-          <div className="row d-flex flex-row align-items-center justify-content-start">
+        <div className={`container ${css["box"]}`}>
+          <div className={`row ${css._content_nav_profile}`}>
             <div
-              className={`col-lg-2 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-one"]}`}
+              className={`col-lg-2 col-md-3 col-sm-12 ${css["header-profile-one"]}`}
             >
               <span onClick={toProfile}>Profile</span>
             </div>
             <div
-              className={`col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-two"]}`}
+              className={`col-lg-3 col-md-3 col-sm-12 ${css["header-profile-two"]}`}
             >
               <span onClick={toMyProduct}>
                 My Product
@@ -41,12 +41,12 @@ function CardHeaderProfile(props) {
               </span>
             </div>
             <div
-              className={`col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-three"]}`}
+              className={`col-lg-3 col-md-3 col-sm-12 ${css["header-profile-three"]}`}
             >
               <span onClick={toSelling}>Selling Product</span>
             </div>
             <div
-              className={`col-lg-2 col-md-3 col-sm-12 d-flex justify-content-center ${css["header-profile-four"]}`}
+              className={`col-lg-2 col-md-3 col-sm-12 ${css["header-profile-four"]}`}
             >
               <span onClick={toOrder}>
                 My Order

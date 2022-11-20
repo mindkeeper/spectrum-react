@@ -1,10 +1,35 @@
 .box {
     margin-left: -10px ;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 
+.content_nav_profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Navbar Profile */
+.header-profile-one {
+    display: flex;
+    justify-content: center;
+}
+.header-profile-two {
+    display: flex;
+    justify-content: center;
+}
+.header-profile-three {
+    display: flex;
+    justify-content: center;
+}
+.header-profile-four {
+    display: flex;
+    justify-content: center;
+}
+
 .header-profile-one span {
     list-style: none;
     margin-top: 10px;
@@ -12,7 +37,7 @@
     font-family: 'Arimo';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 37px;
     color: #B4B4B4;
     text-align: center;
@@ -34,7 +59,7 @@
     font-family: 'Arimo';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 37px;
     color: #B4B4B4;
     text-align: center;
@@ -57,7 +82,7 @@
     font-family: 'Arimo';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 37px;
     color: #B4B4B4;
     text-align: center;
@@ -80,7 +105,7 @@
     font-family: 'Arimo';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 37px;
     color: #B4B4B4;
     text-align: center;
@@ -107,5 +132,48 @@
     .box {
         margin-left: 0;
         
+    }
+    .header-profile-one {
+        width: 25%;
+    }
+    .header-profile-two {
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-profile-three {
+        width: 25%;
+    }
+    .header-profile-four {
+        width: 25%;
+    }
+    .header-profile-one span {
+        list-style: none;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-profile-two span {
+        list-style: none;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-profile-three span {
+        list-style: none;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-profile-four span {
+        list-style: none;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
