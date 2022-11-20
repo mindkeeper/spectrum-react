@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
-const getToken = JSON.parse(localStorage["token"]);
+const getToken = JSON.parse(localStorage["token"] || "{}");
 
 
 const axiosRequest = (method, url, data, params) => {
@@ -41,7 +41,7 @@ export const getProfile = (token) => {
   });
 };
 
-export const patchProfile = (data) => {
+export const patchProfile = (data, token) => {
   return axios({
     method: "PATCH",
     url: `${baseUrl}/users/profile/edit`,
