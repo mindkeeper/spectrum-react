@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
-const getToken = JSON.parse(localStorage["token"] || "{}");
 
 
 const axiosRequest = (method, url, data, params) => {
@@ -46,7 +45,7 @@ export const patchProfile = (data, token) => {
     method: "PATCH",
     url: `${baseUrl}/users/profile/edit`,
     headers: {
-      "x-access-token": getToken,
+      "x-access-token": token,
       "Content-Type": "multipart/form-data",
     },
     data,

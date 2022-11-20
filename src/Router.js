@@ -6,8 +6,8 @@ import Login from "./pages/login/Login";
 import Regist from "./pages/regist/Regist";
 import ForgotPassword from "./pages/forgotpassword/ForgotPassword";
 import Code from "./pages/forgotpassword/OTP";
-import ProfileCustomer from "./pages/profile/profile customer/ProfileCustomer";
-import ProfileSeller from "./pages/profile/profile seller/ProfileSeller";
+import ProfileCustomer from "./pages/profile/profilecustomer/ProfileCustomer";
+import ProfileSeller from "./pages/profile/profileseller/ProfileSeller";
 import ProductDetail from "./pages/productdetail/description/Productdetail";
 import Product from "./pages/product/Product";
 import Blog from "./pages/blog/Blog"
