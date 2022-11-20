@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import css from './Blog.module.css'
 
@@ -11,8 +11,16 @@ import img_3 from '../../asset/blog/right_3.png'
 import img_4 from '../../asset/blog/right_4.png'
 import image_1 from '../../asset/blog/Mask_1.png'
 import image_4 from '../../asset/blog/Mask_4.png'
+import { useNavigate } from 'react-router-dom'
 
 function Blog() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    const toBlogDetail = () => navigate("/blog/detail");
     return (
         <>
             <Header />
@@ -141,7 +149,7 @@ function Blog() {
                         </div>
                         <p className={css.desc_banner}>Maecenas eget congue augue. Sed mollis tempor velit, et tempor justo cursus vel. Phasellus lacinia placerat lacus, vulputate volutpat tellus fringilla eu. Phasellus rhoncus varius tortor, non ultricies felis condimentum eget unc ornare suscipit nulla sagittis faucibu</p>
                         <div className={css.readmore}>
-                            <p>Read More</p>
+                            <p onClick={toBlogDetail}>Read More</p>
                             <div className={css.garis}></div>
                         </div>
 
@@ -167,7 +175,7 @@ function Blog() {
                             </div>
                             <p className={css.desc_banner}>Maecenas eget congue augue. Sed mollis tempor velit, et tempor justo cursus vel. Phasellus lacinia placerat lacus, vulputate volutpat tellus fringilla eu. Phasellus rhoncus varius tortor, non ultricies felis condimentum eget unc ornare suscipit nulla sagittis faucibu</p>
                             <div className={css.readmore}>
-                                <p>Read More</p>
+                                <p onClick={toBlogDetail}>Read More</p>
                                 <div className={css.garis}></div>
                             </div>
                         </div>
@@ -195,7 +203,7 @@ function Blog() {
                             </div>
                             <p className={css.desc_banner}>Maecenas eget congue augue. Sed mollis tempor velit, et tempor justo cursus vel. Phasellus lacinia placerat lacus, vulputate volutpat tellus fringilla eu. Phasellus rhoncus varius tortor, non ultricies felis condimentum eget unc ornare suscipit nulla sagittis faucibu</p>
                             <div className={css.readmore}>
-                                <p>Read More</p>
+                                <p onClick={toBlogDetail}>Read More</p>
                                 <div className={css.garis}></div>
                             </div>
                         </div>
@@ -223,7 +231,7 @@ function Blog() {
                             </div>
                             <p className={css.desc_banner}>Maecenas eget congue augue. Sed mollis tempor velit, et tempor justo cursus vel. Phasellus lacinia placerat lacus, vulputate volutpat tellus fringilla eu. Phasellus rhoncus varius tortor, non ultricies felis condimentum eget unc ornare suscipit nulla sagittis faucibu</p>
                             <div className={css.readmore}>
-                                <p>Read More</p>
+                                <p onClick={toBlogDetail}>Read More</p>
                                 <div className={css.garis}></div>
                             </div>
                         </div>
@@ -243,7 +251,7 @@ function Blog() {
                         </div>
                         <p className={css.desc_banner}>Maecenas eget congue augue. Sed mollis tempor velit, et tempor justo cursus vel. Phasellus lacinia placerat lacus, vulputate volutpat tellus fringilla eu. Phasellus rhoncus varius tortor, non ultricies felis condimentum eget unc ornare suscipit nulla sagittis faucibu</p>
                         <div className={css.readmore}>
-                            <p>Read More</p>
+                            <p onClick={toBlogDetail}>Read More</p>
                             <div className={css.garis}></div>
                         </div>
 
