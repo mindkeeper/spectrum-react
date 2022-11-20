@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import Modal from "react-bootstrap/Modal";
 import styles from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import authActions from "../../redux/actions/auths";
+import { Button } from "react-bootstrap";
 
 function ForgotPassword() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const [body, setBody] = useState({});
+  const [openModal, setOpenModal] = useState(false);
+
+  const code = useSelector((state) => state.auth.code);
+  console.log(code);
 
   const changeHandler = (e) =>
     setBody({
@@ -18,11 +24,14 @@ function ForgotPassword() {
     });
   console.log(body);
 
-  const to = () => navigate("/forget-password/new");
+  const handleClose = () => setOpenModal(!openModal);
+
+  const toVerif = () => navigate("/forget-password/new");
 
   const submitHandler = () => {
-    dispacth(authActions.resetThunk(body, to));
+    dispacth(authActions.resetThunk(body, handleClose));
     localStorage.setItem("email", JSON.stringify(body.email));
+    // setOpenModal(!openModal);
   };
 
   return (
@@ -66,6 +75,17 @@ function ForgotPassword() {
           </div>
         </div>
       </div>
+      <Modal show={openModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Spectrum</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Your code is {code}</Modal.Body>
+        <Modal.Footer>
+          <Button className={styles["yes-btn"]} onClick={toVerif}>
+            Verification Your Code
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Footer />
     </>
   );

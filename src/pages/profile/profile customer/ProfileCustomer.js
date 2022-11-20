@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import css from "./ProfileCustomer.module.css"
 
 // import image
-import imageProfile from '../../../asset/profile/pic_default.png'
 import pencil from '../../../asset/profile/pencil.png'
 
 // import component
@@ -17,32 +16,76 @@ import Footer from '../../../components/footer/Footer'
 
 export default function ProfileCustomer() {
     const dispacth = useDispatch();
-    const [body, setBody] = useState({});
     const profile = useSelector((state) => state.data_profile.profile)
     const token = useSelector((state) => state.auth.userInfo.token);
 
-    const changeHandler = (e) =>
-        setBody({ ...body, [e.target.name]: e.target.value });
-    console.log(body);
+    const [email, setEmail] = useState(profile.email);
+    const [role, setRole] = useState(profile.role);
+    const [display_name, setDisplay_name] = useState(profile.display_name);
+    const [gender, setGender] = useState(profile.gender);
+    const [image, setImage] = useState(profile.image);
+    const [display, setDisplay] = useState(profile.image);
+    const [store_desc, setStore_desc] = useState(profile.store_desc);
 
-    const submitEditProfile = (e) => {
-        e.preventDefault()
-        dispacth(profileActions.editProfileThunk(body, token));
-        return toast.success(`Congrats! data success change`, {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+
+    // ComponentDidMount
+    useEffect(() => {
+        dispacth(profileActions.getProfileThunk(token));
+        setEmail(profile.email);
+        setDisplay_name(profile.display_name);
+        setGender(profile.gender);
+        setImage(profile.image);
+        setStore_desc(profile.store_desc);
+    }, [dispacth])
+
+    const submitUpdateProfile = async (e) => {
+        try {
+            e.preventDefault();
+            console.log(image)
+            console.log(display)
+            let formData = new FormData();
+            if (display_name) formData.append("display_name", display_name);
+            if (gender) formData.append("gender", gender);
+            if (image !== display) formData.append("image", image);
+            if (store_desc) formData.append("store_desc", store_desc);
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + " - " + pair[1]);
+            }
+            // console.log(formData);
+            if (formData) {
+                await dispacth(profileActions.editProfileThunk(formData));
+                await dispacth(profileActions.getProfileThunk(token));
+                toast.success(`Congrats! Data success change`, {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        } catch (error) {
+            toast.error((error), {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
     }
 
-    useEffect(() => {
-        dispacth(profileActions.getProfileThunk(token))
-    }, [dispacth])
+    const inputImage = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            setDisplay(URL.createObjectURL(event.target.files[0]));
+            setImage(event.target.files[0]);
+        }
+    };
 
     return (
         <>
@@ -67,17 +110,25 @@ export default function ProfileCustomer() {
             <form className={`container ${css.top_1}`}>
                 <div className={css.data_form}>
                     <label htmlFor="profile-image">
-                        <img src={profile.image || imageProfile} alt="Profile" width='50px' height='50px' className='rounded-circle' />
-                        <input type="file" name='file' id="profile-image" className='d-none' />
+                        <img src={display || "https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png"} alt="Profile" width='50px' height='50px' className='rounded-circle' />
+                        <input
+                            type="file"
+                            name='file'
+                            id="profile-image"
+                            onChange={inputImage}
+                            className='d-none' />
                     </label>
                     <div className={css.top_2}>
                         <input type="text"
                             name="display_name"
                             className={css["saller-name"]}
-                            defaultValue={profile.display_name}
-                            onChange={changeHandler}
+                            value={(display_name === null) ? "Displayname" : display_name}
+                            onChange={(e) => {
+                                setDisplay_name(e.target.value);
+                                console.log(display_name);
+                            }}
                         />
-                        <p className={css["saller-role"]}>as {profile.role}</p>
+                        <p className={css["saller-role"]}>as {role}</p>
                     </div>
                     <div className={css["edit-pencil"]}>
                         <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
@@ -92,8 +143,11 @@ export default function ProfileCustomer() {
                             <input className={css["input-profile"]}
                                 type="text"
                                 name='gender'
-                                defaultValue={profile.gender}
-                                onChange={changeHandler}
+                                value={gender}
+                                onChange={(e) => {
+                                    setGender(e.target.value);
+                                    console.log(gender);
+                                }}
                                 placeholder='Input gender' />
                         </div>
                         <div className={css.top_content}>
@@ -107,8 +161,8 @@ export default function ProfileCustomer() {
                             <input className={css["input-profile"]}
                                 type="text"
                                 name='email'
-                                defaultValue={profile.email}
-                                onChange={changeHandler}
+                                value={email}
+                                disabled
                                 placeholder='Input your email address' />
                         </div>
                         <div className={css.top_content}>
@@ -122,8 +176,11 @@ export default function ProfileCustomer() {
                             <input className={css["input-profile"]}
                                 type="textarea"
                                 name='store_desc'
-                                defaultValue={profile.store_desc}
-                                onChange={changeHandler}
+                                value={store_desc}
+                                onChange={(e) => {
+                                    setStore_desc(e.target.value);
+                                    console.log(store_desc);
+                                }}
                                 placeholder='Input store description' />
                         </div>
                         <div className={css.top_content}>
@@ -136,7 +193,7 @@ export default function ProfileCustomer() {
                 {/* Action Button */}
                 <div className={`${css['submit-form']}`}>
                     <button className={css['logout']}><i className="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
-                    <button className={`bg-dark ${css['save-change']}`} onClick={submitEditProfile}>Save Change</button>
+                    <button className={`bg-dark ${css['save-change']}`} onClick={submitUpdateProfile}>Save Change</button>
                 </div>
 
             </form>

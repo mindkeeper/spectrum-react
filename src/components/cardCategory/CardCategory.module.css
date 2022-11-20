@@ -1,0 +1,10 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .name, .content .qty {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

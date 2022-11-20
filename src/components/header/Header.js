@@ -14,7 +14,7 @@ function Header() {
   const [shop, setShop] = useState(false);
   const token = useSelector((state) => state.auth.userInfo.token);
   const roles = useSelector((state) => state.auth.userInfo.roles);
-  console.log(roles);
+  // console.log(roles);
 
   const toProfile = () => {
     if (roles === 1) return navigate("/profile/customer");

@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
+const getToken = JSON.parse(localStorage["token"] || "{}");
+
 
 const axiosRequest = (method, url, data, params) => {
   return axios({
@@ -36,18 +38,25 @@ export const getProfile = (token) => {
     method: "GET",
     url: `${baseUrl}/users/profile`,
     headers: { "x-access-token": token },
-  })
-}
+  });
+};
 
-export const patchProfile = (body, token) => {
+export const patchProfile = (data, token) => {
   return axios({
     method: "PATCH",
     url: `${baseUrl}/users/profile/edit`,
-    body,
-    headers: { "x-access-token": token },
+    headers: {
+      "x-access-token": getToken,
+      "Content-Type": "multipart/form-data",
+    },
+    data,
   })
 }
 
 export const getProduct = (data) => {
   return axiosRequest("GET", "/products", data);
+};
+
+export const getCategories = (data) => {
+  return axiosRequest("Get", "/categories", data);
 };

@@ -65,14 +65,9 @@
 
 .left-content .product-categories .content {
     display: flex;
-    gap: 10rem;
-    align-items: center;
-}
-
-.left-content .product-categories .content .name, .left-content .product-categories .content .qty {
-    display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .5rem;
+    max-width: 75%;
 }
 
 .left-content .product-price .title h1{
@@ -281,10 +276,17 @@
     width: fit-content;
 }
 
+.right-content .paginate-page .page-container:hover {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
 .right-content .paginate-page .page-container p {
     font-size: 1rem;
     font-weight: 700;
     padding: 1rem;
+    user-select: none;
 }
 
 @media screen and (max-width: 768px) {
