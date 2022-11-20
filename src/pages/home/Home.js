@@ -42,13 +42,17 @@ function Home() {
                 <br /> Curabitur blandit ultrices ex. Curabitur ut magna
                 dignissim, dignissim
               </p>
-              <p
-                className={`text-center ${css["explore-more"]}`}
-                onClick={toProduct}
-              >
-                Explore now
-              </p>
-              <i className={`fa-solid fa-arrow-down ${css["arrow-down"]}`}></i>
+              <div className={css["explore"]}>
+                <p
+                  className={`text-center ${css["explore-more"]}`}
+                  onClick={toProduct}
+                >
+                  Explore now
+                </p>
+                <i
+                  className={`fa-solid fa-arrow-down ${css["arrow-down"]}`}
+                ></i>
+              </div>
             </div>
           </div>
         </div>

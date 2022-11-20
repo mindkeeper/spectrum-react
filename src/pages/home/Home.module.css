@@ -37,6 +37,16 @@
     margin-top: 20px;
 }
 
+.explore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+
+.explore:hover {
+    cursor: pointer;
+}
 
 .explore-more {
     font-family: 'Arimo';
