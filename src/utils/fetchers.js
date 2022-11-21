@@ -75,3 +75,12 @@ export const getProductSeller = (token, params) => {
     params,
   });
 };
+
+export const delProductSeller = (token, params) => {
+  return axios({
+    method: "GET",
+    url: `${baseUrl}/products/delete`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};
