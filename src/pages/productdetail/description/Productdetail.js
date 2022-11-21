@@ -24,7 +24,6 @@ function Productdetail() {
   const toDescription = () => navigate("/product/detail");
   const product = useSelector((state) => state.products.detailProduct);
   const isLoading = useSelector((state) => state.products.isLoading);
-  console.log(product);
   const [image, setImage] = useState(null);
   const { id } = useParams();
 
@@ -50,6 +49,7 @@ function Productdetail() {
 
   useEffect(() => {
     dispatch(productActions.getDetailsThunk(`/products/details/${id}`));
+    setImage(product.images[0]);
   }, [dispatch]);
   title("Spectrum | Product Detail");
   return (
@@ -201,9 +201,7 @@ function Productdetail() {
         </div>
       </div>
 
-      <CardProductDetail />
-
-      {/* footer */}
+      <CardProductDetail id={id} currency={currency} />
       <Footer />
     </>
   );
