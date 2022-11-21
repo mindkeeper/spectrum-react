@@ -8,7 +8,11 @@ import title from "../../../components/title/Title";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../../redux/actions/product";
 // import authActions from "../../../redux/actions/auths";
-import { createSearchParams, useSearchParams } from "react-router-dom";
+import {
+  createSearchParams,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import Loading from "../../../components/loading/Loading";
 
 function MyProduct() {
@@ -19,17 +23,26 @@ function MyProduct() {
   const product = useSelector((state) => state.products.productSeller);
   const isLoading = useSelector((state) => state.products.isLoading);
   const token = useSelector((state) => state.auth.userInfo.token);
-  console.log(product);
-  console.log(token);
+  // const { id } = useParams();
+  // console.log(product);
+  // console.log(token);
   const active = () => {
     setDropdown(!dropdown);
   };
+
+  // const deleteHandler = () => {
+  //   dispatch(productActions.delProductThunk(`/products/delete/${id}`));
+  // };
 
   useEffect(() => {
     const urlSearchParams = createSearchParams({ ...query });
     setSearchParams(urlSearchParams);
     dispatch(productActions.getProductSellerThunk(token, query));
   }, [query, searchParams]);
+
+  // useEffect(() => {
+  //   dispatch(productActions.delProductThunk(`/products/delete/${id}`));
+  // }, [dispatch]);
 
   title("Spectrum | My Product");
   return (
