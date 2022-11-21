@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import authActions from "../../redux/actions/auths";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import tittle from "../../components/tittle/Tittle"
+import tittle from "../../components/tittle/Tittle";
 
 function OTP() {
   const navigate = useNavigate();
@@ -31,17 +31,7 @@ function OTP() {
   };
   // const successToast = () =>
 
-  const errorToast = () =>
-    toast.error(`${errorMsg}`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+  const errorToast = () => toast.error(`${errorMsg}`);
 
   const submitHandler = () => {
     dispacth(authActions.resetThunk(body, toLogin, errorToast));
@@ -62,8 +52,7 @@ function OTP() {
       });
   }, [fulfilled]);
 
-
-  tittle("Spectrum | OTP")
+  tittle("Spectrum | OTP");
   return (
     <>
       <Header />
