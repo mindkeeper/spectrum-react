@@ -1,5 +1,10 @@
 import { ActionType } from "redux-promise-middleware";
-import { getData, getProduct, getProductSeller } from "../../utils/fetchers";
+import {
+  getData,
+  getProduct,
+  getProductSeller,
+  delProductSeller,
+} from "../../utils/fetchers";
 import { ACTION_STRING } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -46,6 +51,20 @@ const getProductSellerFulfilled = (data) => ({
   payload: { data },
 });
 
+const delProductPending = () => ({
+  type: ACTION_STRING.delProduct.concat("_", Pending),
+});
+
+const delProductRejected = (error) => ({
+  type: ACTION_STRING.delProduct.concat("_", Rejected),
+  payload: { error },
+});
+
+const delProductFulfilled = (data) => ({
+  type: ACTION_STRING.delProduct.concat("_", Fulfilled),
+  payload: { data },
+});
+
 const getProductThunk = (params) => {
   return async (dispacth) => {
     try {
@@ -81,10 +100,23 @@ const getProductSellerThunk = (token, params) => {
     }
   };
 };
+
+const delProductThunk = (url) => {
+  return async (dispacth) => {
+    try {
+      dispacth(delProductPending());
+      const result = await delProductSeller(url);
+      dispacth(delProductFulfilled(result.data));
+    } catch (error) {
+      dispacth(delProductRejected(error));
+    }
+  };
+};
 const productActions = {
   getProductThunk,
   getDetailsThunk,
   getProductSellerThunk,
+  delProductThunk,
 };
 
 export default productActions;
