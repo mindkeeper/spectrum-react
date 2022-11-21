@@ -108,6 +108,7 @@
     height: 5px;
     width: 75%;
     background: none;
+    cursor: grab;
     pointer-events: none;
     -webkit-appearance: none;
 }
