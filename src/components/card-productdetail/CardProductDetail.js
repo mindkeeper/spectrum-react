@@ -16,7 +16,7 @@ export default function CardProductDetail({ id, currency, imageProps }) {
   console.log(related);
   useEffect(() => {
     dispatch(productActions.getRelatedThunk(`/products/related/${id}`));
-  }, [dispatch]);
+  }, [dispatch, id]);
   return (
     <>
       <div className={`container ${css["desc-bar"]}`}>
