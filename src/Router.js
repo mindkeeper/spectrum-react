@@ -10,8 +10,8 @@ import ProfileCustomer from "./pages/profile/profilecustomer/ProfileCustomer";
 import ProfileSeller from "./pages/profile/profileseller/ProfileSeller";
 import ProductDetail from "./pages/productdetail/description/Productdetail";
 import Product from "./pages/product/Product";
-import Blog from "./pages/blog/Blog"
-import NotFound from "./pages/Error404/NotFound"
+import Blog from "./pages/blog/Blog";
+import NotFound from "./pages/Error404/NotFound";
 import Blogdetail from "./pages/blogdetail/Blogdetail";
 import MyProduct from "./pages/seller/myProduct/MyProduct";
 import Selling from "./pages/seller/sellingProduct/Selling";
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   { path: "/profile/seller", element: <ProfileSeller /> },
   { path: "/forget-password", element: <ForgotPassword /> },
   { path: "/forget-password/new", element: <Code /> },
-  { path: "/product/detail", element: <ProductDetail /> },
+  { path: "/product/detail/:id", element: <ProductDetail /> },
   { path: "/product", element: <Product /> },
   { path: "/profile/seller/product", element: <MyProduct /> },
   { path: "/profile/seller/selling-product", element: <Selling /> },
