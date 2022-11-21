@@ -1,0 +1,21 @@
+.empety {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: center;
+    color: #1A1A1A;
+    margin-top: 20px;
+}
+
+.empety_desc {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: #4D4D4D;
+    margin-top: 10px;
+}

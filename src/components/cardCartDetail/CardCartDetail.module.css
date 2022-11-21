@@ -1,0 +1,206 @@
+/* cart image product */
+.product_cart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.silang {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.image_preview {
+    padding: 10px;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.name_product {
+    display: flex;
+    align-items: center;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #1A1A1A;
+    width: 20%;
+    height: 100px;
+    margin-left: 15px;
+}
+
+.price_product {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 15%;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+    margin-left: 50px;
+    padding-left: 10px;
+}
+
+
+.add-product {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-left: 30px;
+}
+
+.add-product button {
+    border: none;
+    background-color: white;
+}
+.add-product input {
+    border: none;
+    text-align: center;
+    width: 40px;
+}
+.add-product input:focus {
+    outline: none;
+}
+
+
+.price_product1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 15%;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+    margin-left: 50px;
+    /* padding-left: 10px; */
+    margin-right: 10px;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .content_bar1 {
+        margin-left: 40px;
+    }
+    .content_bar2 {
+        margin-left: 225px;
+    }
+    .content_bar3 {
+        margin-left: 85px;
+    }
+    .content_bar4 {
+        margin-left: 70px;
+    }
+
+    .silang {
+        font-size: 10px;
+        margin-left: 0;
+    }
+    
+}
+
+@media only screen and (max-width: 428px) {
+    .content_bar1 {
+        margin-left: 35px;
+    }
+    .content_bar2 {
+        margin-left: 70px;
+    }
+    .content_bar3 {
+        margin-left: 45px;
+    }
+    .content_bar4 {
+        margin-left: 30px;
+    }
+
+    .silang {
+        font-size: 10px;
+        margin-left: 0;
+    }
+    
+    .image_preview {
+        padding: 10px;
+        margin-left: 10px;
+        width: 50px;
+    }
+    
+    .name_product {
+        display: flex;
+        align-items: center;
+        font-family: 'Arimo';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: #1A1A1A;
+        width: 20%;
+        height: 100px;
+        margin-left: 15px;
+
+    }
+    
+    .price_product {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 20%;
+        font-family: 'Arimo';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #262626;
+        margin-left: 20px;
+        padding-left: 0;
+    }
+    
+    
+    .add-product {
+        margin-top: -5px;
+        margin-left: 25px;
+        margin-right: 0;
+    }
+    
+    .add-product button {
+        border: none;
+        background-color: white;
+    }
+    .add-product button >i {
+        font-size: 10px;
+    }
+    .add-product input {
+        border: none;
+        padding-top: 5px;
+        text-align: center;
+        font-size: 10px;
+        width: 20px;
+    }
+    .add-product input:focus {
+        outline: none;
+    }
+    
+    
+    .price_product1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 20%;
+        font-family: 'Arimo';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #262626;
+        margin-left: 35px;
+        margin-right: 0;
+    }
+}

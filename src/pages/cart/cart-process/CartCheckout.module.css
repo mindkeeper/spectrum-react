@@ -1,0 +1,250 @@
+.blog-top {
+    background-image: url("../../../asset/blog/Mask.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.link-bar {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.link-bar p {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #1A1A1A
+}
+
+.link-bar p i {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.our-blog {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.our-blog-1 {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 64px;
+    text-align: center;
+    color: #1A1A1A;
+}
+
+.our-blog-2 {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #1A1A1A;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+.container_box {
+    padding-top: 60px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 60px;
+}
+
+.self_info {
+    margin-bottom: 30px;
+}
+
+.self_info > p {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;    
+    color: #1A1A1A;
+}
+
+
+/* inputan */
+.box_check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #CECECE;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+}
+
+.box_check > p {
+    padding-right: 10px;
+    border-right: 2px solid #CECECE;
+}
+
+.box_check > input {
+    border: none;
+    padding-left: 10px;
+}
+
+.box_check >input:focus {
+    outline: none;
+}
+
+
+.box_check1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #CECECE;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+}
+
+.box_check1 > p {
+    padding-right: 30px;
+    border-right: 2px solid #CECECE;
+}
+
+.box_check1 > input {
+    border: none;
+    padding-left: 10px;
+}
+
+.box_check1 >input:focus {
+    outline: none;
+}
+
+
+
+.box_check2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #CECECE;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+}
+
+.box_check2 > p {
+    padding-right: 30px;
+    border-right: 2px solid #CECECE;
+}
+.box_check2 > p > i{
+    padding-left: 15px;
+    
+}
+
+.box_check2 > input {
+    border: none;
+    padding-left: 10px;
+}
+
+.box_check2 >input:focus {
+    outline: none;
+}
+
+
+
+.box_check3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #CECECE;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 40px;
+}
+
+.box_check3 > i {
+    padding-right: 30px;
+    font-size: 40px;
+}
+.box_check3 > i{
+    padding-left: 15px;
+    
+}
+
+.box_check3 > select {
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    width: 100%;font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1A1A1A;
+}
+
+.box_check3 > select > option {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 50px;
+    color: #1A1A1A;
+}
+
+
+.Check_out > button {
+    background-color: #1A1A1A;
+    margin-top: 20px;
+    padding: 15px 25px 15px 25px;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    width: 20%;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .container_box {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+
+@media only screen and (max-width: 428px) {
+    .Check_out > button {
+        width: 50%;
+    }
+}
