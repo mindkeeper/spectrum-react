@@ -19,6 +19,7 @@ import Order from "./pages/seller/myOrder/Order";
 import ProductDetailReview from "./pages/productdetail/review/ProductdetailReview";
 import CartDetail from "./pages/cart/cart-detail/CartDetail"
 import CartCheckout from "./pages/cart/cart-process/CartCheckout"
+import Wistlist from "./pages/wishlist/Wishlist"
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
   { path: "/product/detail/review", element: <ProductDetailReview /> },
   { path: "/cart", element: <CartDetail /> },
   { path: "/cart/checkout", element: <CartCheckout /> },
+  { path: "/wistlist", element: <Wistlist /> },
 ]);
 
 export default router;
