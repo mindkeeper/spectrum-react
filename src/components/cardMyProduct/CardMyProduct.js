@@ -1,9 +1,19 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import productActions from "../../redux/actions/product";
 import styles from "./CardMyProduct.module.css";
 
 // import sample from "../../asset/product/yellow-chair.png";
 
 function CardMyProduct({ image, name, stock, price }) {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+
+  const deleteHandler = () => {
+    dispatch(productActions.delProductThunk(`/products/delete/${id}`));
+  };
+
   return (
     <>
       <div className={`col-lg-4 col-md-4 col-4 ${styles["image-title"]}`}>
@@ -27,7 +37,7 @@ function CardMyProduct({ image, name, stock, price }) {
         <p>{price}</p>
       </div>
       <div className={`col-lg-2 col-md-2 col-2 ${styles["del-btn"]}`}>
-        <button>Delete</button>
+        <button onClick={deleteHandler}>Delete</button>
       </div>
     </>
   );
