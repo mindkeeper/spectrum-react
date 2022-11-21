@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import title from "../../components/title/Title";
 // import Modal from "react-bootstrap/Modal";
 import styles from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
@@ -44,6 +45,7 @@ function ForgotPassword() {
     // setOpenModal(!openModal);
   };
 
+  title("Spectrum | Forget Password");
   return (
     <>
       <Header />

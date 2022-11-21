@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import title from "../../components/title/Title";
 import LoadingBar from "../../components/loading/Loading";
 import styles from "./Product.module.css";
 
@@ -10,11 +11,7 @@ import productActions from "../../redux/actions/product";
 import CardCategory from "../../components/cardCategory/CardCategory";
 import CardBrand from "../../components/cardBrand/CardBrand";
 import categoriesActions from "../../redux/actions/categories";
-import {
-  createSearchParams,
-  useLocation,
-  useSearchParams,
-} from "react-router-dom";
+import { createSearchParams, useSearchParams } from "react-router-dom";
 import brandsActions from "../../redux/actions/brands";
 
 // const useQuery = () => {
@@ -56,6 +53,8 @@ function Product() {
   useEffect(() => {
     dispacth(brandsActions.getBrandsThunk());
   }, [dispacth]);
+
+  title("Spectrum | Product");
   return (
     <>
       <Header />

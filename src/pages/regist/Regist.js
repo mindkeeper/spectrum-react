@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import title from "../../components/title/Title";
 import styles from "./Regist.module.css";
 
 import { useNavigate } from "react-router-dom";
@@ -35,6 +36,7 @@ function Regist() {
     return dispacth(registerActions.registerThunk(body, toLogin, errorToast));
   };
 
+  title("Spectrum | Register");
   return (
     <>
       <Header />
