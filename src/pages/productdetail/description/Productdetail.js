@@ -11,22 +11,21 @@ import CardProductDetail from "../../../components/card-productdetail/CardProduc
 import title from "../../../components/title/Title";
 
 // import image
-import list_product_2 from "../../../asset/productdetail/product-2.png";
 import hot_label from "../../../asset/productdetail/hot_lable.png";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../../redux/actions/product";
 import LoadingBar from "../../../components/loading/LoadingBar";
+import Loading from "../../../components/loading/Loading";
 
 function Productdetail() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toReview = () => navigate("/product/detail/review");
-  const toDescription = () => navigate("/product/detail");
   const product = useSelector((state) => state.products.detailProduct);
   const isLoading = useSelector((state) => state.products.isLoading);
   const [image, setImage] = useState(null);
   const { id } = useParams();
-
+  console.log(id);
   const currency = (price) => {
     return (
       "IDR " +
@@ -35,21 +34,9 @@ function Productdetail() {
         .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
     );
   };
-  // const setCategories = (categories) => {
-  //   let result = "";
-  //   categories.forEach((e, i, arr) => {
-  //     if (i === arr.length - 1) {
-  //       result += `${e}`;
-  //     } else {
-  //       result = `${e}, `;
-  //     }
-  //   });
-  //   return result;
-  // };
 
   useEffect(() => {
     dispatch(productActions.getDetailsThunk(`/products/details/${id}`));
-    setImage(product.images[0]);
   }, [dispatch]);
   title("Spectrum | Product Detail");
   return (
@@ -83,16 +70,27 @@ function Productdetail() {
               <LoadingBar />
             ) : (
               product.images.map((image, index) => (
-                <img src={image} key={index} alt={`product detail ${index}`} />
+                <img
+                  src={image}
+                  key={index}
+                  alt={`product detail ${index}`}
+                  onClick={() => {
+                    setImage(image);
+                  }}
+                />
               ))
             )}
           </div>
           <div className={`col-lg-9 col-md-12 ${css.product_preview}`}>
-            <img
-              src={list_product_2}
-              alt="list_product"
-              className={`${css.preview}`}
-            />
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <img
+                src={!image ? product.images[0] : image}
+                alt="list_product"
+                className={`${css.preview}`}
+              />
+            )}
             <img src={hot_label} alt="list_product" className={`${css.hot}`} />
           </div>
         </div>
@@ -193,7 +191,7 @@ function Productdetail() {
       {/* Navbar product detail */}
       <div className={`container ${css["detail-bar-product"]}`}>
         <div className={`${css["bar-product-detail"]}`}>
-          <p onClick={toDescription}>Description</p>
+          <p>Description</p>
           <p onClick={toReview}>Review</p>
           <p>Additional Information</p>
           <p>About Brand</p>
@@ -201,7 +199,11 @@ function Productdetail() {
         </div>
       </div>
 
-      <CardProductDetail id={id} currency={currency} />
+      <CardProductDetail
+        id={id}
+        currency={currency}
+        imageProps={product.images[0]}
+      />
       <Footer />
     </>
   );

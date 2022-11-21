@@ -2,20 +2,20 @@ import React, { useEffect } from "react";
 
 import css from "./CardProductDetail.module.css";
 
-import list_product_2 from "../../asset/productdetail/product-2.png";
-import list_product_3 from "../../asset/productdetail/product-3.png";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../redux/actions/product";
 import Loading from "../loading/Loading";
 import { useNavigate } from "react-router-dom";
 
-export default function CardProductDetail({ id, currency }) {
+export default function CardProductDetail({ id, currency, imageProps }) {
+  console.log(id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const related = useSelector((state) => state.products.related);
   const isLoading = useSelector((state) => state.products.isLoading);
+  console.log(related);
   useEffect(() => {
-    dispatch(productActions.getRelatedThunk(`products/related/${id}`));
+    dispatch(productActions.getRelatedThunk(`/products/related/${id}`));
   }, [dispatch]);
   return (
     <>
@@ -24,7 +24,11 @@ export default function CardProductDetail({ id, currency }) {
           <div
             className={`col-lg-5 col-md-12 col-sm-12 ${css["image-description"]}`}
           >
-            <img src={list_product_2} alt="product_image" />
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <img src={imageProps} alt="product_image" />
+            )}
           </div>
           <div
             className={`col-lg-7 col-md-12 col-sm-12 ${css["image-description_1"]}`}
@@ -54,21 +58,6 @@ export default function CardProductDetail({ id, currency }) {
         </div>
         <p className={`${css.relate}`}>Related Products</p>
         <div className={`row ${css["relate-1"]}`}>
-          {/* <div className={`col-lg-4 col-md-12 col-sm-12 ${css["relate-2"]}`}>
-            <img src={list_product_3} alt="product" />
-            <p className={`${css.type}`}>Coaster 506222-CO Loveseat</p>
-            <p className={`${css.type_price}`}>$765.99</p>
-          </div>
-          <div className={`col-lg-4 col-md-12 col-sm-12 ${css["relate-2"]}`}>
-            <img src={list_product_3} alt="product" />
-            <p className={`${css.type}`}>Coaster 506222-CO Loveseat</p>
-            <p className={`${css.type_price}`}>$765.99</p>
-          </div>
-          <div className={`col-lg-4 col-md-12 col-sm-12 ${css["relate-2"]}`}>
-            <img src={list_product_3} alt="product" />
-            <p className={`${css.type}`}>Coaster 506222-CO Loveseat</p>
-            <p className={`${css.type_price}`}>$765.99</p>
-          </div> */}
           {isLoading ? (
             <Loading />
           ) : (
