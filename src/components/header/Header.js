@@ -12,6 +12,7 @@ function Header() {
   const [toggle, setToggle] = useState(false);
   const [pages, setPages] = useState(false);
   const [shop, setShop] = useState(false);
+  const [search, setSearch] = useState(false);
   const token = useSelector((state) => state.auth.userInfo.token);
   const roles = useSelector((state) => state.auth.userInfo.roles);
   // console.log(roles);
@@ -21,6 +22,7 @@ function Header() {
     if (roles === 2) return navigate("/profile/seller");
     return navigate("/");
   };
+  const toHome = () => navigate("/");
   const toLogin = () => navigate("/login");
   const toBlog = () => navigate("/blog");
   const toRegister = () => navigate("/register");
@@ -41,12 +43,16 @@ function Header() {
     setShop(!shop);
   };
 
+  const showSearch = () => {
+    setSearch(!search);
+  };
+
   return (
     <>
       <header className={`container-fluid `}>
         <div className={`row ${styles["navbar"]}`}>
           <div className="col-lg-3 col-6">
-            <div className={styles["logo-content"]}>
+            <div className={styles["logo-content"]} onClick={toHome}>
               <div className={styles["logo"]}>
                 <img src={logo} alt="" />
               </div>
@@ -59,7 +65,10 @@ function Header() {
             <div className={styles["right-content"]}>
               <div className={styles["icon"]}>
                 <div className={styles["search"]}>
-                  <i className="fa-solid fa-magnifying-glass"></i>
+                  <i
+                    className="fa-solid fa-magnifying-glass"
+                    onClick={showSearch}
+                  ></i>
                 </div>
                 <div className={styles["love"]}>
                   <i className="fa-regular fa-heart"></i>
@@ -79,7 +88,7 @@ function Header() {
           <div className="col-lg-6 col-12">
             <div className={styles["menu-bar"]}>
               <ol>
-                <li>HOME</li>
+                <li onClick={toHome}>HOME</li>
                 <li onClick={showPages}>PAGES</li>
                 <li onClick={showShop}>SHOP</li>
                 <li onClick={toBlog}>BLOG</li>
@@ -90,7 +99,10 @@ function Header() {
             <div className={styles["right-content"]}>
               <div className={`${styles["icon"]} ${styles["right-none"]}`}>
                 <div className={styles["search"]}>
-                  <i className="fa-solid fa-magnifying-glass"></i>
+                  <i
+                    className="fa-solid fa-magnifying-glass"
+                    onClick={showSearch}
+                  ></i>
                 </div>
                 <div className={styles["love"]}>
                   <i className="fa-regular fa-heart"></i>
@@ -168,6 +180,18 @@ function Header() {
           </div>
         </div>
       </header>
+      {search && (
+        <div className="container">
+          <div className="row">
+            <div className="col-10 offset-1">
+              <div className={styles["search-bar"]}>
+                <input type="text" placeholder="Search here ..." />
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import LoadingBar from "../../components/loading/Loading";
@@ -9,13 +9,38 @@ import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../redux/actions/product";
 import CardCategory from "../../components/cardCategory/CardCategory";
 import categoriesActions from "../../redux/actions/categories";
+import {
+  createSearchParams,
+  useLocation,
+  useSearchParams,
+} from "react-router-dom";
+
+const useQuery = () => {
+  const { search } = useLocation();
+
+  return useMemo(() => new URLSearchParams(search), [search]);
+};
 
 function Product() {
   const [show, setShow] = useState(false);
+
   const products = useSelector((state) => state.products.products);
   const categories = useSelector((state) => state.categories.categories);
   const isLoading = useSelector((state) => state.products.isLoading);
   const dispacth = useDispatch();
+  const getQuery = useQuery();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState({
+    search: getQuery.get("search") || "",
+    sort: getQuery.get("sort") || "",
+    // page: getQuery.get("page") ? getQuery.get("page") : 1,
+    brandId: getQuery.get("brandId") || "",
+    colorId: getQuery.get("colorId") || "",
+    categoryId: getQuery.get("categoryId") || "",
+    minPrice: getQuery.get("minPrice") || "",
+    maxPrice: getQuery.get("maxPrice") || "",
+  });
+
   const dropdownHandler = () => {
     setShow(!show);
   };
@@ -23,8 +48,10 @@ function Product() {
   console.log(categories);
 
   useEffect(() => {
-    dispacth(productActions.getProductThunk());
-  }, [dispacth]);
+    const urlSearchParams = createSearchParams({ ...query });
+    setSearchParams(urlSearchParams);
+    dispacth(productActions.getProductThunk(query));
+  }, [dispacth, query, searchParams]);
 
   useEffect(() => {
     dispacth(categoriesActions.getCategoriesThunk());
@@ -66,6 +93,7 @@ function Product() {
                       unit={e.total_product}
                       id={e.id}
                       key={e.id}
+                      setQuery={setQuery}
                     />
                   ))}
                 </div>
@@ -147,10 +175,46 @@ function Product() {
               {show && (
                 <div className={styles["dropdown-list"]}>
                   <ol>
-                    <li>latest</li>
-                    <li>newest</li>
-                    <li>priciest</li>
-                    <li>cheapest</li>
+                    <li
+                      onClick={() => {
+                        setQuery({
+                          ...query,
+                          sort: "oldest",
+                        });
+                      }}
+                    >
+                      oldest
+                    </li>
+                    <li
+                      onClick={() => {
+                        setQuery({
+                          ...query,
+                          sort: "newest",
+                        });
+                      }}
+                    >
+                      newest
+                    </li>
+                    <li
+                      onClick={() => {
+                        setQuery({
+                          ...query,
+                          sort: "priciest",
+                        });
+                      }}
+                    >
+                      priciest
+                    </li>
+                    <li
+                      onClick={() => {
+                        setQuery({
+                          ...query,
+                          sort: "cheapest",
+                        });
+                      }}
+                    >
+                      cheapest
+                    </li>
                   </ol>
                 </div>
               )}
