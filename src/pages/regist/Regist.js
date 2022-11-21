@@ -32,7 +32,7 @@ function Regist() {
   const submitHandler = () => {
     if (!body.email || !body.password || !body.roles)
       return toast.error("All input must be fulfilled");
-    dispacth(registerActions.registerThunk(body, toLogin, errorToast));
+    return dispacth(registerActions.registerThunk(body, toLogin, errorToast));
   };
 
   return (
@@ -73,7 +73,7 @@ function Regist() {
                 <h1>Create Account</h1>
               </div>
               <div className={styles["form-login"]}>
-                <form action="">
+                <form>
                   <input
                     type="text"
                     name="email"
