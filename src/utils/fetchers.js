@@ -56,5 +56,9 @@ export const getProduct = (params, data) => {
 };
 
 export const getCategories = (data) => {
-  return axiosRequest("Get", "/categories", data);
+  return axiosRequest("GET", "/categories", data);
+};
+
+export const getBrands = (data) => {
+  return axiosRequest("GET", "/brands", data);
 };
