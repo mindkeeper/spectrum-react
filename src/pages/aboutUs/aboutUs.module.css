@@ -1,7 +1,5 @@
 .main-sec {
   background-image: url("../../asset/aboutUs/jumbotron.png");
-  /* background-size: cover; */
-  /* background-position: center; */
   max-width: 135vw;
   height: 250px;
 }
@@ -11,8 +9,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
-
+  padding: 2%;
   color: #1a1a1a;
+}
+
+.w-img1{
+  text-align: center;
 }
 
 .quality {
@@ -152,16 +154,17 @@
 
 .img2 {
   width: 20vw;
+  height: 45vh;
 }
 
-.img3 {
+/* .img3 {
   width: 20vw;
   height: 32vh;
 }
 .img4 {
   width: 20vw;
   height: 32vh;
-}
+} */
 
 .name {
   font-family: "Arimo";
@@ -222,14 +225,11 @@
   .img1 {
     width: 45vw;
   }
-  .img3 {
+  .img2 {
     width: 20vw;
     height: 36.5vh;
   }
-  .img4 {
-    width: 20vw;
-    height: 36.5vh;
-  }
+ 
   /* .desc1{
     line-height: 35px;
   } */
@@ -245,16 +245,16 @@
    width: 65vw;
    
     margin-top: 5%;
-    margin-left: 12%;
+    /* margin-left: 12%; */
   }
-  .img3 {
+  .img2 {
+    width: 22vw;
+    height: 20vh;
+  }
+  /* .img4 {
     width: 20vw;
     height: 19vh;
-  }
-  .img4 {
-    width: 20vw;
-    height: 19vh;
-  }
+  } */
   .quality3 {
     width: fit-content;
     margin: auto;

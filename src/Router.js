@@ -19,6 +19,9 @@ import Order from "./pages/seller/myOrder/Order";
 import ProductDetailReview from "./pages/productdetail/review/ProductdetailReview";
 import AboutUs from "./pages/aboutUs/aboutUs";
 import ContactUs from "./pages/contactUs/contactUs";
+import Chat from "./pages/chat/chat";
+import Notification from "./pages/Notification/notification";
+import OrderTrack from "./pages/order-track/order-track";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -38,6 +41,9 @@ const router = createBrowserRouter([
   { path: "/product/detail/review", element: <ProductDetailReview /> },
   { path: "/about", element: <AboutUs /> },
   { path: "/contact", element: <ContactUs /> },
+  { path: "/chat", element: <Chat /> },
+  { path: "/notification", element: <Notification /> },
+  { path: "/order-track", element: <OrderTrack /> },
 ]);
 
 export default router;

@@ -46,7 +46,7 @@ const AboutUs = () => {
                     Vestibulum
                   </p>
                 </div>
-                <div class="col">
+                <div className={`col ${css["w-img1"]}`}>
                   <img className={` ${css["img1"]}`} src={img_1} alt="" />
                 </div>
               </div>
@@ -147,8 +147,8 @@ const AboutUs = () => {
                     <i>CEO-Founder</i>{" "}
                   </p>
                 </div>
-                <div className={`col ${css["listpeople2"]}`}>
-                  <img className={` ${css["img3"]}`} src={img_3} alt="" />
+                <div className={`col ${css["listpeople1"]}`}>
+                  <img className={` ${css["img2"]}`} src={img_3} alt="" />
                   <p className={` ${css["name"]}`}>
                     <b>Iker Kasian</b>{" "}
                   </p>
@@ -156,8 +156,8 @@ const AboutUs = () => {
                     <i>Art Director</i>{" "}
                   </p>
                 </div>
-                <div className={`col ${css["listpeople3"]}`}>
-                  <img className={` ${css["img4"]}`} src={img_4} alt="" />
+                <div className={`col ${css["listpeople1"]}`}>
+                  <img className={` ${css["img2"]}`} src={img_4} alt="" />
 
                   <p className={` ${css["name"]}`}>
                     <b>Jeremy Button</b>{" "}
