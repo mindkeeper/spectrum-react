@@ -76,11 +76,10 @@ export const getProductSeller = (token, params) => {
   });
 };
 
-export const delProductSeller = (token, params) => {
+export const delProductSeller = (token, id) => {
   return axios({
-    method: "GET",
-    url: `${baseUrl}/products/delete`,
+    method: "DELETE",
+    url: `${baseUrl}/products/delete/${id}`,
     headers: { "x-access-token": token },
-    params,
   });
 };
