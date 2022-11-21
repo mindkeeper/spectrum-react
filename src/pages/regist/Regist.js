@@ -22,7 +22,7 @@ function Regist() {
   console.log(body);
 
   const toLogin = () => {
-    toast.success(`Congrats! ${body.email} register success`);
+    // toast.success(`Congrats! ${body.email} register success`);
     navigate("/login");
   };
 
@@ -33,7 +33,16 @@ function Regist() {
   const submitHandler = () => {
     if (!body.email || !body.password || !body.roles)
       return toast.error("All input must be fulfilled");
-    return dispacth(registerActions.registerThunk(body, toLogin, errorToast));
+    return dispacth(
+      registerActions.registerThunk(
+        body,
+        () => {
+          toast.success(`Congrats! ${body.email} register success`);
+          toLogin();
+        },
+        errorToast
+      )
+    );
   };
 
   title("Spectrum | Register");

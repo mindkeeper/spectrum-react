@@ -28,15 +28,21 @@ function Header() {
     return navigate("/");
   };
   const toHome = () => navigate("/");
+
   const toLogin = () => {
-    toast.success("Logout succesfully");
+    // toast.success("Logout succesfully");
     navigate("/login");
   };
   const toBlog = () => navigate("/blog");
   const toRegister = () => navigate("/register");
 
   const logoutHandler = () => {
-    dispacth(authActions.logoutThunk(token, toLogin));
+    dispacth(
+      authActions.logoutThunk(token, () => {
+        toast.success("Logout succesfully");
+        toLogin();
+      })
+    );
   };
 
   const showHamburger = () => {

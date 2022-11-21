@@ -18,7 +18,7 @@ function ForgotPassword() {
   // const [openModal, setOpenModal] = useState(false);
 
   const code = useSelector((state) => state.auth.code);
-  const errorMsg = useSelector((state) => state.auth.error);
+  // const errorMsg = useSelector((state) => state.auth.error);
   console.log(code);
 
   const changeHandler = (e) =>
@@ -35,8 +35,9 @@ function ForgotPassword() {
     navigate("/forget-password/new");
   };
 
-  const isError = () => {
-    toast.error(`${errorMsg}`);
+  const isError = (error) => {
+    toast.error(`${error.response.data.msg}`);
+    // console.log(error);
   };
 
   const submitHandler = () => {
