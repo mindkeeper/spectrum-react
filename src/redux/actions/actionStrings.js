@@ -15,6 +15,9 @@ export const ACTION_STRING = {
   getProfile: "GET_PROFILE",
   updateProfile: "UPDATE_PROFILE",
   getPromos: "GET_PROMOS",
+  addContact: "ADD_CONTACT",
   getCategories: "GET_CATEGORIES",
   getBrands: "GET_BRANDS",
+  getProductSeller: "GET_PRODUCT_SELLER",
+  getRelatedProducts: "GET_RELATED_PRODUCTS",
 };

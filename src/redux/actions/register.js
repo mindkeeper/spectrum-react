@@ -16,7 +16,7 @@ const registerFulfilled = (data) => ({
   payload: { data },
 });
 
-const registerThunk = (body, navigate) => {
+const registerThunk = (body, navigate, cbError) => {
   return async (dispacth) => {
     try {
       dispacth(registerPending());
@@ -26,6 +26,7 @@ const registerThunk = (body, navigate) => {
       if (typeof navigate === "function") navigate();
     } catch (error) {
       dispacth(registerRejected(error));
+      if (typeof navigate === "function") cbError();
     }
   };
 };

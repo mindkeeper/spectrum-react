@@ -33,7 +33,7 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         isLoading: false,
         isError: true,
         isFulfilled: false,
-        error: payload.error.message,
+        error: payload.error.response.data.msg,
       };
     case authLogin.concat("_", Fulfilled):
       return {
@@ -59,7 +59,7 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         ...prevState,
         isLoading: true,
         isError: false,
-        error: payload.error,
+        error: payload.error.response.data.msg,
       };
     case authLogout.concat("_", Fulfilled):
       return initialState;

@@ -9,12 +9,22 @@ import router from "./Router";
 import { PersistGate } from "redux-persist/integration/react";
 import store, { persistedStore } from "./redux/store";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistedStore}>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          closeOnClick={true}
+          pauseOnHover={true}
+          draggable={true}
+          theme="light"
+        />
         <RouterProvider router={router} />
       </PersistGate>
     </Provider>

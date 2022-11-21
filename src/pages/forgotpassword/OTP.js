@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import styles from "./OTP.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import authActions from "../../redux/actions/auths";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function OTP() {
@@ -23,43 +23,20 @@ function OTP() {
   console.log(body);
 
   const errorMsg = useSelector((state) => state.auth.error);
-  const fulfilled = useSelector((state) => state.auth.isFulilled);
 
   const toLogin = () => {
+    toast.success(`Password updated successfully, please login!`);
     navigate("/login");
   };
   // const successToast = () =>
 
-  const errorToast = () =>
-    toast.error(`${errorMsg}`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+  const errorToast = () => toast.error(`${errorMsg}`);
 
   const submitHandler = () => {
     dispacth(authActions.resetThunk(body, toLogin, errorToast));
     localStorage.removeItem("email");
   };
 
-  useEffect(() => {
-    if (fulfilled)
-      toast.success(`Congrats! ${body.email} your password has been changed`, {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-  }, [fulfilled]);
   return (
     <>
       <Header />
@@ -108,7 +85,6 @@ function OTP() {
         </div>
       </div>
       <Footer />
-      <ToastContainer />
     </>
   );
 }
