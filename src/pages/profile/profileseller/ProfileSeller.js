@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
+import axios from 'axios'
 
 // import toast notifikasi
 import { ToastContainer, toast } from "react-toastify";
@@ -25,6 +26,9 @@ import authActions from "../../../redux/actions/auths";
 // import bootstraps
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { Icon } from 'react-icons-kit'
+import { eye } from 'react-icons-kit/feather/eye'
+import { eyeOff } from 'react-icons-kit/feather/eyeOff'
 
 
 
@@ -43,10 +47,18 @@ function ProfileSeller() {
     const [store_name, setStore_name] = useState(profile.store_name);
     const [store_desc, setStore_desc] = useState(profile.store_desc);
     const [showmodals, setShowmodals] = useState(false);
+    const [showEdit, setShowEdit] = useState(false)
     const [edit_display, setEdit_display] = useState(true)
     const [edit_gender, setEdit_gender] = useState(true)
     const [edit_store_name, setEdit_store_name] = useState(true)
     const [edit_store_desc, setEdit_store_desc] = useState(true)
+    const [passwords, setPasswords] = useState('')
+    const [new_passwords, setNew_Passwords] = useState('')
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(eyeOff);
+    const [type_, setType_] = useState('password');
+    const [icon_, setIcon_] = useState(eyeOff);
+
 
     // ComponentDidMount
     useEffect(() => {
@@ -60,7 +72,71 @@ function ProfileSeller() {
     }, [dispacth])
 
 
-    // Edit profile
+
+    // handleToggle => Show password new password
+    const handleToggle = () => {
+        if (type === 'password') {
+            setIcon(eye);
+            setType('text');
+        } else {
+            setIcon(eyeOff);
+            setType('password')
+        }
+    }
+
+
+
+    // handleToggle => Show password old password
+    const handleToggleOld = () => {
+        if (type_ === 'password') {
+            setIcon_(eye);
+            setType_('text');
+        } else {
+            setIcon_(eyeOff);
+            setType_('password')
+        }
+    }
+
+
+
+    // editPassword => edit password
+    const editPassword = (e) => {
+        e.preventDefault()
+        axios.patch(`${process.env.REACT_APP_BACKEND_HOST}/users/editpwd`, {
+            new_password: new_passwords,
+            old_password: passwords,
+        }, {
+            headers: {
+                "x-access-token": token
+            }
+        })
+            .then(toast.success(`Edit Password Success`, {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            }), setShowEdit(false))
+            .catch((err) =>
+                toast.error((err), {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                })
+            )
+
+
+    }
+
+    // submitUpdateProfile => edit profile
     const submitUpdateProfile = async (e) => {
         try {
             e.preventDefault();
@@ -106,6 +182,9 @@ function ProfileSeller() {
         }
     }
 
+
+
+    // inputImage => preview image
     const inputImage = (event) => {
         // console.log(image);
         if (event.target.files && event.target.files[0]) {
@@ -128,6 +207,8 @@ function ProfileSeller() {
     // show modals
     const handleClose = () => setShowmodals(false);
     const handleShow = () => setShowmodals(true);
+    const handleCloseEdit = () => setShowEdit(false);
+    const handleShowEdit = () => setShowEdit(true);
 
 
     // disable to edit
@@ -135,6 +216,7 @@ function ProfileSeller() {
     const isEditgender = () => setEdit_gender(false)
     const isEditstore_name = () => setEdit_store_name(false)
     const isEditstore_desc = () => setEdit_store_desc(false)
+
 
 
 
@@ -277,10 +359,16 @@ function ProfileSeller() {
 
                 {/* Action Button */}
                 <div className={`${css['submit-form']}`}>
-                    <button className={css['logout']} onClick={(e) => {
-                        e.preventDefault();
-                        handleShow();
-                    }}><i className="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
+                    <div className="">
+                        <button className={css['logout']} onClick={(e) => {
+                            e.preventDefault();
+                            handleShow();
+                        }}><i className="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
+                        <button className={css['edit-password']} onClick={(e) => {
+                            e.preventDefault()
+                            handleShowEdit()
+                        }}>Edit Password</button>
+                    </div>
                     <button className={`bg-dark ${css['save-change']}`} onClick={submitUpdateProfile}>Save Change</button>
                 </div>
 
@@ -313,6 +401,45 @@ function ProfileSeller() {
                         No
                     </Button>
                 </Modal.Footer>
+            </Modal>
+
+            <Modal show={showEdit} onHide={handleCloseEdit}
+            // backdrop="static"
+            // keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit Passwords</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className={css.edit_pwd_box}>
+                        <div className={css.old_pwd}>
+                            <label htmlFor="">Old Password *</label>
+                            <input
+                                type={type}
+                                name='password'
+                                value={passwords}
+                                onChange={(e) => {
+                                    setPasswords(e.target.value)
+                                    console.log(passwords);
+                                }} />
+                            <Icon icon={icon} onClick={handleToggle} />
+                        </div>
+                        <div className={css.old_pwd1}>
+                            <label htmlFor="">New Password *</label>
+                            <input type={type_}
+                                name='new_password'
+                                value={new_passwords}
+                                onChange={(e) => {
+                                    setNew_Passwords(e.target.value)
+                                    console.log(new_passwords);
+                                }} />
+                            <Icon icon={icon_} onClick={handleToggleOld} />
+                        </div>
+                    </div>
+
+                    <button className={css.save_edit} onClick={editPassword}>Save</button>
+                    <button className={css.cancel_edit} onClick={handleCloseEdit}>Cancel</button>
+                </Modal.Body>
             </Modal>
         </>
     )
