@@ -45,6 +45,19 @@ const getProductSellerFulfilled = (data) => ({
   type: ACTION_STRING.getProductSeller.concat("_", Fulfilled),
   payload: { data },
 });
+const getRelatedProductsPending = () => ({
+  type: ACTION_STRING.getRelatedProducts.concat("_", Pending),
+});
+
+const getRelatedProductsRejected = (error) => ({
+  type: ACTION_STRING.getRelatedProducts.concat("_", Rejected),
+  payload: { error },
+});
+
+const getRelatedProductsFulfilled = (data) => ({
+  type: ACTION_STRING.getRelatedProducts.concat("_", Fulfilled),
+  payload: { data },
+});
 
 const getProductThunk = (params) => {
   return async (dispacth) => {
@@ -81,10 +94,22 @@ const getProductSellerThunk = (token, params) => {
     }
   };
 };
+const getRelatedThunk = (url) => {
+  return async (dispacth) => {
+    try {
+      dispacth(getRelatedProductsPending());
+      const result = await getData(url);
+      dispacth(getRelatedProductsFulfilled(result.data));
+    } catch (error) {
+      dispacth(getRelatedProductsRejected(error));
+    }
+  };
+};
 const productActions = {
   getProductThunk,
   getDetailsThunk,
   getProductSellerThunk,
+  getRelatedThunk,
 };
 
 export default productActions;
