@@ -66,3 +66,12 @@ export const getCategories = (data) => {
 export const getBrands = (data) => {
   return axiosRequest("GET", "/brands", data);
 };
+
+export const getProductSeller = (token, params) => {
+  return axios({
+    method: "GET",
+    url: `${baseUrl}/products/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};

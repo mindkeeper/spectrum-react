@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 // import css
 import css from "./Productdetail.module.css";
@@ -11,16 +11,46 @@ import CardProductDetail from "../../../components/card-productdetail/CardProduc
 import title from "../../../components/title/Title";
 
 // import image
-import list_product_1 from "../../../asset/productdetail/product-1.png";
 import list_product_2 from "../../../asset/productdetail/product-2.png";
 import hot_label from "../../../asset/productdetail/hot_lable.png";
+import { useDispatch, useSelector } from "react-redux";
+import productActions from "../../../redux/actions/product";
+import LoadingBar from "../../../components/loading/LoadingBar";
 
 function Productdetail() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const toReview = () => navigate("/product/detail/review");
   const toDescription = () => navigate("/product/detail");
+  const product = useSelector((state) => state.products.detailProduct);
+  const isLoading = useSelector((state) => state.products.isLoading);
+  console.log(product);
+  const [image, setImage] = useState(null);
+  const { id } = useParams();
 
+  const currency = (price) => {
+    return (
+      "IDR " +
+      parseFloat(price)
+        .toFixed()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    );
+  };
+  // const setCategories = (categories) => {
+  //   let result = "";
+  //   categories.forEach((e, i, arr) => {
+  //     if (i === arr.length - 1) {
+  //       result += `${e}`;
+  //     } else {
+  //       result = `${e}, `;
+  //     }
+  //   });
+  //   return result;
+  // };
+
+  useEffect(() => {
+    dispatch(productActions.getDetailsThunk(`/products/details/${id}`));
+  }, [dispatch]);
   title("Spectrum | Product Detail");
   return (
     <>
@@ -49,10 +79,13 @@ function Productdetail() {
       <div className={`container ${css.content_product_preview}`}>
         <div className={`row ${css["c-product"]}`}>
           <div className={`col-lg-3 col-md-12 ${css.list_product}`}>
-            <img src={list_product_1} alt="list_product_1" />
-            <img src={list_product_1} alt="list_product_1" />
-            <img src={list_product_1} alt="list_product_1" />
-            <img src={list_product_1} alt="list_product" />
+            {isLoading ? (
+              <LoadingBar />
+            ) : (
+              product.images.map((image, index) => (
+                <img src={image} key={index} alt={`product detail ${index}`} />
+              ))
+            )}
           </div>
           <div className={`col-lg-9 col-md-12 ${css.product_preview}`}>
             <img
@@ -67,9 +100,7 @@ function Productdetail() {
 
       {/* detail product */}
       <div className={`container ${css["c-detail"]}`}>
-        <p className={`${css.detail_title}`}>
-          Coaster Home Furnishings Sofa in Oatmeal
-        </p>
+        <p className={`${css.detail_title}`}>{product.product_name}</p>
         <div className={`${css.detail_review}`}>
           <i className="fa-solid fa-star"></i>
           <i className="fa-solid fa-star"></i>
@@ -79,23 +110,16 @@ function Productdetail() {
           <span className={`${css.view}`}>2 (reviews)</span>
         </div>
         <div className={`${css.detail_price}`}>
-          <span className={`${css.detail_price_price}`}>$765.99</span>
+          <span className={`${css.detail_price_price}`}>
+            {currency(product.price)}
+          </span>
           <i className="fa-regular fa-circle-check"></i>
           <span className={`${css.detail_price_stock}`}>
-            19 Sold / 40 In Stock
+            {product.stock} in stock
           </span>
         </div>
         <div className={`${css.detail_desc}`}>
-          <p>
-            Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
-            Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices
-            exurabitur ut magna dignissim, dignissiNullam vitae venenatis elit.
-            Proin dui lacus, viverra at imperdiet non, facilisis eget orci.
-            Vivamus ac elit tellus. Vestibulum nulla dui, consequat vitae diam
-            eu, pretium finibus libero. Class aptent taciti sociosqu ad litora
-            torquent per conubia nostra, per inceptos himenaeos. Aliquam vitae
-            neque tellus.
-          </p>
+          <p>{product.description}</p>
         </div>
 
         <div className={`${css.detail_submit}`}>
@@ -126,12 +150,16 @@ function Productdetail() {
         </div>
       </div>
 
-      <div className={`container ${css.detail_list}`}>
-        <p>SKU: N/A</p>
-        <p>Categories: Furniture, Interior, Chair</p>
-        <p>Tag: Furniture, Chair, Scandinavian, Modern</p>
-        <p>Product ID: 274</p>
-      </div>
+      {isLoading ? (
+        <LoadingBar />
+      ) : (
+        <div className={`container ${css.detail_list}`}>
+          <p>SKU: N/A</p>
+          {/* <p></p> */}
+          <p>Categories : {`${product.categories}`}</p>
+          <p>Product ID: {product.id}</p>
+        </div>
+      )}
 
       <div className={`container ${css["detail-location"]}`}>
         <div className={`${css.location}`}>
