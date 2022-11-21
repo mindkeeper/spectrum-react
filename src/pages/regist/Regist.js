@@ -4,8 +4,8 @@ import Footer from "../../components/footer/Footer";
 import styles from "./Regist.module.css";
 
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import registerActions from "../../redux/actions/register";
 
@@ -14,36 +14,25 @@ function Regist() {
   const dispacth = useDispatch();
   const [body, setBody] = useState({});
   const [selected, setSelected] = useState("register");
+  const errorMsg = useSelector((state) => state.register.error);
 
   const changeHandler = (e) =>
     setBody({ ...body, [e.target.name]: e.target.value });
   console.log(body);
 
-  const toLogin = () => navigate("/login");
+  const toLogin = () => {
+    toast.success(`Congrats! ${body.email} register success`);
+    navigate("/login");
+  };
+
+  const errorToast = () => {
+    toast.error(`${errorMsg}`);
+  };
 
   const submitHandler = () => {
     if (!body.email || !body.password || !body.roles)
-      return toast.error("All input must be fulfilled", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    dispacth(registerActions.registerThunk(body, toLogin));
-    return toast.success(`Congrats! ${body.email} register success`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+      return toast.error("All input must be fulfilled");
+    dispacth(registerActions.registerThunk(body, toLogin, errorToast));
   };
 
   return (
@@ -126,7 +115,6 @@ function Regist() {
           </div>
         </div>
       </div>
-      <ToastContainer />
       <Footer />
     </>
   );

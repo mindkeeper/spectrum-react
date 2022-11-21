@@ -3,14 +3,15 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import authActions from "../../redux/actions/auths";
 
 function Login() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
+  const isError = useSelector((state) => state.auth.error);
   const [body, setBody] = useState({});
   const [selected, setSelected] = useState("login");
 
@@ -18,22 +19,16 @@ function Login() {
     setBody({ ...body, [e.target.name]: e.target.value });
   console.log(body);
 
-  const goHome = () => navigate("/");
+  const goHome = () => {
+    toast.success(`Congrats! ${body.email} login success`);
+    navigate("/");
+  };
   const toRegister = () => navigate("/register");
   const toForget = () => navigate("/forget-password");
+  const errorToast = () => toast.error(`${isError}`);
 
   const submitHandler = () => {
-    dispacth(authActions.loginThunk(body, goHome));
-    return toast.success(`Congrats! ${body.email} login success`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    dispacth(authActions.loginThunk(body, goHome, errorToast));
   };
   return (
     <>
@@ -96,7 +91,6 @@ function Login() {
           </div>
         </div>
       </div>
-      <ToastContainer />
       <Footer />
     </>
   );
