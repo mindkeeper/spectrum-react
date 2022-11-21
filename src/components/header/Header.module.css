@@ -363,6 +363,34 @@
     }
 }
 
+.yes-btn {
+    background-color: #1A1A1A;
+    border: none;
+    font-weight: 700;
+}
+
+
+.close-btn {
+    background-color: #919191;
+    border: none;
+    color: #1A1A1A;
+    font-weight: 700;
+}
+
+.yes-btn:hover, .close-btn:hover {
+    background-color: white;
+    border: 1px solid #1A1A1A;
+    color: #1A1A1A;
+}
+
+.yes-btn:active, .close-btn:active {
+    background-color: white!important;
+    border: 1px solid #1A1A1A!important;
+    color: #1A1A1A!important;
+    position: relative;
+    top: .2rem;
+}
+
 @media screen and (max-width: 576px) {
     .navbar .logo-content .logo-title h1 {
         display: none;

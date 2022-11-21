@@ -5,6 +5,10 @@ import glass from "../../asset/product/glass.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import authActions from "../../redux/actions/auths";
+import Modal from "react-bootstrap/Modal";
+import { Button } from "react-bootstrap";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Header() {
   const navigate = useNavigate();
@@ -13,6 +17,7 @@ function Header() {
   const [pages, setPages] = useState(false);
   const [shop, setShop] = useState(false);
   const [search, setSearch] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const token = useSelector((state) => state.auth.userInfo.token);
   const roles = useSelector((state) => state.auth.userInfo.roles);
   // console.log(roles);
@@ -23,7 +28,10 @@ function Header() {
     return navigate("/");
   };
   const toHome = () => navigate("/");
-  const toLogin = () => navigate("/login");
+  const toLogin = () => {
+    toast.success("Logout succesfully");
+    navigate("/login");
+  };
   const toBlog = () => navigate("/blog");
   const toRegister = () => navigate("/register");
 
@@ -46,6 +54,8 @@ function Header() {
   const showSearch = () => {
     setSearch(!search);
   };
+
+  const handleModal = () => setOpenModal(!openModal);
 
   return (
     <>
@@ -127,7 +137,7 @@ function Header() {
                       <li onClick={toProfile}>Profile</li>
                       <li>Chat</li>
                       <li>Notification</li>
-                      <li onClick={logoutHandler}>Logout</li>
+                      <li onClick={handleModal}>Logout</li>
                     </ol>
                   </div>
                 ) : (
@@ -192,6 +202,20 @@ function Header() {
           </div>
         </div>
       )}
+      <Modal show={openModal} onHide={handleModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Spectrum</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure want to logout?</Modal.Body>
+        <Modal.Footer>
+          <Button className={styles["close-btn"]} onClick={handleModal}>
+            Close
+          </Button>
+          <Button className={styles["yes-btn"]} onClick={logoutHandler}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
