@@ -11,6 +11,10 @@ const axiosRequest = (method, url, data, params) => {
   });
 };
 
+export const getData = (url, params, data) => {
+  return axiosRequest("GET", url, data, params);
+};
+
 export const login = (data) => {
   return axiosRequest("POST", "/auth/login", data);
 };
