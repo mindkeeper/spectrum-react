@@ -6,6 +6,7 @@ import Header from "../../../components/header/Header"
 import Footer from "../../../components/footer/Footer"
 import CartDetailProduct from "../../../components/cardCartDetail/CardCartDetail"
 import CartEmpty from "../../../components/cardCartEmpty/CardEmpty"
+import tittle from "../../../components/tittle/Tittle"
 
 
 
@@ -13,6 +14,8 @@ function CartDetail() {
     const navigate = useNavigate()
 
     const toCheckout = () => navigate("checkout")
+
+    tittle("Spectrum | Cart Detail")
     return (
         <>
             <Header />

@@ -3,8 +3,12 @@ import React from 'react'
 import css from './CartCheckout.module.css'
 import Header from "../../../components/header/Header"
 import Footer from "../../../components/footer/Footer"
+import tittle from "../../../components/tittle/Tittle"
 
 function CartDetail() {
+
+
+    tittle("Spectrum | Checkout")
     return (
         <>
             <Header />
