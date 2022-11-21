@@ -6,12 +6,11 @@ import styles from "./CardMyProduct.module.css";
 
 // import sample from "../../asset/product/yellow-chair.png";
 
-function CardMyProduct({ image, name, stock, price }) {
+function CardMyProduct({ image, name, stock, price, token, id }) {
   const dispatch = useDispatch();
-  const { id } = useParams();
 
-  const deleteHandler = () => {
-    dispatch(productActions.delProductThunk(`/products/delete/${id}`));
+  const deleteHandler = (token, id) => {
+    dispatch(productActions.delProductThunk(token, id));
   };
 
   return (
@@ -37,7 +36,13 @@ function CardMyProduct({ image, name, stock, price }) {
         <p>{price}</p>
       </div>
       <div className={`col-lg-2 col-md-2 col-2 ${styles["del-btn"]}`}>
-        <button onClick={deleteHandler}>Delete</button>
+        <button
+          onClick={() => {
+            deleteHandler(token, id);
+          }}
+        >
+          Delete
+        </button>
       </div>
     </>
   );
