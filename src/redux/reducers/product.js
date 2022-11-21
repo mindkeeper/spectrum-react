@@ -2,6 +2,8 @@ import { ActionType } from "redux-promise-middleware";
 import { ACTION_STRING } from "../actions/actionStrings";
 
 const initialState = {
+  related: [],
+  productSeller: [],
   detailProduct: [],
   products: [],
   isError: false,
@@ -11,7 +13,12 @@ const initialState = {
 
 const productReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { getProducts, getDetailProduct } = ACTION_STRING;
+  const {
+    getProducts,
+    getDetailProduct,
+    getProductSeller,
+    getRelatedProducts,
+  } = ACTION_STRING;
 
   switch (type) {
     case getProducts.concat("_", Pending):
@@ -58,6 +65,51 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: false,
         isFulfilled: true,
         detailProduct: payload.data.data,
+      };
+
+    case getProductSeller.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case getProductSeller.concat("_", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+      };
+    case getProductSeller.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        productSeller: payload.data.data,
+      };
+    case getRelatedProducts.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case getRelatedProducts.concat("_", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+      };
+    case getRelatedProducts.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        related: payload.data.data,
       };
 
     default:
