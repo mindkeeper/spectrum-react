@@ -119,6 +119,7 @@ function MyProduct() {
                 price={e.price}
                 id={e.id}
                 key={e.id}
+                token={token}
               />
             ))
           )}
