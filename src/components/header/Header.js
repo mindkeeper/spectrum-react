@@ -214,11 +214,11 @@ function Header() {
         </Modal.Header>
         <Modal.Body>Are you sure want to logout?</Modal.Body>
         <Modal.Footer>
-          <Button className={styles["close-btn"]} onClick={handleModal}>
-            Close
-          </Button>
           <Button className={styles["yes-btn"]} onClick={logoutHandler}>
             Yes
+          </Button>
+          <Button className={styles["close-btn"]} onClick={handleModal}>
+            Close
           </Button>
         </Modal.Footer>
       </Modal>
