@@ -1,0 +1,9 @@
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.checkbox label {
+    font-weight: 600;
+}

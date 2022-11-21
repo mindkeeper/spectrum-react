@@ -81,7 +81,50 @@
     padding: 1rem 0;
 }
 
-.left-content .product-price .bar {
+.left-content .product-price .slider {
+    position: relative;
+    margin: 1rem 0;
+    max-width: 75%;
+    height: 5px;
+    background-color: #C8C8C8;
+}
+
+.left-content .product-price .slider .progress {
+    height: 5px;
+    border-radius: 5px;
+    background-color: #1A1A1A;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+}
+
+.left-content .product-price .range-input {
+    position: relative;
+}
+
+.left-content .product-price .range-input input {
+    position: absolute;
+    top: -21px;
+    height: 5px;
+    width: 75%;
+    background: none;
+    cursor: grab;
+    pointer-events: none;
+    -webkit-appearance: none;
+}
+
+.left-content .product-price .range-input input[type="range"]::-webkit-slider-thumb{
+    height: 15px;
+    width: 15px;
+    border: none;
+    border-radius: 50%;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    background-color: #1A1A1A;
+}
+
+
+/* .left-content .product-price .bar {
     display: flex;
     align-items: center;
     padding: 1rem 0;
@@ -101,7 +144,7 @@
     height: .5rem;
     background-color: #919191;
     border-radius: 2px;
-}
+} */
 
 .left-content .filter {
     padding-bottom: 2rem;
@@ -129,16 +172,6 @@
     font-size: 1.5rem;
     font-weight: 700;
     padding-bottom: 1rem;
-}
-
-.left-content .product-brands .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.left-content .product-brands .checkbox label {
-    font-weight: 600;
 }
 
 .left-content .product-colors .title h1{
