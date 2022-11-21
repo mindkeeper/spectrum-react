@@ -101,11 +101,11 @@ const getProductSellerThunk = (token, params) => {
   };
 };
 
-const delProductThunk = (url) => {
+const delProductThunk = (token, id) => {
   return async (dispacth) => {
     try {
       dispacth(delProductPending());
-      const result = await delProductSeller(url);
+      const result = await delProductSeller(token, id);
       dispacth(delProductFulfilled(result.data));
     } catch (error) {
       dispacth(delProductRejected(error));
