@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import authActions from "../../redux/actions/auths";
+import tittle from "../../components/tittle/Tittle"
 
 function Login() {
   const navigate = useNavigate();
@@ -35,6 +36,9 @@ function Login() {
       theme: "light",
     });
   };
+
+
+  tittle("Spectrum | Login")
   return (
     <>
       <Header />

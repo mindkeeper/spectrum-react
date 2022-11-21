@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom'
 import css from './NotFound.module.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import tittle from "../../components/tittle/Tittle"
 import oval from '../../asset/404/Mask.png'
 
 function Error() {
+
+    tittle("Spectrum | 404")
     return (
         <>
             <Header />

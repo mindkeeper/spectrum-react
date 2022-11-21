@@ -3,8 +3,10 @@ import React, { useEffect } from 'react'
 import css from './Blogdetail.module.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import tittle from "../../components/tittle/Tittle"
 import CardComment from '../../components/card-comment/CardComment'
 import CardInputComment from '../../components/card-input-comment/CardInputComment'
+
 
 import img_1 from '../../asset/blog/right_1.png'
 import img_2 from '../../asset/blog/right_2.png'
@@ -20,6 +22,8 @@ function Blogdetail() {
         window.scrollTo(0, 0)
     }, [])
 
+
+    tittle("Spectrum | Blog Detail")
     return (
         <>
             <Header />

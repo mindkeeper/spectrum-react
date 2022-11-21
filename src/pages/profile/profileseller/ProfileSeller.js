@@ -15,6 +15,7 @@ import pencil from '../../../asset/profile/pencil.png'
 // import component
 import Header from '../../../components/header/Header'
 import Footer from '../../../components/footer/Footer'
+import tittle from "../../../components/tittle/Tittle"
 import CardHeaderProfile from '../../../components/card-header-profile/CardHeaderProfile'
 
 // import actions
@@ -137,7 +138,7 @@ function ProfileSeller() {
     const isEditstore_desc = () => setEdit_store_desc(false)
 
 
-
+    tittle("Spectrum | Profile Seller")
     return (
         <>
             {/* Header */}

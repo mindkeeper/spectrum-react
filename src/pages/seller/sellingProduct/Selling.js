@@ -3,8 +3,12 @@ import styles from "./Selling.module.css";
 import Header from "../../../components/header/Header";
 import Footer from "../../../components/footer/Footer";
 import Tab from "../../../components/card-header-profile/CardHeaderProfile";
+import tittle from "../../../components/tittle/Tittle"
 
 function Selling() {
+
+
+  tittle("Spectrum | Selling")
   return (
     <>
       <Header />

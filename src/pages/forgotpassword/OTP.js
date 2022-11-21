@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import authActions from "../../redux/actions/auths";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import tittle from "../../components/tittle/Tittle"
 
 function OTP() {
   const navigate = useNavigate();
@@ -60,6 +61,9 @@ function OTP() {
         theme: "light",
       });
   }, [fulfilled]);
+
+
+  tittle("Spectrum | OTP")
   return (
     <>
       <Header />

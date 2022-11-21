@@ -4,6 +4,7 @@ import css from './Blog.module.css'
 
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import tittle from "../../components/tittle/Tittle"
 
 import img_1 from '../../asset/blog/right_1.png'
 import img_2 from '../../asset/blog/right_2.png'
@@ -21,6 +22,9 @@ function Blog() {
     }, [])
 
     const toBlogDetail = () => navigate("/blog/detail");
+
+
+    tittle("Spectrum | Blog")
     return (
         <>
             <Header />

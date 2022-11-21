@@ -4,6 +4,7 @@ import Footer from "../../components/footer/Footer";
 import LoadingBar from "../../components/loading/Loading";
 import styles from "./Product.module.css";
 
+import tittle from "../../components/tittle/Tittle"
 import Card from "../../components/cardProduct/CardProduct";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../redux/actions/product";
@@ -65,6 +66,9 @@ function Product() {
   useEffect(() => {
     dispacth(brandsActions.getBrandsThunk());
   }, [dispacth]);
+
+
+  tittle("Spectrum | Product")
   return (
     <>
       <Header />
@@ -154,7 +158,7 @@ function Product() {
                       name={e.brand_name}
                       id={e.id}
                       key={e.id}
-                      // setQuery={setQuery}
+                    // setQuery={setQuery}
                     />
                   ))}
                 </div>

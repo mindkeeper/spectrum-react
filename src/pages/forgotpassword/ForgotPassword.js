@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import authActions from "../../redux/actions/auths";
 import { Button } from "react-bootstrap";
+import tittle from "../../components/tittle/Tittle"
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ function ForgotPassword() {
     // setOpenModal(!openModal);
   };
 
+  tittle("Spectrum | Forgot Password")
   return (
     <>
       <Header />

@@ -6,6 +6,7 @@ import css from "./ProductdetailReview.module.css"
 import Header from '../../../components/header/Header'
 import Footer from '../../../components/footer/Footer'
 import CardComment from '../../../components/card-comment/CardComment'
+import tittle from "../../../components/tittle/Tittle"
 import CardInputComment from '../../../components/card-input-comment/CardInputComment'
 
 import list_product_1 from '../../../asset/productdetailreview/product-1.png'
@@ -20,6 +21,8 @@ function ProductdetailReview() {
     const toReview = () => navigate("/product/detail/review");
     const toDescription = () => navigate("/product/detail");
 
+
+    tittle("Spectrum | Product Review")
     return (
         <>
             <Header />

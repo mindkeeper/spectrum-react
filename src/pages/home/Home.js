@@ -7,6 +7,7 @@ import css from "./Home.module.css";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import CardHome from "../../components/card-home/CardHome";
+import tittle from "../../components/tittle/Tittle"
 
 // import image
 import partner_1 from "../../asset/bg-home/backtowork.png";
@@ -21,6 +22,8 @@ function Home() {
   const toProduct = () => {
     navigate("/product");
   };
+
+  tittle("Spectrum | Home")
   return (
     <>
       <div className={`container-fluid ${css["bg-top"]}`}>

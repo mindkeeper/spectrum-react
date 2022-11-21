@@ -4,12 +4,16 @@ import Header from "../../../components/header/Header";
 import Footer from "../../../components/footer/Footer";
 import Tab from "../../../components/card-header-profile/CardHeaderProfile";
 import Card from "../../../components/cardMyOrder/CardOrder";
+import tittle from "../../../components/tittle/Tittle"
 
 function Order() {
   const [dropdown, setDropdown] = useState(false);
   const active = () => {
     setDropdown(!dropdown);
   };
+
+
+  tittle("Spectrum | Order")
   return (
     <>
       <Header />

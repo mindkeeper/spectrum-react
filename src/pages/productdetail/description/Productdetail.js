@@ -9,6 +9,7 @@ import css from "./Productdetail.module.css"
 import Header from '../../../components/header/Header'
 import Footer from '../../../components/footer/Footer'
 import CardProductDetail from '../../../components/card-productdetail/CardProductDetail'
+import tittle from "../../../components/tittle/Tittle"
 
 // import image
 import list_product_1 from '../../../asset/productdetail/product-1.png'
@@ -22,6 +23,7 @@ function Productdetail() {
     const toReview = () => navigate("/product/detail/review");
     const toDescription = () => navigate("/product/detail");
 
+    tittle("Spectrum | Product Detail")
     return (
         <>
 
