@@ -132,10 +132,10 @@ const AboutUs = () => {
               </div>
             </div>
           </aside>
-          <aside>
+          <aside className={`${css["meet-wrap"]}`}>
             <p className={`col ${css["meet"]}`}>Meet Our Team</p>
           </aside>
-          <aside>
+          <aside className={` ${css["pho-wrap"]}`}>
             <div class="container">
               <div className={`row row-cols-auto ${css["quality3"]}`}>
                 <div className={`col ${css["listpeople1"]}`}>

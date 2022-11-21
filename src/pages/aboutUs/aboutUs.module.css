@@ -32,7 +32,12 @@
   width: 100%;
   justify-content: center;
   margin-top: 5%;
-  margin-left: -2%;
+  /* margin-left: -2%; */
+}
+.pho-wrap{
+  width: 100%;
+  /* background-color: green; */
+  margin: auto;
 }
 
 .unique {
@@ -134,10 +139,16 @@
   font-size: 46px;
   line-height: 53px;
   margin-top: 5%;
-  /* margin-left: -5%; */
+ 
   text-align: center;
   color: #1a1a1a;
 }
+
+.meet-wrap{
+  /* background-color: blue; */
+  width: 100%;
+}
+
 
 .img2 {
   width: 20vw;
@@ -231,4 +242,22 @@
   .endbody {
     width: fit-content;
   }
+}
+
+@media screen and (max-width: 1280px) {
+  .img1 {
+    width: 45vw;
+  }
+  .img3 {
+    width: 20vw;
+    height: 36.5vh;
+  }
+  .img4 {
+    width: 20vw;
+    height: 36.5vh;
+  }
+  /* .desc1{
+    line-height: 35px;
+  } */
+
 }
