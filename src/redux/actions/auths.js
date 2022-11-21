@@ -40,7 +40,7 @@ const resetFulfilled = (data) => ({
   payload: { data },
 });
 
-const loginThunk = (body, navigate) => {
+const loginThunk = (body, navigate, cbError) => {
   return async (dispacth) => {
     try {
       dispacth(loginPending());
@@ -51,6 +51,7 @@ const loginThunk = (body, navigate) => {
       if (typeof navigate === "function") navigate();
     } catch (error) {
       dispacth(loginRejected(error));
+      if (typeof navigate === "function") cbError();
     }
   };
 };
@@ -69,16 +70,18 @@ const logoutThunk = (token, navigate) => {
   };
 };
 
-const resetThunk = (body, navigate) => {
-  return async (dispacth) => {
+const resetThunk = (body, navigate, cbError) => {
+  return async (dispatch) => {
     try {
-      dispacth(resetPending());
+      dispatch(resetPending());
       const result = await reset(body);
-      dispacth(resetFulfilled(result.data));
+      dispatch(resetFulfilled(result.data));
       console.log(result.data.data);
       if (typeof navigate === "function") navigate();
+      // if (typeof cbSuccess === "function") cbSuccess();
     } catch (error) {
-      dispacth(resetRejected(error));
+      dispatch(resetRejected(error));
+      if (typeof cbError === "function") cbError(error);
     }
   };
 };

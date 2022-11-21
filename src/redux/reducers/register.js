@@ -2,6 +2,7 @@ import { ActionType } from "redux-promise-middleware";
 import { ACTION_STRING } from "../actions/actionStrings";
 
 const initialState = {
+  error: null,
   isError: false,
   isLoading: false,
   isFulfilled: false,
@@ -25,7 +26,7 @@ const registerReducer = (prevState = initialState, { type, payload }) => {
         isLoading: false,
         isError: true,
         isFulfilled: false,
-        error: payload.error.message,
+        error: payload.error.response.data.msg,
       };
     case register.concat("_", Fulfilled):
       return {

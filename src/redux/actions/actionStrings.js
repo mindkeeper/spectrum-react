@@ -2,7 +2,7 @@ export const ACTION_STRING = {
   authLogin: "AUTH_LOGIN",
   authLogout: "AUTH_LOGOUT",
   register: "REGISTER",
-  dataProfile: 'GET_PROFILE',
+  dataProfile: "GET_PROFILE",
   editProfile: "EDIT_PROFILE",
   authReset: "AUTH_RESET",
   pending: "_PENDING",
@@ -16,4 +16,8 @@ export const ACTION_STRING = {
   updateProfile: "UPDATE_PROFILE",
   getPromos: "GET_PROMOS",
   addContact: "ADD_CONTACT",
+  getCategories: "GET_CATEGORIES",
+  getBrands: "GET_BRANDS",
+  getProductSeller: "GET_PRODUCT_SELLER",
+  getRelatedProducts: "GET_RELATED_PRODUCTS",
 };

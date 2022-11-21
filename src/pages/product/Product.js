@@ -1,25 +1,60 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import title from "../../components/title/Title";
+import LoadingBar from "../../components/loading/Loading";
 import styles from "./Product.module.css";
 
 import Card from "../../components/cardProduct/CardProduct";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../redux/actions/product";
+import CardCategory from "../../components/cardCategory/CardCategory";
+import CardBrand from "../../components/cardBrand/CardBrand";
+import categoriesActions from "../../redux/actions/categories";
+import { createSearchParams, useSearchParams } from "react-router-dom";
+import brandsActions from "../../redux/actions/brands";
+
+// const useQuery = () => {
+//   const { search } = useLocation();
+
+//   return useMemo(() => new URLSearchParams(search), [search]);
+// };
 
 function Product() {
   const [show, setShow] = useState(false);
+
   const products = useSelector((state) => state.products.products);
+  const categories = useSelector((state) => state.categories.categories);
+  const brands = useSelector((state) => state.brands.brands);
+  const isLoading = useSelector((state) => state.products.isLoading);
+  // const isError = useSelector((state) => state.products.isError);
+
   const dispacth = useDispatch();
+  // const getQuery = useQuery();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState({});
+
   const dropdownHandler = () => {
     setShow(!show);
   };
 
-  console.log(products);
+  console.log(brands);
 
   useEffect(() => {
-    dispacth(productActions.getProductThunk());
+    const urlSearchParams = createSearchParams({ ...query });
+    setSearchParams(urlSearchParams);
+    dispacth(productActions.getProductThunk(query));
+  }, [dispacth, query, searchParams]);
+
+  useEffect(() => {
+    dispacth(categoriesActions.getCategoriesThunk());
   }, [dispacth]);
+
+  useEffect(() => {
+    dispacth(brandsActions.getBrandsThunk());
+  }, [dispacth]);
+
+  title("Spectrum | Product");
   return (
     <>
       <Header />
@@ -51,28 +86,15 @@ function Product() {
                   <h1>Categories</h1>
                 </div>
                 <div className={styles["content"]}>
-                  <div className={styles["name"]}>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                    <p>Furniture</p>
-                  </div>
-                  <div className={styles["qty"]}>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                    <p>15</p>
-                  </div>
+                  {categories?.map((e) => (
+                    <CardCategory
+                      name={e.category_name}
+                      unit={e.total_product}
+                      id={e.id}
+                      key={e.id}
+                      setQuery={setQuery}
+                    />
+                  ))}
                 </div>
               </div>
               <div className={styles["product-price"]}>
@@ -82,11 +104,30 @@ function Product() {
                 <div className={styles["content"]}>
                   <p>Price $39 - $159</p>
                 </div>
-                <div className={styles["bar"]}>
+                <div className={styles["slider"]}>
+                  <div className={styles["progress"]}></div>
+                </div>
+                <div className={styles["range-input"]}>
+                  <input
+                    type="range"
+                    class="range-min"
+                    min="0"
+                    max="1000000"
+                    value="250000"
+                  />
+                  <input
+                    type="range"
+                    class="range-max"
+                    min="0"
+                    max="1000000"
+                    value="750000"
+                  />
+                </div>
+                {/* <div className={styles["bar"]}>
                   <span className={styles["left-circle"]}></span>
                   <span className={styles["line"]}></span>
                   <span className={styles["right-circle"]}></span>
-                </div>
+                </div> */}
               </div>
               <div className={styles["filter"]}>
                 <div className={styles["filter-container"]}>
@@ -98,26 +139,14 @@ function Product() {
                   <h1>Brands</h1>
                 </div>
                 <div className={styles["content"]}>
-                  <div className={styles["checkbox"]}>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">IKEA</label>
-                  </div>
-                  <div className={styles["checkbox"]}>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">Mr Royal</label>
-                  </div>
-                  <div className={styles["checkbox"]}>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">Sweet House</label>
-                  </div>
-                  <div className={styles["checkbox"]}>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">North Oxford</label>
-                  </div>
-                  <div className={styles["checkbox"]}>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">Mr.Poppin 1929</label>
-                  </div>
+                  {brands?.map((e) => (
+                    <CardBrand
+                      name={e.brand_name}
+                      id={e.id}
+                      key={e.id}
+                      // setQuery={setQuery}
+                    />
+                  ))}
                 </div>
               </div>
               <div className={styles["product-colors"]}>
@@ -126,12 +155,12 @@ function Product() {
                 </div>
                 <div className={styles["content"]}>
                   <div className={styles["pallete"]}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span onClick={() => setQuery({ colorId: 1 })}></span>
+                    <span onClick={() => setQuery({ colorId: 2 })}></span>
+                    <span onClick={() => setQuery({ colorId: 3 })}></span>
+                    <span onClick={() => setQuery({ colorId: 4 })}></span>
+                    <span onClick={() => setQuery({ colorId: 5 })}></span>
+                    <span onClick={() => setQuery({ colorId: 6 })}></span>
                   </div>
                 </div>
               </div>
@@ -152,23 +181,67 @@ function Product() {
               {show && (
                 <div className={styles["dropdown-list"]}>
                   <ol>
-                    <li>latest</li>
-                    <li>newest</li>
-                    <li>priciest</li>
-                    <li>cheapest</li>
+                    <li
+                      onClick={() => {
+                        setQuery({
+                          ...query,
+                          sort: "oldest",
+                        });
+                      }}
+                    >
+                      oldest
+                    </li>
+                    <li
+                      onClick={() => {
+                        setQuery({
+                          ...query,
+                          sort: "newest",
+                        });
+                      }}
+                    >
+                      newest
+                    </li>
+                    <li
+                      onClick={() => {
+                        setQuery({
+                          ...query,
+                          sort: "priciest",
+                        });
+                      }}
+                    >
+                      priciest
+                    </li>
+                    <li
+                      onClick={() => {
+                        setQuery({
+                          ...query,
+                          sort: "cheapest",
+                        });
+                      }}
+                    >
+                      cheapest
+                    </li>
                   </ol>
                 </div>
               )}
               <div className={styles["card-container"]}>
-                {products?.map((e) => (
-                  <Card
-                    productName={e.product_name}
-                    price={e.price}
-                    image={e.image}
-                    id={e.id}
-                    key={e.id}
-                  />
-                ))}
+                {isLoading ? (
+                  <LoadingBar />
+                ) : !products ? (
+                  <div className="">
+                    <h1>gaada produk nyaa</h1>
+                  </div>
+                ) : (
+                  products?.map((e) => (
+                    <Card
+                      productName={e.product_name}
+                      price={e.price}
+                      image={e.image}
+                      id={e.id}
+                      key={e.id}
+                    />
+                  ))
+                )}
               </div>
               <div className={styles["paginate-page"]}>
                 <div className={styles["page-container"]}>

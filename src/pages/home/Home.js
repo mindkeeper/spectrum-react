@@ -7,14 +7,23 @@ import css from "./Home.module.css";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import CardHome from "../../components/card-home/CardHome";
+import title from "../../components/title/Title";
 
 // import image
 import partner_1 from "../../asset/bg-home/backtowork.png";
 import partner_2 from "../../asset/bg-home/furniture_2.png";
 import partner_3 from "../../asset/bg-home/furniture_1.png";
 import partner_4 from "../../asset/bg-home/workspace.png";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const toProduct = () => {
+    navigate("/product");
+  };
+
+  title("Spectrum | Home");
   return (
     <>
       <div className={`container-fluid ${css["bg-top"]}`}>
@@ -36,10 +45,17 @@ function Home() {
                 <br /> Curabitur blandit ultrices ex. Curabitur ut magna
                 dignissim, dignissim
               </p>
-              <p className={`text-center ${css["explore-more"]}`}>
-                Explore now
-              </p>
-              <i className={`fa-solid fa-arrow-down ${css["arrow-down"]}`}></i>
+              <div className={css["explore"]}>
+                <p
+                  className={`text-center ${css["explore-more"]}`}
+                  onClick={toProduct}
+                >
+                  Explore now
+                </p>
+                <i
+                  className={`fa-solid fa-arrow-down ${css["arrow-down"]}`}
+                ></i>
+              </div>
             </div>
           </div>
         </div>

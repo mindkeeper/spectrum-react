@@ -65,14 +65,9 @@
 
 .left-content .product-categories .content {
     display: flex;
-    gap: 10rem;
-    align-items: center;
-}
-
-.left-content .product-categories .content .name, .left-content .product-categories .content .qty {
-    display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .5rem;
+    max-width: 75%;
 }
 
 .left-content .product-price .title h1{
@@ -86,7 +81,50 @@
     padding: 1rem 0;
 }
 
-.left-content .product-price .bar {
+.left-content .product-price .slider {
+    position: relative;
+    margin: 1rem 0;
+    max-width: 75%;
+    height: 5px;
+    background-color: #C8C8C8;
+}
+
+.left-content .product-price .slider .progress {
+    height: 5px;
+    border-radius: 5px;
+    background-color: #1A1A1A;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+}
+
+.left-content .product-price .range-input {
+    position: relative;
+}
+
+.left-content .product-price .range-input input {
+    position: absolute;
+    top: -21px;
+    height: 5px;
+    width: 75%;
+    background: none;
+    cursor: grab;
+    pointer-events: none;
+    -webkit-appearance: none;
+}
+
+.left-content .product-price .range-input input[type="range"]::-webkit-slider-thumb{
+    height: 15px;
+    width: 15px;
+    border: none;
+    border-radius: 50%;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    background-color: #1A1A1A;
+}
+
+
+/* .left-content .product-price .bar {
     display: flex;
     align-items: center;
     padding: 1rem 0;
@@ -106,7 +144,7 @@
     height: .5rem;
     background-color: #919191;
     border-radius: 2px;
-}
+} */
 
 .left-content .filter {
     padding-bottom: 2rem;
@@ -134,16 +172,6 @@
     font-size: 1.5rem;
     font-weight: 700;
     padding-bottom: 1rem;
-}
-
-.left-content .product-brands .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.left-content .product-brands .checkbox label {
-    font-weight: 600;
 }
 
 .left-content .product-colors .title h1{
@@ -281,10 +309,17 @@
     width: fit-content;
 }
 
+.right-content .paginate-page .page-container:hover {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
 .right-content .paginate-page .page-container p {
     font-size: 1rem;
     font-weight: 700;
     padding: 1rem;
+    user-select: none;
 }
 
 @media screen and (max-width: 768px) {

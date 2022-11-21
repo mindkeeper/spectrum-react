@@ -1,0 +1,130 @@
+/* component */
+.content_component {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.component {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.product_preview {
+    width: 120px;
+}
+
+.name_product {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1A1A1A;
+    margin-left: 20px;
+    width: 20%;
+}
+
+.stock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 80px;
+}
+
+.stock > input[type="radio"]:checked {
+    accent-color: black;
+}
+
+.stock > label {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #262626;
+    margin-left: 10px;
+    width: 50px;
+}
+
+
+.price {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1A1A1A;
+    width: 15%;
+    margin-left: 200px;
+    word-wrap: break-word;
+}
+
+.addcart {
+    background-color: #1A1A1A;
+    width: 15%;
+    height: 50px;
+    margin-left: 120px;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .content_bar1 {
+        margin-left: 0px;
+    }
+    .content_bar2 {
+        margin-left: 240px;
+    }
+    .content_bar3 {
+        margin-left: 30px;
+    }
+    .name_product {
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        margin-left: 20px;
+        width: 20%;
+    }
+
+    .stock {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 20px;
+    }
+
+    .price {
+        width: 15%;
+        margin-left: 50px;
+        word-wrap: break-word;
+    }
+
+    .addcart {
+        background-color: #1A1A1A;
+        width: 15%;
+        height: 50px;
+        margin-left: 50px;
+        font-family: 'Arimo';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 18px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+}
+
+@media only screen and (max-width: 428px) {
+
+}

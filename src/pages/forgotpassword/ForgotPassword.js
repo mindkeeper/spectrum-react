@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import title from "../../components/title/Title";
+// import Modal from "react-bootstrap/Modal";
 import styles from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import authActions from "../../redux/actions/auths";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import { Button } from "react-bootstrap";
 
 function ForgotPassword() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const [body, setBody] = useState({});
+  // const [openModal, setOpenModal] = useState(false);
+
+  const code = useSelector((state) => state.auth.code);
+  // const errorMsg = useSelector((state) => state.auth.error);
+  console.log(code);
 
   const changeHandler = (e) =>
     setBody({
@@ -18,13 +28,25 @@ function ForgotPassword() {
     });
   console.log(body);
 
-  const to = () => navigate("/forget-password/new");
+  // const handleClose = () => setOpenModal(!openModal);
 
-  const submitHandler = () => {
-    dispacth(authActions.resetThunk(body, to));
-    localStorage.setItem("email", JSON.stringify(body.email));
+  const toVerif = () => {
+    toast.success(`Congrats! Your OTP has been sent to ${body.email}`);
+    navigate("/forget-password/new");
   };
 
+  const isError = (error) => {
+    toast.error(`${error.response.data.msg}`);
+    // console.log(error);
+  };
+
+  const submitHandler = () => {
+    dispacth(authActions.resetThunk(body, toVerif, isError));
+    localStorage.setItem("email", JSON.stringify(body.email));
+    // setOpenModal(!openModal);
+  };
+
+  title("Spectrum | Forget Password");
   return (
     <>
       <Header />
@@ -66,6 +88,17 @@ function ForgotPassword() {
           </div>
         </div>
       </div>
+      {/* <Modal show={openModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Spectrum</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Your code is {code}</Modal.Body>
+        <Modal.Footer>
+          <Button className={styles["yes-btn"]} onClick={toVerif}>
+            Verification Your Code
+          </Button>
+        </Modal.Footer>
+      </Modal> */}
       <Footer />
     </>
   );

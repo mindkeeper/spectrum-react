@@ -11,6 +11,10 @@ const axiosRequest = (method, url, data, params) => {
   });
 };
 
+export const getData = (url, params, data) => {
+  return axiosRequest("GET", url, data, params);
+};
+
 export const login = (data) => {
   return axiosRequest("POST", "/auth/login", data);
 };
@@ -36,20 +40,40 @@ export const getProfile = (token) => {
     method: "GET",
     url: `${baseUrl}/users/profile`,
     headers: { "x-access-token": token },
-  })
-}
+  });
+};
 
-export const patchProfile = (body, token) => {
+export const patchProfile = (data, token) => {
   return axios({
     method: "PATCH",
     url: `${baseUrl}/users/profile/edit`,
-    body,
-    headers: { "x-access-token": token },
-  })
-}
+    headers: {
+      "x-access-token": token,
+      "Content-Type": "multipart/form-data",
+    },
+    data,
+  });
+};
 
-export const getProduct = (data) => {
-  return axiosRequest("GET", "/products", data);
+export const getProduct = (params, data) => {
+  return axiosRequest("GET", "/products", data, params);
+};
+
+export const getCategories = (data) => {
+  return axiosRequest("GET", "/categories", data);
+};
+
+export const getBrands = (data) => {
+  return axiosRequest("GET", "/brands", data);
+};
+
+export const getProductSeller = (token, params) => {
+  return axios({
+    method: "GET",
+    url: `${baseUrl}/products/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
 };
 
 export const addContact = (body) => {

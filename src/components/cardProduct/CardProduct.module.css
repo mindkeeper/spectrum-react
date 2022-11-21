@@ -12,12 +12,13 @@
 }
 
 .card-product .image {
-    min-height: 25rem;
+    padding: 1rem;
     box-shadow: 0px 30px 60px rgb(57 57 57 / 10%);
 }
 
 .card-product .image img {
-    width: 18rem;
+    width: 13rem;
+    aspect-ratio: 1;
 }
 
 .card-product .name h1 {
