@@ -15,4 +15,5 @@ export const ACTION_STRING = {
   getProfile: "GET_PROFILE",
   updateProfile: "UPDATE_PROFILE",
   getPromos: "GET_PROMOS",
+  addContact: "ADD_CONTACT",
 };

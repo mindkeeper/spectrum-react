@@ -51,3 +51,16 @@ export const patchProfile = (body, token) => {
 export const getProduct = (data) => {
   return axiosRequest("GET", "/products", data);
 };
+
+// export const addContact = (body, token) => {
+//   return axiosRequest({
+//     method: "post",
+//     url: `${baseUrl}/contactus`,
+//     body,
+//     headers: { "x-access-token": token },
+//   })
+// }
+
+export const addContact = (body) => {
+  return axiosRequest("POST", `/contactus/`, body);
+};
