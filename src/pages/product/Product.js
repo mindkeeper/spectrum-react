@@ -30,6 +30,8 @@ function Product() {
   const categories = useSelector((state) => state.categories.categories);
   const brands = useSelector((state) => state.brands.brands);
   const isLoading = useSelector((state) => state.products.isLoading);
+  // const isError = useSelector((state) => state.products.isError);
+
   const dispacth = useDispatch();
   const getQuery = useQuery();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -121,14 +123,14 @@ function Product() {
                     class="range-min"
                     min="0"
                     max="1000000"
-                    // value="250000"
+                    value="250000"
                   />
                   <input
                     type="range"
                     class="range-max"
                     min="0"
                     max="1000000"
-                    // value="750000"
+                    value="750000"
                   />
                 </div>
                 {/* <div className={styles["bar"]}>
@@ -163,12 +165,12 @@ function Product() {
                 </div>
                 <div className={styles["content"]}>
                   <div className={styles["pallete"]}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span onClick={() => setQuery({ colorId: 1 })}></span>
+                    <span onClick={() => setQuery({ colorId: 2 })}></span>
+                    <span onClick={() => setQuery({ colorId: 3 })}></span>
+                    <span onClick={() => setQuery({ colorId: 4 })}></span>
+                    <span onClick={() => setQuery({ colorId: 5 })}></span>
+                    <span onClick={() => setQuery({ colorId: 6 })}></span>
                   </div>
                 </div>
               </div>
@@ -235,6 +237,10 @@ function Product() {
               <div className={styles["card-container"]}>
                 {isLoading ? (
                   <LoadingBar />
+                ) : !products ? (
+                  <div className="">
+                    <h1>gaada produk nyaa</h1>
+                  </div>
                 ) : (
                   products?.map((e) => (
                     <Card
