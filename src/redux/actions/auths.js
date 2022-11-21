@@ -40,7 +40,7 @@ const resetFulfilled = (data) => ({
   payload: { data },
 });
 
-const loginThunk = (body, navigate) => {
+const loginThunk = (body, navigate, cbError) => {
   return async (dispacth) => {
     try {
       dispacth(loginPending());
@@ -51,6 +51,7 @@ const loginThunk = (body, navigate) => {
       if (typeof navigate === "function") navigate();
     } catch (error) {
       dispacth(loginRejected(error));
+      if (typeof navigate === "function") cbError();
     }
   };
 };
