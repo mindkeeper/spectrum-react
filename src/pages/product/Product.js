@@ -17,11 +17,11 @@ import {
 } from "react-router-dom";
 import brandsActions from "../../redux/actions/brands";
 
-const useQuery = () => {
-  const { search } = useLocation();
+// const useQuery = () => {
+//   const { search } = useLocation();
 
-  return useMemo(() => new URLSearchParams(search), [search]);
-};
+//   return useMemo(() => new URLSearchParams(search), [search]);
+// };
 
 function Product() {
   const [show, setShow] = useState(false);
@@ -33,18 +33,9 @@ function Product() {
   // const isError = useSelector((state) => state.products.isError);
 
   const dispacth = useDispatch();
-  const getQuery = useQuery();
+  // const getQuery = useQuery();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState({
-    search: getQuery.get("search") || "",
-    sort: getQuery.get("sort") || "",
-    // page: getQuery.get("page") ? getQuery.get("page") : 1,
-    brandId: getQuery.get("brandId") || "",
-    colorId: getQuery.get("colorId") || "",
-    categoryId: getQuery.get("categoryId") || "",
-    minPrice: getQuery.get("minPrice") || "",
-    maxPrice: getQuery.get("maxPrice") || "",
-  });
+  const [query, setQuery] = useState({});
 
   const dropdownHandler = () => {
     setShow(!show);
