@@ -37,7 +37,7 @@ function Productdetail() {
 
   useEffect(() => {
     dispatch(productActions.getDetailsThunk(`/products/details/${id}`));
-  }, [dispatch]);
+  }, [id, dispatch]);
   title("Spectrum | Product Detail");
   return (
     <>
@@ -69,7 +69,7 @@ function Productdetail() {
             {isLoading ? (
               <LoadingBar />
             ) : (
-              product.images.map((image, index) => (
+              product?.images?.map((image, index) => (
                 <img
                   src={image}
                   key={index}
