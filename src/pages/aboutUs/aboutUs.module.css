@@ -19,7 +19,7 @@
   /* background-color: aqua; */
   text-align: center;
   margin: auto;
-  width: 70vw;
+  width: 100%;
   justify-content: center;
   margin-top: 5%;
   /* margin-left: -4%; */
@@ -29,7 +29,7 @@
   /* background-color: aqua; */
   text-align: center;
   margin: auto;
-  width: 70vw;
+  width: 100%;
   justify-content: center;
   margin-top: 5%;
   margin-left: -2%;
@@ -37,23 +37,19 @@
 
 .unique {
   /* background-color: aquamarine; */
-  width: 18vw;
-  margin-left: -5%;
+  width: 25vw;
+  /* margin-left: -5%; */
   font-family: "Arimo";
   font-style: normal;
-  /* font-weight: 700; */
   font-size: 18px;
-  /* line-height: 21px; */
-
   text-align: center;
-
   color: #1a1a1a;
 }
 
 .warranty {
   /* background-color: aquamarine; */
-  width: 18vw;
-  margin-left: 10%;
+  width: 25vw;
+  /* margin-left: 10%; */
   font-family: "Arimo";
   font-style: normal;
   /* font-weight: 700; */
@@ -67,8 +63,8 @@
 }
 .handcraft {
   /* background-color: aquamarine; */
-  width: 18vw;
-  margin-left: 10%;
+  width: 25vw;
+  /* margin-left: 10%; */
   font-family: "Arimo";
   font-style: normal;
   /* font-weight: 700; */
@@ -117,7 +113,7 @@
 }
 
 .img1 {
-  width: 27vw;
+  width: 36vw;
 }
 
 .choose {
@@ -149,11 +145,11 @@
 
 .img3 {
   width: 20vw;
-  height: 46vh;
+  height: 32vh;
 }
 .img4 {
   width: 20vw;
-  height: 46vh;
+  height: 32vh;
 }
 
 .name {
@@ -181,8 +177,8 @@
 
 .endbody {
   background-color: #f9f9f9;
-  width: 75vw;
-  margin-left: -1%;
+  width: 100%;
+  /* margin-left: -1%; */
   margin-top: 5%;
 }
 
