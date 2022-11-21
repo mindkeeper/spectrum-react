@@ -2,6 +2,7 @@ import { ActionType } from "redux-promise-middleware";
 import { ACTION_STRING } from "../actions/actionStrings";
 
 const initialState = {
+  related: [],
   productSeller: [],
   detailProduct: [],
   products: [],
@@ -12,8 +13,13 @@ const initialState = {
 
 const productReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { getProducts, getDetailProduct, getProductSeller, delProduct } =
-    ACTION_STRING;
+  const {
+    getProducts,
+    getDetailProduct,
+    getProductSeller,
+    getRelatedProducts,
+    delProduct,
+  } = ACTION_STRING;
 
   switch (type) {
     case getProducts.concat("_", Pending):
@@ -83,6 +89,28 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: false,
         isFulfilled: true,
         productSeller: payload.data.data,
+      };
+    case getRelatedProducts.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case getRelatedProducts.concat("_", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+      };
+    case getRelatedProducts.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        related: payload.data.data,
       };
 
     case delProduct.concat("_", Pending):

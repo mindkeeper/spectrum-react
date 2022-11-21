@@ -19,4 +19,5 @@ export const ACTION_STRING = {
   getBrands: "GET_BRANDS",
   getProductSeller: "GET_PRODUCT_SELLER",
   delProduct: "DEL_PRODUCT",
+  getRelatedProducts: "GET_RELATED_PRODUCTS",
 };
