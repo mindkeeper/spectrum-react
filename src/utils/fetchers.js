@@ -11,6 +11,10 @@ const axiosRequest = (method, url, data, params) => {
   });
 };
 
+export const getData = (url, params, data) => {
+  return axiosRequest("GET", url, data, params);
+};
+
 export const login = (data) => {
   return axiosRequest("POST", "/auth/login", data);
 };
@@ -62,3 +66,17 @@ export const getCategories = (data) => {
 export const getBrands = (data) => {
   return axiosRequest("GET", "/brands", data);
 };
+
+export const getProductSeller = (token, params) => {
+  return axios({
+    method: "GET",
+    url: `${baseUrl}/products/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};
+
+export const addContact = (body) => {
+  return axiosRequest("POST", `/contactus`, body);
+};
+

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import title from "../../components/title/Title";
 import styles from "./Regist.module.css";
 
 import { useNavigate } from "react-router-dom";
@@ -21,7 +22,7 @@ function Regist() {
   console.log(body);
 
   const toLogin = () => {
-    toast.success(`Congrats! ${body.email} register success`);
+    // toast.success(`Congrats! ${body.email} register success`);
     navigate("/login");
   };
 
@@ -32,9 +33,19 @@ function Regist() {
   const submitHandler = () => {
     if (!body.email || !body.password || !body.roles)
       return toast.error("All input must be fulfilled");
-    dispacth(registerActions.registerThunk(body, toLogin, errorToast));
+    return dispacth(
+      registerActions.registerThunk(
+        body,
+        () => {
+          toast.success(`Congrats! ${body.email} register success`);
+          toLogin();
+        },
+        errorToast
+      )
+    );
   };
 
+  title("Spectrum | Register");
   return (
     <>
       <Header />
@@ -73,7 +84,7 @@ function Regist() {
                 <h1>Create Account</h1>
               </div>
               <div className={styles["form-login"]}>
-                <form action="">
+                <form>
                   <input
                     type="text"
                     name="email"

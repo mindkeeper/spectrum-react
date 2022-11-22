@@ -8,6 +8,14 @@ function CardProduct(props) {
   const navigate = useNavigate();
 
   // const toDetail = navigate(`/product/detail/${props.id}`);
+  const currency = (price) => {
+    return (
+      "IDR " +
+      parseFloat(price)
+        .toFixed()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    );
+  };
 
   return (
     <div className={styles["card-product"]}>
@@ -22,7 +30,7 @@ function CardProduct(props) {
         <h1>{props.productName}</h1>
       </div>
       <div className={styles["price"]}>
-        <p>{props.price}</p>
+        <p>{currency(props.price)}</p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import title from "../../components/title/Title";
 // import Modal from "react-bootstrap/Modal";
 import styles from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +18,7 @@ function ForgotPassword() {
   // const [openModal, setOpenModal] = useState(false);
 
   const code = useSelector((state) => state.auth.code);
-  const errorMsg = useSelector((state) => state.auth.error);
+  // const errorMsg = useSelector((state) => state.auth.error);
   console.log(code);
 
   const changeHandler = (e) =>
@@ -34,8 +35,9 @@ function ForgotPassword() {
     navigate("/forget-password/new");
   };
 
-  const isError = () => {
-    toast.error(`${errorMsg}`);
+  const isError = (error) => {
+    toast.error(`${error.response.data.msg}`);
+    // console.log(error);
   };
 
   const submitHandler = () => {
@@ -44,6 +46,7 @@ function ForgotPassword() {
     // setOpenModal(!openModal);
   };
 
+  title("Spectrum | Forget Password");
   return (
     <>
       <Header />

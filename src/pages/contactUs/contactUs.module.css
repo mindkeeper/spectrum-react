@@ -1,0 +1,97 @@
+.main-sec {
+  background-image: url("../../asset/contact/jumbotron.png");
+  /* background-size: cover; */
+  /* background-position: center; */
+  max-width: 135vw;
+  height: 250px;
+}
+
+.contact {
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 1%;
+  color: #1a1a1a;
+}
+
+.contactus {
+  text-align: center;
+  margin-top: 5vh;
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 64px;
+  text-align: center;
+
+  color: #1a1a1a;
+}
+
+.img-wrap {
+  margin-left: -5%;
+}
+
+.inp {
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid #2f2f2f;
+  width: 100%;
+}
+
+.form-wrap {
+  padding: 5%;
+  margin-left: 5%;
+}
+
+.button-send {
+  background: #1a1a1a;
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+  width: 20vw;
+  height: 6vh;
+}
+
+.pdesc{
+    font-family: 'Arimo';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #2F2F2F;
+
+}
+
+@media screen and (max-width: 768px) {
+    .mapimg{
+        width: 55vw
+    }
+    .form-wrap {
+        padding: 2%;
+        margin-left: 1%;
+        font-size: 12px;
+      }
+      .main-sec{
+        height: 15vh
+      }
+      .contactus {
+        margin-top: 1%;
+        font-size: 35px
+      }
+      .inp{
+        width: 35vw;
+      }
+      .button-send{
+        width: 35vw;
+      }
+
+}

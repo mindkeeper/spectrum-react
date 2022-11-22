@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import authActions from "../../redux/actions/auths";
+import title from "../../components/title/Title";
 
 function Login() {
   const navigate = useNavigate();
@@ -30,6 +31,8 @@ function Login() {
   const submitHandler = () => {
     dispacth(authActions.loginThunk(body, goHome, errorToast));
   };
+
+  title("Spectrum | Login");
   return (
     <>
       <Header />
