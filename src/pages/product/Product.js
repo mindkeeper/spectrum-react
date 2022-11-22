@@ -113,14 +113,14 @@ function Product() {
                     class="range-min"
                     min="0"
                     max="1000000"
-                    value="250000"
+                    // value="250000"
                   />
                   <input
                     type="range"
                     class="range-max"
                     min="0"
                     max="1000000"
-                    value="750000"
+                    // value="750000"
                   />
                 </div>
                 {/* <div className={styles["bar"]}>
