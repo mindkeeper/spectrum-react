@@ -68,24 +68,75 @@
 
 .footer{
     display: flex;
+    font-family: 'Arimo';
     flex-direction: row;
     padding-left: 5%;
     padding-right: 5%;
     background-color: black;
     color: white;
+    padding-bottom: 5%;
 }
 
 .logo-detail {
     padding-left: 5%;
-    margin-right: 30%;
+    width: 30%;
 }
 
 .ikon {
     display: flex;
     justify-content: space-between;
+    padding-left: 35%;
 }
 
-.around {
-    display: flex;
-    padding : 3% 3% 3% 3%
+.around{
+    padding: 20% 20% 2% 20%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5000px;
+    border-color: #979797;
+    margin-right: 15%;
+}
+
+.logo-name {
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-content {
+        padding-right: 0%;
+    }
+    .footer {
+        flex-direction: column;
+    }
+    .around{
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 5000px;
+        border-color: #979797;
+        margin-right: 15%;
+        padding: 5% 5% 5% 5%;
+    }
+    .ikon {
+        margin-top: 5%;
+        padding-left: 0%;
+    }
+
+    .logo-detail {
+        margin-top: 5%;
+        width: 50%
+    }
+}
+@media only screen and (max-width: 428px) {
+    .main-content {
+        padding-left: 10%;
+    }
+    .around{
+        margin-right: 2%;
+    }
+    .input{
+        padding-right: 15%;
+    }
+    .container-date {
+        padding-right: 5%;
+    }
 }

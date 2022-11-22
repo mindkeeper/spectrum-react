@@ -3,6 +3,11 @@ import React from "react";
 import css from "./comingsoon.module.css";
 import Header from "../../components/headerBlack/HeaderBlack";
 
+import fb from "../../asset/logo/facebook-f.png"
+import twit from "../../asset/logo/twitter.png"
+import yt from "../../asset/logo/youtube.png"
+import dribble from "../../asset/logo/dribbble.png"
+
 function comingsoon() {
   return (
     <>
@@ -39,10 +44,10 @@ function comingsoon() {
           a nunc vel diam auctor commodo.
         </section>
         <section className={`${css["ikon"]}`}>
-          <span className={`${css["around"]}`}>fb</span>
-          <span>twit</span>
-          <span>yt</span>
-          <span>basket</span>
+          <span className={`${css["around"]}`}><img src={fb} alt="" /></span>
+          <span className={`${css["around"]}`}><img src={twit} alt="" /></span>
+          <span className={`${css["around"]}`}><img src={yt} alt="" /></span>
+          <span className={`${css["around"]}`}><img src={dribble} alt="" /></span>
         </section>
       </footer>
     </>
