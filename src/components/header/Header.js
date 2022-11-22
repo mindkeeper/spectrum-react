@@ -33,13 +33,17 @@ function Header() {
     // toast.success("Logout succesfully");
     navigate("/login");
   };
+
+  const toProduct = () => {
+    navigate("/product");
+  };
+
   const toBlog = () => navigate("/blog");
   const toRegister = () => navigate("/register");
-  const toCart = () => navigate("/cart")
-  const toChat = () => navigate("/chat")
-  const toNotification = () => navigate("/notification")
-  const toTracking = () => navigate("/order-track")
-
+  const toCart = () => navigate("/cart");
+  const toChat = () => navigate("/chat");
+  const toNotification = () => navigate("/notification");
+  const toTracking = () => navigate("/order-track");
 
   const logoutHandler = () => {
     dispacth(
@@ -92,7 +96,9 @@ function Header() {
                   ></i>
                 </div>
                 <div className={styles["love"]}>
-                  <Link to="/wistlist"><i className="fa-regular fa-heart"></i></Link>
+                  <Link to="/wistlist">
+                    <i className="fa-regular fa-heart"></i>
+                  </Link>
                 </div>
                 <div className={styles["shop"]}>
                   <i className="fa-solid fa-cart-shopping"></i>
@@ -110,8 +116,12 @@ function Header() {
             <div className={styles["menu-bar"]}>
               <ol>
                 <li onClick={toHome}>HOME</li>
-                <li onClick={showPages}>PAGES</li>
-                <li onClick={showShop}>SHOP</li>
+                <li onClick={showPages}>
+                  PAGES <i className="fa-solid fa-chevron-down fs-6 ms-3"></i>
+                </li>
+                <li onClick={showShop}>
+                  SHOP <i className="fa-solid fa-chevron-down fs-6 ms-3"></i>
+                </li>
                 <li onClick={toBlog}>BLOG</li>
               </ol>
             </div>
@@ -126,11 +136,12 @@ function Header() {
                   ></i>
                 </div>
                 <div className={styles["love"]}>
-                  <Link to="/wistlist"><i className="fa-regular fa-heart"></i></Link>
+                  <Link to="/wistlist">
+                    <i className="fa-regular fa-heart"></i>
+                  </Link>
                 </div>
                 <div className={styles["shop"]}>
-                  <i className="fa-solid fa-cart-shopping"
-                    onClick={toCart}></i>
+                  <i className="fa-solid fa-cart-shopping" onClick={toCart}></i>
                 </div>
               </div>
               <div
@@ -163,18 +174,28 @@ function Header() {
               {pages && (
                 <div className={styles["pages-list"]}>
                   <ol className={styles["show"]}>
-                    <Link to="/about"><li>About Us</li></Link>
-                    <Link to="/contact" ><li>Contact Us</li></Link>
-                    <Link to="/comingsoon"><li>Coming Soon</li></Link>
-                    <Link to="/s"><li>404 Page</li></Link>
-                    <Link to="/FAQ"><li>FAQ Page</li></Link>
+                    <Link to="/about">
+                      <li>About Us</li>
+                    </Link>
+                    <Link to="/contact">
+                      <li>Contact Us</li>
+                    </Link>
+                    <Link to="/comingsoon">
+                      <li>Coming Soon</li>
+                    </Link>
+                    <Link to="/s">
+                      <li>404 Page</li>
+                    </Link>
+                    <Link to="/FAQ">
+                      <li>FAQ Page</li>
+                    </Link>
                   </ol>
                 </div>
               )}
               {shop && (
                 <div className={styles["shop-list"]}>
                   <ol className={styles["show"]}>
-                    <li>Other Page</li>
+                    <li onClick={toProduct}>Product</li>
                     <li>Shopping Cart</li>
                     <li>Check Out</li>
                     <li onClick={toProfile}>My Account</li>

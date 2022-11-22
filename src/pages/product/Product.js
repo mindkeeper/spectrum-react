@@ -102,7 +102,7 @@ function Product() {
                   <h1>Price</h1>
                 </div>
                 <div className={styles["content"]}>
-                  <p>Price $39 - $159</p>
+                  <p>Price IDR 0 - IDR 1.000.000</p>
                 </div>
                 <div className={styles["slider"]}>
                   <div className={styles["progress"]}></div>
