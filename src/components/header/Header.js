@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../header/Header.module.css";
 import logo from "../../asset/logo/logo-black.png";
 import glass from "../../asset/product/glass.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import authActions from "../../redux/actions/auths";
 import Modal from "react-bootstrap/Modal";
@@ -35,6 +35,11 @@ function Header() {
   };
   const toBlog = () => navigate("/blog");
   const toRegister = () => navigate("/register");
+  const toCart = () => navigate("/cart")
+  const toChat = () => navigate("/chat")
+  const toNotification = () => navigate("/notification")
+  const toTracking = () => navigate("/order-track")
+
 
   const logoutHandler = () => {
     dispacth(
@@ -87,7 +92,7 @@ function Header() {
                   ></i>
                 </div>
                 <div className={styles["love"]}>
-                  <i className="fa-regular fa-heart"></i>
+                  <Link to="/wistlist"><i className="fa-regular fa-heart"></i></Link>
                 </div>
                 <div className={styles["shop"]}>
                   <i className="fa-solid fa-cart-shopping"></i>
@@ -121,10 +126,11 @@ function Header() {
                   ></i>
                 </div>
                 <div className={styles["love"]}>
-                  <i className="fa-regular fa-heart"></i>
+                  <Link to="/wistlist"><i className="fa-regular fa-heart"></i></Link>
                 </div>
                 <div className={styles["shop"]}>
-                  <i className="fa-solid fa-cart-shopping"></i>
+                  <i className="fa-solid fa-cart-shopping"
+                    onClick={toCart}></i>
                 </div>
               </div>
               <div
@@ -141,8 +147,8 @@ function Header() {
                   <div className={styles["hamburger-list"]}>
                     <ol className={styles["show"]}>
                       <li onClick={toProfile}>Profile</li>
-                      <li>Chat</li>
-                      <li>Notification</li>
+                      <li onClick={toChat}>Chat</li>
+                      <li onClick={toNotification}>Notification</li>
                       <li onClick={handleModal}>Logout</li>
                     </ol>
                   </div>
@@ -157,11 +163,11 @@ function Header() {
               {pages && (
                 <div className={styles["pages-list"]}>
                   <ol className={styles["show"]}>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Coming Soon</li>
-                    <li>404 Page</li>
-                    <li>FAQ Page</li>
+                    <Link to="/about"><li>About Us</li></Link>
+                    <Link to="/contact" ><li>Contact Us</li></Link>
+                    <Link to="/comingsoon"><li>Coming Soon</li></Link>
+                    <Link to="/s"><li>404 Page</li></Link>
+                    <Link to="/FAQ"><li>FAQ Page</li></Link>
                   </ol>
                 </div>
               )}
@@ -171,8 +177,8 @@ function Header() {
                     <li>Other Page</li>
                     <li>Shopping Cart</li>
                     <li>Check Out</li>
-                    <li>My Account</li>
-                    <li>Order Tracking</li>
+                    <li onClick={toProfile}>My Account</li>
+                    <li onClick={toTracking}>Order Tracking</li>
                   </ol>
                   <div className={styles["promo"]}>
                     <div className={styles["img"]}>
