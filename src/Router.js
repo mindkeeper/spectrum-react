@@ -17,27 +17,86 @@ import MyProduct from "./pages/seller/myProduct/MyProduct";
 import Selling from "./pages/seller/sellingProduct/Selling";
 import Order from "./pages/seller/myOrder/Order";
 import ProductDetailReview from "./pages/productdetail/review/ProductdetailReview";
-import CartDetail from "./pages/cart/cart-detail/CartDetail"
-import CartCheckout from "./pages/cart/cart-process/CartCheckout"
+import CartDetail from "./pages/cart/cart-detail/CartDetail";
+import CartCheckout from "./pages/cart/cart-process/CartCheckout";
+
+import PrivateElement from "./components/private/PrivateElement";
+import PrivateElementAuth from "./components/private/PrivateElementAuth";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Regist /> },
-  { path: "/profile/customer", element: <ProfileCustomer /> },
-  { path: "/profile/seller", element: <ProfileSeller /> },
+  {
+    path: "/login",
+    element: (
+      <PrivateElementAuth>
+        <Login />
+      </PrivateElementAuth>
+    ),
+  },
+  {
+    path: "/register",
+    element: (
+      <PrivateElementAuth>
+        <Regist />
+      </PrivateElementAuth>
+    ),
+  },
+  {
+    path: "/profile/customer",
+    element: (
+      <PrivateElement allowedRoles={[1]}>
+        <ProfileCustomer />
+      </PrivateElement>
+    ),
+  },
+  {
+    path: "/profile/seller",
+    element: (
+      <PrivateElement allowedRoles={[2]}>
+        <ProfileSeller />
+      </PrivateElement>
+    ),
+  },
   { path: "/forget-password", element: <ForgotPassword /> },
   { path: "/forget-password/new", element: <Code /> },
   { path: "/product/detail/:id", element: <ProductDetail /> },
   { path: "/product", element: <Product /> },
-  { path: "/profile/seller/product", element: <MyProduct /> },
-  { path: "/profile/seller/selling-product", element: <Selling /> },
-  { path: "/profile/seller/order", element: <Order /> },
+  {
+    path: "/profile/seller/product",
+    element: (
+      <PrivateElement allowedRoles={[2]}>
+        <MyProduct />
+      </PrivateElement>
+    ),
+  },
+  {
+    path: "/profile/seller/selling-product",
+    element: (
+      <PrivateElement allowedRoles={[2]}>
+        <Selling />
+      </PrivateElement>
+    ),
+  },
+  {
+    path: "/profile/seller/order",
+    element: (
+      <PrivateElement allowedRoles={[2]}>
+        <Order />
+      </PrivateElement>
+    ),
+  },
   { path: "/blog", element: <Blog /> },
   { path: "/blog/detail", element: <Blogdetail /> },
   { path: "/product/detail/review", element: <ProductDetailReview /> },
   { path: "/cart", element: <CartDetail /> },
-  { path: "/cart/checkout", element: <CartCheckout /> },
+  {
+    path: "/cart/checkout",
+    element: (
+      <PrivateElement allowedRoles={[1]}>
+        <CartCheckout />
+      </PrivateElement>
+    ),
+  },
 ]);
 
 export default router;
