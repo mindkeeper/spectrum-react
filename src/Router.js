@@ -26,8 +26,6 @@ import ContactUs from "./pages/contactUs/contactUs";
 import Chat from "./pages/chat/chat";
 import Notification from "./pages/Notification/notification";
 import OrderTrack from "./pages/order-track/order-track";
-import CartDetail from "./pages/cart/cart-detail/CartDetail";
-import CartCheckout from "./pages/cart/cart-process/CartCheckout";
 import Wistlist from "./pages/wishlist/Wishlist";
 
 const router = createBrowserRouter([
