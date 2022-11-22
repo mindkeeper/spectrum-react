@@ -227,10 +227,6 @@ function Product() {
               <div className={styles["card-container"]}>
                 {isLoading ? (
                   <LoadingBar />
-                ) : !products ? (
-                  <div className="">
-                    <h1>gaada produk nyaa</h1>
-                  </div>
                 ) : (
                   products?.map((e) => (
                     <Card
