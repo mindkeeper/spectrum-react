@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    padding-right:50%;
+    padding-left: 10%;
+    padding-top: 10%;
+    padding-bottom: 20%;
+    background-color: black;
+}
+
+.text-main {
+    color: white;
+    font-family: 'Arimo';
+    font-size: 70px;
+}
+
+.container-date {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10%;
+    padding-right: 20%;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.number{
+    font-family: 'Arimo';
+    font-size: 70px;
+}
+
+
+.text-date {
+    font-family: 'Arimo';
+}
+
+.subscribe-continer {
+    display: flex;
+    padding-top: 15%;
+    padding-left: 10px;
+    flex-direction: row;
+    color: white;
+}
+
+.input {
+    background-color: black;
+    color:white;
+    border:none;
+    padding-right: 40%;
+    border-bottom: 2px solid #FFFFFF;
+    font-family: 'Arimo';
+}
+
+.subscribe-text {
+    border-bottom: 2px solid #FFFFFF;
+    font-family: 'Arimo';
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: black;
+    color: white;
+}
+
+.logo-detail {
+    padding-left: 5%;
+    margin-right: 30%;
+}
+
+.ikon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.around {
+    display: flex;
+    padding : 3% 3% 3% 3%
+}
