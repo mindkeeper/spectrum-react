@@ -305,7 +305,7 @@
     outline: none;
 }
 
-::-webkit-input-placeholder {
+.search-bar input::-webkit-input-placeholder {
     color: white;
 }
 
