@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // import css
 import css from "./Productdetail.module.css";
@@ -16,16 +18,31 @@ import { useDispatch, useSelector } from "react-redux";
 import productActions from "../../../redux/actions/product";
 import LoadingBar from "../../../components/loading/LoadingBar";
 import Loading from "../../../components/loading/Loading";
+import transactionActions from "../../../redux/actions/transactions";
 
 function Productdetail() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toReview = () => navigate("/product/detail/review");
   const product = useSelector((state) => state.products.detailProduct);
+  console.log(product);
   const isLoading = useSelector((state) => state.products.isLoading);
+  const cartItems = useSelector((state) => state.transactions.cart);
   const [image, setImage] = useState(null);
   const { id } = useParams();
-  console.log(id);
+  const [qty, setQty] = useState(1);
+
+  const decrement = () =>
+    setQty((qty) => {
+      if (qty === 1) return 1;
+      return qty - 1;
+    });
+
+  const increment = () =>
+    setQty((qty) => {
+      if (qty === product.stock) return qty;
+      return qty + 1;
+    });
   const currency = (price) => {
     return (
       "IDR " +
@@ -35,6 +52,26 @@ function Productdetail() {
     );
   };
 
+  const handleAddToCart = () => {
+    console.log("running and checking", cartItems.length);
+    if (
+      cartItems.length > 0 &&
+      cartItems.find((item) => item.productId === id)
+    ) {
+      console.log("already added");
+      return toast.error("Product already in cart");
+    }
+    const body = {
+      productId: id,
+      productName: product.product_name,
+      qty: qty,
+      price: product.price,
+      subtotal: parseInt(product.price) * qty,
+      images: product.images[0],
+    };
+    dispatch(transactionActions.addtoCartActions(body));
+    return toast.success("Product added to cart");
+  };
   useEffect(() => {
     dispatch(productActions.getDetailsThunk(`/products/details/${id}`));
   }, [id, dispatch]);
@@ -47,7 +84,7 @@ function Productdetail() {
       <div className={`container-fluid ${css["content-bar"]}`}>
         <nav className={css.bar}>
           <section className={css.title_product_shop}>
-            Shop <i class="fa-solid fa-angle-right"></i>
+            Shop <i className="fa-solid fa-angle-right"></i>
             <span>
               <Link className={css.title_product} to="#">
                 Shop Right Sidebar <i class="fa-solid fa-angle-right"></i>
@@ -85,11 +122,14 @@ function Productdetail() {
             {isLoading ? (
               <Loading />
             ) : (
-              <img
-                src={!image ? product.images[0] : image}
-                alt="list_product"
-                className={`${css.preview}`}
-              />
+              product &&
+              product.images && (
+                <img
+                  src={!image ? product?.images[0] : image}
+                  alt="list_product"
+                  className={`${css.preview}`}
+                />
+              )
             )}
             <img src={hot_label} alt="list_product" className={`${css.hot}`} />
           </div>
@@ -123,17 +163,17 @@ function Productdetail() {
         <div className={`${css.detail_submit}`}>
           {/* button + or - product */}
           <div className={` ${css["add-product"]}`}>
-            <button>
+            <button onClick={decrement}>
               <i class="fa-solid fa-minus"></i>
             </button>
-            <input type="text" value="01" />
-            <button>
+            <input type="text" value={qty} />
+            <button onClick={increment}>
               <i className="fa-solid fa-plus"></i>
             </button>
           </div>
           {/* add to cart */}
           <div className={`${css.add_cart}`}>
-            <button>Add to cart</button>
+            <button onClick={handleAddToCart}>Add to cart</button>
           </div>
           {/* add favorite */}
           <div className={`${css.favorite}`}>
@@ -199,11 +239,13 @@ function Productdetail() {
         </div>
       </div>
 
-      <CardProductDetail
-        id={id}
-        currency={currency}
-        imageProps={product.images[0]}
-      />
+      {product && product.images && (
+        <CardProductDetail
+          id={id}
+          currency={currency}
+          imageProps={product.images[0]}
+        />
+      )}
       <Footer />
     </>
   );

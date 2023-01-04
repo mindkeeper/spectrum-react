@@ -1,26 +1,48 @@
-import React from 'react'
+import React from "react";
 
-import css from './CardCartDetail.module.css'
-import img_chair from '../../asset/cart/img_chair.png'
+import css from "./CardCartDetail.module.css";
+import { useDispatch } from "react-redux";
+import transactionActions from "../../redux/actions/transactions";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function CardCartDetail() {
-    return (
-        <>
-            <div className={css.product_cart}>
-                <i className={`fa-regular fa-circle-xmark ${css.silang}`}></i>
-                <img src={img_chair} alt="Image_Product" className={css.image_preview} />
-                <p className={css.name_product}>Fabrica Mid Century Chair</p>
-                <p className={css.price_product}>$ 12.50</p>
-                {/* button + or - product */}
-                <div className={` ${css['add-product']}`}>
-                    <button><i className="fa-solid fa-minus"></i></button>
-                    <input type="text" value="01" />
-                    <button><i className="fa-solid fa-plus"></i></button>
-                </div>
-                <p className={css.price_product1}>$ 12.50</p>
-            </div>
-        </>
-    )
+function CardCartDetail({ id, price, image, qty, subtotal, productName }) {
+  const dispatch = useDispatch();
+
+  const handleAdd = () => {
+    dispatch(transactionActions.updateCartItem(id, qty + 1));
+  };
+
+  const handleDeleteItem = () => {
+    dispatch(transactionActions.deleteItem(id));
+    toast.success(`${productName} deleted from cart`);
+  };
+  const handleReduce = () =>
+    qty > 0 && dispatch(transactionActions.updateCartItem(id, qty - 1));
+  return (
+    <>
+      <div className={css.product_cart}>
+        <i
+          className={`fa-regular fa-circle-xmark ${css.silang}`}
+          onClick={handleDeleteItem}
+        ></i>
+        <img src={image} alt="Image_Product" className={css.image_preview} />
+        <p className={css.name_product}>{productName}</p>
+        <p className={css.price_product}>{price}</p>
+        {/* button + or - product */}
+        <div className={` ${css["add-product"]}`}>
+          <button onClick={handleReduce}>
+            <i className="fa-solid fa-minus"></i>
+          </button>
+          <input type="text" value={qty} />
+          <button onClick={handleAdd}>
+            <i className="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <p className={css.price_product1}>{subtotal}</p>
+      </div>
+    </>
+  );
 }
 
-export default CardCartDetail
+export default CardCartDetail;

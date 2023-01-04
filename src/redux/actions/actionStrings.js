@@ -20,4 +20,8 @@ export const ACTION_STRING = {
   getBrands: "GET_BRANDS",
   getProductSeller: "GET_PRODUCT_SELLER",
   getRelatedProducts: "GET_RELATED_PRODUCTS",
+  addtoCart: "ADD_TO_CART",
+  updateItemQty: "UPDATE_ITEM_QUANTITY",
+  deleteCartItem: "DELETE_CART_ITEM",
+  resetCart: "RESET_CART",
 };
