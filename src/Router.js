@@ -57,8 +57,22 @@ const router = createBrowserRouter([
       </PrivateElement>
     ),
   },
-  { path: "/forget-password", element: <ForgotPassword /> },
-  { path: "/forget-password/new", element: <Code /> },
+  {
+    path: "/forget-password",
+    element: (
+      <PrivateElementAuth>
+        <ForgotPassword />
+      </PrivateElementAuth>
+    ),
+  },
+  {
+    path: "/forget-password/new",
+    element: (
+      <PrivateElementAuth>
+        <Code />
+      </PrivateElementAuth>
+    ),
+  },
   { path: "/product/detail/:id", element: <ProductDetail /> },
   { path: "/product", element: <Product /> },
   {
@@ -88,7 +102,14 @@ const router = createBrowserRouter([
   { path: "/blog", element: <Blog /> },
   { path: "/blog/detail", element: <Blogdetail /> },
   { path: "/product/detail/review", element: <ProductDetailReview /> },
-  { path: "/cart", element: <CartDetail /> },
+  {
+    path: "/cart",
+    element: (
+      <PrivateElement allowedRoles={[1]}>
+        <CartDetail />
+      </PrivateElement>
+    ),
+  },
   {
     path: "/cart/checkout",
     element: (
