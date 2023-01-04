@@ -28,19 +28,22 @@ import Notification from "./pages/Notification/notification";
 import OrderTrack from "./pages/order-track/order-track";
 import Wistlist from "./pages/wishlist/Wishlist";
 
+import PrivateElement from "./components/private/PrivateElement"
+import PrivateElementAuth from "./components/private/PrivateElementAuth";
+
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Regist /> },
-  { path: "/profile/customer", element: <ProfileCustomer /> },
-  { path: "/profile/seller", element: <ProfileSeller /> },
-  { path: "/forget-password", element: <ForgotPassword /> },
-  { path: "/forget-password/new", element: <Code /> },
+  { path: "/login", element: <PrivateElementAuth><Login /></PrivateElementAuth> },
+  { path: "/register", element: <PrivateElementAuth><Regist /></PrivateElementAuth> },
+  { path: "/profile/customer", element: <PrivateElement allowedRoles={[1]}><ProfileCustomer /></PrivateElement> },
+  { path: "/profile/seller", element: <PrivateElement allowedRoles={[2]}><ProfileSeller /></PrivateElement> },
+  { path: "/forget-password", element:  <PrivateElementAuth><ForgotPassword /></PrivateElementAuth> },
+  { path: "/forget-password/new", element:  <PrivateElementAuth><Code /></PrivateElementAuth>},
   { path: "/product/detail/:id", element: <ProductDetail /> },
   { path: "/product", element: <Product /> },
-  { path: "/profile/seller/product", element: <MyProduct /> },
-  { path: "/profile/seller/selling-product", element: <Selling /> },
-  { path: "/profile/seller/order", element: <Order /> },
+  { path: "/profile/seller/product", element: <PrivateElement allowedRoles={[2]}><MyProduct /></PrivateElement> },
+  { path: "/profile/seller/selling-product", element:  <PrivateElement allowedRoles={[2]}><Selling /></PrivateElement>},
+  { path: "/profile/seller/order", element:  <PrivateElement allowedRoles={[2]}><Order /></PrivateElement>},
   { path: "/blog", element: <Blog /> },
   { path: "/blog/detail", element: <Blogdetail /> },
   { path: "/product/detail/review", element: <ProductDetailReview /> },
@@ -49,11 +52,11 @@ const router = createBrowserRouter([
   { path: "/contact", element: <ContactUs /> },
   { path: "/chat", element: <Chat /> },
   { path: "/notification", element: <Notification /> },
-  { path: "/order-track", element: <OrderTrack /> },
-  { path: "/cart", element: <CartDetail /> },
-  { path: "/cart/checkout", element: <CartCheckout /> },
+  { path: "/order-track", element:  <PrivateElement allowedRoles={[1]}><OrderTrack /></PrivateElement> },
+  { path: "/cart", element:  <PrivateElement allowedRoles={[1]}><CartDetail /></PrivateElement>},
+  { path: "/cart/checkout", element:  <PrivateElement allowedRoles={[1]}><CartCheckout /></PrivateElement>},
   { path: "/comingsoon", element: <ComingSoon /> },
-  { path: "/wistlist", element: <Wistlist /> },
+  { path: "/wistlist", element:  <PrivateElement allowedRoles={[1]}><Wistlist /></PrivateElement>},
 ]);
 
 export default router;

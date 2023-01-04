@@ -25,7 +25,7 @@ function Header() {
   const toProfile = () => {
     if (roles === 1) return navigate("/profile/customer");
     if (roles === 2) return navigate("/profile/seller");
-    return navigate("/");
+    return navigate("/Login");
   };
   const toHome = () => navigate("/");
 
@@ -60,14 +60,20 @@ function Header() {
 
   const showPages = () => {
     setPages(!pages);
+    setSearch(false)
+    setShop(false)
   };
 
   const showShop = () => {
     setShop(!shop);
+    setPages(false);
+    setSearch(false)
   };
 
   const showSearch = () => {
     setSearch(!search);
+    setPages(false);
+    setShop(false)
   };
 
   const handleModal = () => setOpenModal(!openModal);
@@ -196,8 +202,8 @@ function Header() {
                 <div className={styles["shop-list"]}>
                   <ol className={styles["show"]}>
                     <li onClick={toProduct}>Product</li>
-                    <li>Shopping Cart</li>
-                    <li>Check Out</li>
+                    <li onClick={()=> navigate('/cart')}>Shopping Cart</li>
+                    <li onClick={()=> navigate('/cart/checkout')}>Check Out</li>
                     <li onClick={toProfile}>My Account</li>
                     <li onClick={toTracking}>Order Tracking</li>
                   </ol>
