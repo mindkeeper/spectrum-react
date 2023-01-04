@@ -1,5 +1,5 @@
 import React from "react";
-
+import { currencyFormatter } from "../../helper/currencyFormatter";
 import css from "./CardCartDetail.module.css";
 import { useDispatch } from "react-redux";
 import transactionActions from "../../redux/actions/transactions";
@@ -28,7 +28,7 @@ function CardCartDetail({ id, price, image, qty, subtotal, productName }) {
         ></i>
         <img src={image} alt="Image_Product" className={css.image_preview} />
         <p className={css.name_product}>{productName}</p>
-        <p className={css.price_product}>{price}</p>
+        <p className={css.price_product}>{currencyFormatter(price)}</p>
         {/* button + or - product */}
         <div className={` ${css["add-product"]}`}>
           <button onClick={handleReduce}>
@@ -39,7 +39,7 @@ function CardCartDetail({ id, price, image, qty, subtotal, productName }) {
             <i className="fa-solid fa-plus"></i>
           </button>
         </div>
-        <p className={css.price_product1}>{subtotal}</p>
+        <p className={css.price_product1}>{currencyFormatter(subtotal)}</p>
       </div>
     </>
   );

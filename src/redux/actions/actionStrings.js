@@ -24,4 +24,6 @@ export const ACTION_STRING = {
   updateItemQty: "UPDATE_ITEM_QUANTITY",
   deleteCartItem: "DELETE_CART_ITEM",
   resetCart: "RESET_CART",
+  transData: "TRANSACTION_DATA",
+  createTrans: "CREATE_TRANSACTIONS",
 };
