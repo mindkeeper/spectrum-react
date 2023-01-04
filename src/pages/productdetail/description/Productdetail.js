@@ -188,16 +188,13 @@ function Productdetail() {
         </div>
       </div>
 
-      {isLoading ? (
-        <LoadingBar />
-      ) : (
         <div className={`container ${css.detail_list}`}>
           <p>SKU: N/A</p>
           {/* <p></p> */}
           <p>Categories : {`${product.categories}`}</p>
           <p>Product ID: {product.id}</p>
         </div>
-      )}
+      
 
       <div className={`container ${css["detail-location"]}`}>
         <div className={`${css.location}`}>

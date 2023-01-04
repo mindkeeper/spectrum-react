@@ -5,7 +5,7 @@ import css from "./CardEmpty.module.css";
 function CardEmpty() {
   return (
     <>
-      <div className={`container d-flex flex-column align-items-center my-5`}>
+      <div className={`${css.content_empty} container d-flex flex-column align-items-center my-5`}>
         <i className="fa-solid fa-cart-plus fs-1"></i>
         <p className={css.empety}>Your cart is empty</p>
         <p className={css.empety_desc}>

@@ -50,12 +50,12 @@ function CartDetail() {
       <div className={`container ${css.container_box}`}>
         <div className="row">
           <div className="col-lg-8 col-md-12 col-sm-12">
-            <div className={css.content_bar}>
+            {cartItems.length <= 0 ? null : (<div className={css.content_bar}>
               <p className={css.content_bar1}>Product</p>
               <p className={css.content_bar2}>Price</p>
               <p className={css.content_bar3}>Quantity</p>
               <p className={css.content_bar4}>Total</p>
-            </div>
+            </div>)}
             {cartItems.length <= 0 ? (
               <CartEmpty />
             ) : (
@@ -75,7 +75,8 @@ function CartDetail() {
                 );
               })
             )}
-            <hr />
+            {cartItems.length <= 0 ? null : (<>
+              <hr />
             <div className={`container ${css["bar-coupon"]}`}>
               <div className={css.input_coupon}>
                 <input
@@ -92,7 +93,7 @@ function CartDetail() {
                 </div>
                 <p className={css.coupon_button2}>Update Cart</p>
               </div>
-            </div>
+            </div></>)}
           </div>
           {cartItems.length > 0 && (
             <div className="col-lg-4 col-md-12 col-sm-12">
@@ -144,15 +145,15 @@ function CartDetail() {
         <Modal.Body>are you sure you want to delete this product ?</Modal.Body>
         <Modal.Footer>
           <Button
-            variant="success"
-            className="fw-bold text-bg-success text-white"
+            variant="dark"
+            className="fw-bold text-bg-dark text-white"
             onClick={handleClearCart}
           >
             Yes
           </Button>
           <Button
-            variant="danger"
-            className="fw-bold text-bg-danger text-white"
+            variant="dark"
+            className="fw-bold text-bg-light text-dark"
             onClick={modalClose}
           >
             No

@@ -9,6 +9,10 @@
     margin-top: 20px;
 }
 
+.content_empty {
+    margin-left: 200px;
+}
+
 .empety_desc {
     font-family: 'Arimo';
     font-style: normal;
