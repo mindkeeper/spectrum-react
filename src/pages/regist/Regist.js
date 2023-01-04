@@ -25,6 +25,10 @@ function Regist() {
     navigate("/login");
   };
 
+  const toLoginNavigate = () => {
+    navigate("/login");
+  }
+
   const errorToast = () => {
     toast.error(`${errorMsg}`);
   };
@@ -53,7 +57,7 @@ function Regist() {
           <div className="col-lg-3 offset-lg-2">
             <div className={styles["account"]}>
               <div className={styles["login-account"]}>
-                <h1 onClick={toLogin}>Login Account</h1>
+                <h1 onClick={toLoginNavigate}>Login Account</h1>
               </div>
               <div className={styles["regist-account"]}>
                 <h1

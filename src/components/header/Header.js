@@ -29,7 +29,6 @@ function Header() {
   };
   const toHome = () => navigate("/");
   const toLogin = () => {
-    toast.success("Logout succesfully");
     navigate("/login");
   };
   const toBlog = () => navigate("/blog");
