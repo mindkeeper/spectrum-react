@@ -10,7 +10,7 @@ const initialState = {
 
 const getProfileReducer = (prevState = initialState, { type, payload }) => {
     const { Pending, Rejected, Fulfilled } = ActionType;
-    const { dataProfile } = ACTION_STRING;
+    const { dataProfile, profileReset } = ACTION_STRING;
     switch (type) {
         case dataProfile.concat("_", Pending):
             return {
@@ -35,6 +35,8 @@ const getProfileReducer = (prevState = initialState, { type, payload }) => {
                 isFulfilled: true,
                 profile: payload.data.data
             };
+        case profileReset:
+            return initialState
         default:
             return prevState;
     }

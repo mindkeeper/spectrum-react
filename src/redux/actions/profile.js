@@ -28,6 +28,10 @@ const patchProfileFulfilled = (data) => ({
     payload: { data },
 });
 
+const profileReset = () => {
+    return {type:ACTION_STRING.profileReset}
+  }
+
 const getProfileThunk = (token) => {
     return async (dispacth) => {
         try {
@@ -54,6 +58,6 @@ const editProfileThunk = (body, token) => {
     }
 }
 
-const profileActions = { getProfileThunk, editProfileThunk }
+const profileActions = { getProfileThunk, editProfileThunk, profileReset }
 
 export default profileActions

@@ -26,4 +26,5 @@ export const ACTION_STRING = {
   resetCart: "RESET_CART",
   transData: "TRANSACTION_DATA",
   createTrans: "CREATE_TRANSACTIONS",
+  profileReset: "PROFILE_RESET"
 };

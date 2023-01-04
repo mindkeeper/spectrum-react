@@ -27,6 +27,7 @@ import Modal from "react-bootstrap/Modal";
 import { Icon } from 'react-icons-kit'
 import { eye } from 'react-icons-kit/feather/eye'
 import { eyeOff } from 'react-icons-kit/feather/eyeOff'
+import { clearState } from '../../../helper/clearState';
 
 
 
@@ -182,10 +183,13 @@ export default function ProfileCustomer() {
   };
 
   // toLogin => navigate ke halaman login && logoutHandler => logout
-  const toLogin = () => navigate("/login");
+  const toLogin = () => {
+    toast.success("Logout success")
+    clearState(dispacth)
+    navigate("/login")
+  };
   const logoutHandler = () => {
     dispacth(authActions.logoutThunk(token, toLogin));
-    localStorage.removeItem("token");
   };
 
 
