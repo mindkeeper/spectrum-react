@@ -11,6 +11,11 @@ const axiosRequest = (method, url, data, params) => {
   });
 };
 
+const config = (token) => {
+  return {
+    headers: { "x-access-token": token },
+  };
+};
 export const getData = (url, params, data) => {
   return axiosRequest("GET", url, data, params);
 };
@@ -80,3 +85,5 @@ export const addContact = (body) => {
   return axiosRequest("POST", `/contactus`, body);
 };
 
+export const newTransactions = (body, token) =>
+  axios.post(`${baseUrl}/transactions/new`, body, config(token));

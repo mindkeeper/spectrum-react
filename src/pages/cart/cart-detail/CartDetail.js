@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { currencyFormatter } from "../../../helper/currencyFormatter";
 import css from "./CartDetail.module.css";
 import Header from "../../../components/header/Header";
 import Footer from "../../../components/footer/Footer";
@@ -15,11 +15,39 @@ import "react-toastify/dist/ReactToastify.css";
 function CartDetail() {
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.transactions.cart);
-  const toCheckout = () => navigate("checkout");
+  const toCheckout = () => {
+    handleCheckout();
+    navigate("checkout");
+  };
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
+  const subtotal = cartItems.reduce((acc, curr) => acc + curr.subtotal, 0);
+  const transformCart = (cart) => {
+    return cart.reduce((acc, curr) => {
+      const foundProduct = acc.find(
+        (item) => item.productId === curr.productId
+      );
+      if (foundProduct) {
+        foundProduct.qty++;
+      } else {
+        acc.push({ productId: curr.productId, qty: 1 });
+      }
+      return acc;
+    }, []);
+  };
 
+  const handleCheckout = () => {
+    const data = {
+      productList: transformCart(cartItems),
+      promo_id: 1,
+      shipment_id: 1,
+      status_id: 1,
+      subtotal,
+      total: subtotal + subtotal * 0.1,
+    };
+    dispatch(transactionActions.transactionData(data));
+  };
   const modalShow = () => setShow(true);
   const modalClose = () => setShow(false);
   const handleClearCart = () => {
@@ -101,7 +129,7 @@ function CartDetail() {
                 <p>Cart Total</p>
                 <div className={css.total}>
                   <p>Sub Total</p>
-                  <p>$125</p>
+                  <p>Rp. {currencyFormatter(subtotal)}</p>
                 </div>
                 <div className={css.shipping}>
                   <div className={css.shipping_text}>
@@ -125,7 +153,7 @@ function CartDetail() {
                 <hr />
                 <div className={css.total1}>
                   <p>Total Price</p>
-                  <p>$125</p>
+                  <p>Rp. {currencyFormatter(subtotal + subtotal * 0.1)}</p>
                 </div>
               </div>
               <div className="">
