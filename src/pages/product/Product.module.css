@@ -371,11 +371,15 @@
     }
 
     .left-content .product-categories .content {
-        gap: 3rem;
+        gap: 1rem;
     }
 
     .left-content .product-price .bar span:nth-child(2) {
         width: 6rem;
+    }
+
+    .left-content .content input {
+        max-width: 80%;
     }
 
     .right-content .dropdown-list {
@@ -394,11 +398,15 @@
     }
 
     .left-content .product-categories .content {
-        gap: 4rem;
+        gap: 1rem;
     }
     
     .left-content .product-price .bar span:nth-child(2) {
         width: 8rem;
+    }
+
+    .left-content .content input {
+        border: 1px solid black;
     }
 
     .right-content .right-tab {

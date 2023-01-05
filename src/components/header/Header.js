@@ -255,7 +255,10 @@ function Header({ setQuery }) {
                 />
                 <i
                   className="fa-solid fa-magnifying-glass"
-                  onClick={() => setQuery(searchInput)}
+                  onClick={() => {
+                    setQuery(searchInput);
+                    navigate("/product");
+                  }}
                 ></i>
               </form>
             </div>

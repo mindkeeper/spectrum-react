@@ -34,22 +34,26 @@
 }
 
 @media screen and (max-width: 768px) {
-    .card-product .image img {
+    /* .card-product .image img {
         width: 15rem;
-    }
+    } */
 }
 
 @media screen and (max-width: 576px) {
+    
     .card-product .image img {
-        width: 14rem;
+        width: 4rem;
     }
 
     .card-product .name h1 {
-        font-size: 1rem;
+        /* display: none; */
+        /* max-width: min-content; */
+        font-size: .5rem;
     }
     
     .card-product .price p {
-        font-size: 1.2rem;
+        /* display: none; */
+        font-size: 1rem;
         font-weight: 700;
         color: #1A1A1A;
     }

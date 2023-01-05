@@ -34,8 +34,8 @@ function Product() {
   // const getQuery = useQuery();
   const [searchParams, setSearchParams] = useSearchParams();
   const [price, setPrice] = useState({
-    minPrice: "",
-    maxPrice: "",
+    minPrice: "0",
+    maxPrice: "0",
   });
   const [query, setQuery] = useState({
     limit: "6",
