@@ -24,6 +24,7 @@ function Product() {
   const [show, setShow] = useState(false);
 
   const products = useSelector((state) => state.products.products);
+  const totalPage = useSelector((state) => state.products.meta.totalPage);
   const categories = useSelector((state) => state.categories.categories);
   const brands = useSelector((state) => state.brands.brands);
   const isLoading = useSelector((state) => state.products.isLoading);
@@ -32,19 +33,33 @@ function Product() {
   const dispacth = useDispatch();
   // const getQuery = useQuery();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState({});
+  const [price, setPrice] = useState({
+    minPrice: "",
+    maxPrice: "",
+  });
+  const [query, setQuery] = useState({
+    limit: "6",
+    page: 1,
+  });
 
   const dropdownHandler = () => {
     setShow(!show);
   };
 
-  console.log(brands);
+  const changeHandler = (e) => {
+    setPrice({
+      ...price,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // console.log(price);
 
   useEffect(() => {
     const urlSearchParams = createSearchParams({ ...query });
     setSearchParams(urlSearchParams);
     dispacth(productActions.getProductThunk(query));
-  }, [dispacth, query, searchParams]);
+  }, [dispacth, query, setSearchParams]);
 
   useEffect(() => {
     dispacth(categoriesActions.getCategoriesThunk());
@@ -57,7 +72,7 @@ function Product() {
   title("Spectrum | Product");
   return (
     <>
-      <Header />
+      <Header setQuery={setQuery} />
       <div className="container-fluid">
         <div className={`row ${styles["page-title"]}`}>
           <div className="container">
@@ -102,14 +117,29 @@ function Product() {
                   <h1>Price</h1>
                 </div>
                 <div className={styles["content"]}>
-                  <p>Price IDR 0 - IDR 1.000.000</p>
-                </div>
-                <div className={styles["slider"]}>
-                  <div className={styles["progress"]}></div>
-                </div>
-                <div className={styles["range-input"]}>
+                  <p>Min Price</p>
                   <input
-                    type="range"
+                    type="number"
+                    name="minPrice"
+                    value={price.minPrice}
+                    onChange={changeHandler}
+                  />
+                </div>
+                <div className={styles["content"]}>
+                  <p>Max Price</p>
+                  <input
+                    type="number"
+                    name="maxPrice"
+                    value={price.maxPrice}
+                    onChange={changeHandler}
+                  />
+                </div>
+                {/* <div className={styles["slider"]}>
+                  <div className={styles["progress"]}></div>
+                </div> */}
+                {/* <div className={styles["range-input"]}>
+                  <input
+                    type="text"
                     class="range-min"
                     min="0"
                     max="1000000"
@@ -122,7 +152,7 @@ function Product() {
                     max="1000000"
                     // value="750000"
                   />
-                </div>
+                </div> */}
                 {/* <div className={styles["bar"]}>
                   <span className={styles["left-circle"]}></span>
                   <span className={styles["line"]}></span>
@@ -130,7 +160,10 @@ function Product() {
                 </div> */}
               </div>
               <div className={styles["filter"]}>
-                <div className={styles["filter-container"]}>
+                <div
+                  className={styles["filter-container"]}
+                  onClick={() => setQuery(price)}
+                >
                   <p>FILTER</p>
                 </div>
               </div>
@@ -144,7 +177,7 @@ function Product() {
                       name={e.brand_name}
                       id={e.id}
                       key={e.id}
-                      // setQuery={setQuery}
+                      setQuery={setQuery}
                     />
                   ))}
                 </div>
@@ -170,7 +203,8 @@ function Product() {
             <div className={styles["right-content"]}>
               <div className={styles["right-tab"]}>
                 <div className={styles["paginate-title"]}>
-                  <p>Showing 1-16 of 39 Results</p>
+                  <p>{`Showing page ${query.page} of ${totalPage}`}</p>
+                  {/* <p>Showing 1-16 of 39 Results</p> */}
                 </div>
                 <div className={styles["sort-dropdown"]}>
                   <p onClick={dropdownHandler}>
@@ -239,9 +273,38 @@ function Product() {
                   ))
                 )}
               </div>
-              <div className={styles["paginate-page"]}>
+              {/* <div className={styles["paginate-page"]}>
                 <div className={styles["page-container"]}>
                   <p>01</p>
+                </div>
+              </div> */}
+              <div className={`${styles["paginate-container"]}`}>
+                <div className={styles["title-paginate"]}>
+                  {/* <p>{`showing page ${query.page} of ${totalPage}`}</p> */}
+                </div>
+                <div className={styles["btn-paginate"]}>
+                  <button
+                    onClick={() => {
+                      setQuery({ ...query, page: query.page - 1 });
+                    }}
+                    // disabled={query.page === 1 ? true : false}
+                    className={`${styles["btn-prev"]} ${
+                      query.page === 1 && styles["disable-btn"]
+                    }`}
+                  >
+                    prev
+                  </button>
+                  <button
+                    onClick={() => {
+                      setQuery({ ...query, page: query.page + 1 });
+                    }}
+                    // disabled={query.page === totalPage ? true : false}
+                    className={`${styles["btn-next"]} ${
+                      query.page === totalPage && styles["disable-btn"]
+                    }`}
+                  >
+                    next
+                  </button>
                 </div>
               </div>
             </div>

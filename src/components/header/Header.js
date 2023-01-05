@@ -10,7 +10,7 @@ import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Header() {
+function Header({ setQuery }) {
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const [toggle, setToggle] = useState(false);
@@ -18,9 +18,12 @@ function Header() {
   const [shop, setShop] = useState(false);
   const [search, setSearch] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [searchInput, setSearchInput] = useState({
+    search: "",
+  });
   const token = useSelector((state) => state.auth.userInfo.token);
   const roles = useSelector((state) => state.auth.userInfo.roles);
-  // console.log(roles);
+  console.log(searchInput);
 
   const toProfile = () => {
     if (roles === 1) return navigate("/profile/customer");
@@ -60,23 +63,30 @@ function Header() {
 
   const showPages = () => {
     setPages(!pages);
-    setSearch(false)
-    setShop(false)
+    setSearch(false);
+    setShop(false);
   };
 
   const showShop = () => {
     setShop(!shop);
     setPages(false);
-    setSearch(false)
+    setSearch(false);
   };
 
   const showSearch = () => {
     setSearch(!search);
     setPages(false);
-    setShop(false)
+    setShop(false);
   };
 
   const handleModal = () => setOpenModal(!openModal);
+
+  const changeHandler = (e) => {
+    setSearchInput({
+      ...searchInput,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <>
@@ -202,8 +212,10 @@ function Header() {
                 <div className={styles["shop-list"]}>
                   <ol className={styles["show"]}>
                     <li onClick={toProduct}>Product</li>
-                    <li onClick={()=> navigate('/cart')}>Shopping Cart</li>
-                    <li onClick={()=> navigate('/cart/checkout')}>Check Out</li>
+                    <li onClick={() => navigate("/cart")}>Shopping Cart</li>
+                    <li onClick={() => navigate("/cart/checkout")}>
+                      Check Out
+                    </li>
                     <li onClick={toProfile}>My Account</li>
                     <li onClick={toTracking}>Order Tracking</li>
                   </ol>
@@ -233,10 +245,19 @@ function Header() {
         <div className="container">
           <div className="row">
             <div className="col-10 offset-1">
-              <div className={styles["search-bar"]}>
-                <input type="text" placeholder="Search here ..." />
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </div>
+              <form className={styles["search-bar"]}>
+                <input
+                  type="text"
+                  name="search"
+                  value={searchInput.search}
+                  onChange={changeHandler}
+                  placeholder="Search here ..."
+                />
+                <i
+                  className="fa-solid fa-magnifying-glass"
+                  onClick={() => setQuery(searchInput)}
+                ></i>
+              </form>
             </div>
           </div>
         </div>

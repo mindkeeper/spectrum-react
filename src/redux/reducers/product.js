@@ -6,6 +6,7 @@ const initialState = {
   productSeller: [],
   detailProduct: [],
   products: [],
+  meta: {},
   isError: false,
   isLoading: false,
   isFulfilled: false,
@@ -42,6 +43,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: false,
         isFulfilled: true,
         products: payload.data.data,
+        meta: payload.data.meta,
       };
 
     case getDetailProduct.concat("_", Pending):
