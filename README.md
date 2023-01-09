@@ -1,9 +1,9 @@
 <img width="50" src="./src/asset/logo/logo-black.png" /> <h1 align="center">Spectrum</h1>
 <p align="center">
-  Built with NEXT JS.
+  Built with REACT JS.
 </p>
 
-![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![Next JS](https://img.shields.io/badge/React-black?style=for-the-badge&js&logoColor=white)
 [![css3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)]()
 [![bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)]()
 [![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)]()
@@ -37,7 +37,7 @@ listed on this website</tr>
 
 ## Requirements
 
-- [`next js`](https://reactjs.org/)
+- [`React JS`](https://reactjs.org/)
 
 ## Usage for development
 
@@ -65,25 +65,25 @@ listed on this website</tr>
   <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/mindkeeper/spectrum-react.git">
+        <a href="https://github.com/mindkeeper">
           <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
           <sub><b>Nur Cholis</b></sub>
         </a>
         </td>
         <td align="center">
-        <a href="https://github.com/mindkeeper/spectrum-react.git">
+        <a href="https://github.com/zainulrofa">
           <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
           <sub><b>Zainul Rofa</b></sub>
         </a>
         </td>
         <td align="center">
-        <a href="https://github.com/mindkeeper/spectrum-react.git">
+        <a href="https://github.com/farisan">
           <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
           <sub><b>Farisan</b></sub>
         </a>
         </td>
         <td align="center">
-        <a href="https://github.com/mindkeeper/spectrum-react.git">
+        <a href="https://github.com/rivalalfalah">
           <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
           <sub><b>Rival Alfalah</b></sub>
         </a>
