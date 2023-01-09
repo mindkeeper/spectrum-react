@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+<img width="50" src="./src/asset/logo/logo-black.png" /> <h1 align="center">Spectrum</h1>
+<p align="center">
+  Built with NEXT JS.
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+[![css3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)]()
+[![bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)]()
+[![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)]()
+[![vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)]()
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Usage](#usage-for-development)
+- [Screenshots](#screenshots)
+- [Contributors](#contributors)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<b>Spectrum</b> by Spectrum Team.
+<tr>spectrum website is an e-commerce that sells some furniture for
+household needs such as tables, chairs etc. The purpose of this
+website is to increase sales of furniture items from every product
+listed on this website</tr>
+<tr>You can test the web online here: https://spectrum-react.vercel.app/</tr>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Auth
+- Product detail
+- Cart
+- Transactions History
+- etc
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Requirements
 
-### `npm run build`
+- [`next js`](https://reactjs.org/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage for development
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Open your terminal or command prompt
+2. Type `https://github.com/mindkeeper/spectrum-react.git`
+3. Open with your text editor
+4. Start to edit and develop
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+<div align="center">
+    <div style='display:flex; gap:20px' >
+      <img width="250" src="./src/asset/readme/spectrum_login.png">
+      <img width="250" src="./src/asset/readme/spectrum_register.png">
+    </div>
+    <div style='display:flex; gap:20px; padding-top:20px' >
+      <img width="250" src="./src/asset/readme/spectrum_blog.png">
+      <img width="250" src="./src/asset/readme/spectrum_home.png">
+    </div>
+</div>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributors
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<center>
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/mindkeeper/spectrum-react.git">
+          <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
+          <sub><b>Nur Cholis</b></sub>
+        </a>
+        </td>
+        <td align="center">
+        <a href="https://github.com/mindkeeper/spectrum-react.git">
+          <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
+          <sub><b>Zainul Rofa</b></sub>
+        </a>
+        </td>
+        <td align="center">
+        <a href="https://github.com/mindkeeper/spectrum-react.git">
+          <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
+          <sub><b>Farisan</b></sub>
+        </a>
+        </td>
+        <td align="center">
+        <a href="https://github.com/mindkeeper/spectrum-react.git">
+          <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
+          <sub><b>Rival Alfalah</b></sub>
+        </a>
+        </td>
+  </table>
+</center>
