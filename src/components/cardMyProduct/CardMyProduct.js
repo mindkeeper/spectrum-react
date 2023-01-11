@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import productActions from "../../redux/actions/product";
+import { currencyFormatter } from "../../helper/currencyFormatter";
 // import sample from "../../asset/product/yellow-chair.png";
 
 function CardMyProduct({ image, name, stock, price, id }) {
@@ -43,7 +44,7 @@ function CardMyProduct({ image, name, stock, price, id }) {
         </p>
       </div>
       <div className={`col-lg-2 col-md-2 col-3 ${styles["price"]}`}>
-        <p>{price}</p>
+        <p>{currencyFormatter(price)}</p>
       </div>
       <div className={`col-lg-2 col-md-2 col-2 ${styles["del-btn"]}`}>
         <button onClick={handleModal}>Delete</button>

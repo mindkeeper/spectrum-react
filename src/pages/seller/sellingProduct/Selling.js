@@ -7,6 +7,8 @@ import title from "../../../components/title/Title";
 import { useDispatch, useSelector } from "react-redux";
 import categoriesActions from "../../../redux/actions/categories";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Selling() {
   const dispatch = useDispatch();
@@ -60,7 +62,7 @@ function Selling() {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then((res) => console.log(res))
+      .then((res) => toast.success("Product added successfully"))
       .catch((err) => console.log(err));
   };
 

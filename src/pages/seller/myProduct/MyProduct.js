@@ -87,7 +87,7 @@ function MyProduct() {
             <h1>Stock Status</h1>
           </div>
           <div className="col-lg-2 col-md-2 col-2">
-            <h1>Price</h1>
+            <h1>Price {"(Rp)"}</h1>
           </div>
         </div>
       </div>
