@@ -113,6 +113,14 @@
     padding: 1rem;
 }
 
+.image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 10rem;
+}
+
 .photo-good .add-photo i {
     font-size: 3rem;
     color: #CECECE;
