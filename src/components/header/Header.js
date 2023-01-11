@@ -9,6 +9,7 @@ import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { stateClearer } from "../../helper/stateClearer";
 
 function Header({ setQuery }) {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ function Header({ setQuery }) {
 
   const toLogin = () => {
     // toast.success("Logout succesfully");
+    stateClearer(dispacth);
     navigate("/login");
   };
 
@@ -52,6 +54,7 @@ function Header({ setQuery }) {
     dispacth(
       authActions.logoutThunk(token, () => {
         toast.success("Logout succesfully");
+
         toLogin();
       })
     );

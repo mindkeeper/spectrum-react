@@ -19,6 +19,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
     getDetailProduct,
     getProductSeller,
     getRelatedProducts,
+    resetProduct,
   } = ACTION_STRING;
 
   switch (type) {
@@ -114,6 +115,8 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         related: payload.data.data,
       };
 
+    case resetProduct:
+      return initialState;
     default:
       return prevState;
   }

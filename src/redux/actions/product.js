@@ -1,5 +1,10 @@
 import { ActionType } from "redux-promise-middleware";
-import { getData, getProduct, getProductSeller } from "../../utils/fetchers";
+import {
+  getData,
+  getProduct,
+  getProductSeller,
+  deleteProduct as apiDeleteProduct,
+} from "../../utils/fetchers";
 import { ACTION_STRING } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -59,6 +64,24 @@ const getRelatedProductsFulfilled = (data) => ({
   payload: { data },
 });
 
+const deleteProductPending = () => ({
+  type: ACTION_STRING.deleteProduct.concat("_", Pending),
+});
+
+const deleteProductRejected = (error) => ({
+  type: ACTION_STRING.deleteProduct.concat("_", Rejected),
+  payload: { error },
+});
+
+const deleteProductFulfilled = (data) => ({
+  type: ACTION_STRING.deleteProduct.concat("_", Fulfilled),
+});
+
+const resetProduct = ()=>{
+  return {
+    type : ACTION_STRING.resetProduct
+  }
+}
 const getProductThunk = (params) => {
   return async (dispacth) => {
     try {
@@ -105,11 +128,27 @@ const getRelatedThunk = (url) => {
     }
   };
 };
+
+const deleteProductThunk =
+  (id, token, cbSuccess, cbFailed) => async (dispacth) => {
+    try {
+      dispacth(deleteProductPending());
+      const result = await apiDeleteProduct(id, token);
+      dispacth(deleteProductFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
+    } catch (error) {
+      console.log(error);
+      dispacth(deleteProductRejected(error.response.data.msg));
+      typeof cbFailed === "function" && cbFailed(error.response.data.msg);
+    }
+  };
 const productActions = {
   getProductThunk,
   getDetailsThunk,
   getProductSellerThunk,
   getRelatedThunk,
+  deleteProductThunk,
+  resetProduct
 };
 
 export default productActions;

@@ -87,3 +87,6 @@ export const addContact = (body) => {
 
 export const newTransactions = (body, token) =>
   axios.post(`${baseUrl}/transactions/new`, body, config(token));
+
+export const deleteProduct = (id, token) =>
+  axios.delete(`${baseUrl}/products/delete/${id}`, config(token));

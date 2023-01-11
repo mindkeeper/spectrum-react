@@ -19,8 +19,6 @@ function MyProduct() {
   const product = useSelector((state) => state.products.productSeller);
   const isLoading = useSelector((state) => state.products.isLoading);
   const token = useSelector((state) => state.auth.userInfo.token);
-  console.log(product);
-  console.log(token);
   const active = () => {
     setDropdown(!dropdown);
   };
@@ -38,7 +36,7 @@ function MyProduct() {
       <div className="container-fluid">
         <div className="row">
           <main className={`col-lg-12 ${styles["page-title"]}`}>
-            <h1>My Account</h1>
+            <h1>Product List</h1>
             <p>
               Register and log in with your account to be able to shop at will
             </p>

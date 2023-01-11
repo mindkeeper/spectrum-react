@@ -12,6 +12,7 @@ export const ACTION_STRING = {
   createProduct: "CREATE_PRODUCT",
   updateProducts: "UPDATE_PRODUCT",
   getDetailProduct: "GET_PRODUCT_DETAIL",
+  deleteProduct: "DELETE_PRODUCT",
   getProfile: "GET_PROFILE",
   updateProfile: "UPDATE_PROFILE",
   getPromos: "GET_PROMOS",
@@ -26,4 +27,7 @@ export const ACTION_STRING = {
   resetCart: "RESET_CART",
   transData: "TRANSACTION_DATA",
   createTrans: "CREATE_TRANSACTIONS",
+  resetProduct: "RESET_PRODUCTS",
+  resetProfile: "RESET_PROFILE",
+  resetTransactions: "RESET_TRANSACTIONS",
 };

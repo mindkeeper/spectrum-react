@@ -32,6 +32,7 @@ const transactionReducer = (prevState = initialState, { type, payload }) => {
     rejected,
     fulfilled,
     createTrans,
+    resetTransactions,
   } = ACTION_STRING;
 
   switch (type) {
@@ -109,6 +110,8 @@ const transactionReducer = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         transSuccess: payload.data.data,
       };
+    case resetTransactions:
+      return initialState;
     default:
       return prevState;
   }

@@ -1,41 +1,39 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import axios from 'axios'
+import axios from "axios";
 
 // import toast notifikasi
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // import CSS
-import css from "./ProfileSeller.module.css"
+import css from "./ProfileSeller.module.css";
 
 // import image
-import pencil from '../../../asset/profile/pencil.png'
+import pencil from "../../../asset/profile/pencil.png";
 
 // import component
-import Header from '../../../components/header/Header'
-import Footer from '../../../components/footer/Footer'
-import CardHeaderProfile from '../../../components/card-header-profile/CardHeaderProfile'
+import Header from "../../../components/header/Header";
+import Footer from "../../../components/footer/Footer";
+import CardHeaderProfile from "../../../components/card-header-profile/CardHeaderProfile";
 
 // import actions
-import profileActions from '../../../redux/actions/profile';
+import profileActions from "../../../redux/actions/profile";
 import authActions from "../../../redux/actions/auths";
-
 
 // import bootstraps
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Icon } from 'react-icons-kit'
-import { eye } from 'react-icons-kit/feather/eye'
-import { eyeOff } from 'react-icons-kit/feather/eyeOff'
-
-
+import { Icon } from "react-icons-kit";
+import { eye } from "react-icons-kit/feather/eye";
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import { stateClearer } from "../../../helper/stateClearer";
 
 function ProfileSeller() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
-  const profile = useSelector((state) => state.data_profile.profile)
+  const profile = useSelector((state) => state.data_profile.profile);
   const token = useSelector((state) => state.auth.userInfo.token);
 
   const [email, setEmail] = useState(profile.email);
@@ -47,18 +45,17 @@ function ProfileSeller() {
   const [store_name, setStore_name] = useState(profile.store_name);
   const [store_desc, setStore_desc] = useState(profile.store_desc);
   const [showmodals, setShowmodals] = useState(false);
-  const [showEdit, setShowEdit] = useState(false)
-  const [edit_display, setEdit_display] = useState(true)
-  const [edit_gender, setEdit_gender] = useState(true)
-  const [edit_store_name, setEdit_store_name] = useState(true)
-  const [edit_store_desc, setEdit_store_desc] = useState(true)
-  const [passwords, setPasswords] = useState('')
-  const [new_passwords, setNew_Passwords] = useState('')
-  const [type, setType] = useState('password');
+  const [showEdit, setShowEdit] = useState(false);
+  const [edit_display, setEdit_display] = useState(true);
+  const [edit_gender, setEdit_gender] = useState(true);
+  const [edit_store_name, setEdit_store_name] = useState(true);
+  const [edit_store_desc, setEdit_store_desc] = useState(true);
+  const [passwords, setPasswords] = useState("");
+  const [new_passwords, setNew_Passwords] = useState("");
+  const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
-  const [type_, setType_] = useState('password');
+  const [type_, setType_] = useState("password");
   const [icon_, setIcon_] = useState(eyeOff);
-
 
   // ComponentDidMount
   useEffect(() => {
@@ -69,59 +66,61 @@ function ProfileSeller() {
     setImage(profile.image);
     setStore_name(profile.store_name);
     setStore_desc(profile.store_desc);
-  }, [dispacth])
-
-
+  }, [dispacth]);
 
   // handleToggle => Show password new password
   const handleToggle = () => {
-    if (type === 'password') {
+    if (type === "password") {
       setIcon(eye);
-      setType('text');
+      setType("text");
     } else {
       setIcon(eyeOff);
-      setType('password')
+      setType("password");
     }
-  }
-
-
+  };
 
   // handleToggle => Show password old password
   const handleToggleOld = () => {
-    if (type_ === 'password') {
+    if (type_ === "password") {
       setIcon_(eye);
-      setType_('text');
+      setType_("text");
     } else {
       setIcon_(eyeOff);
-      setType_('password')
+      setType_("password");
     }
-  }
-
-
+  };
 
   // editPassword => edit password
   const editPassword = (e) => {
-    e.preventDefault()
-    axios.patch(`${process.env.REACT_APP_BACKEND_HOST}/users/editpwd`, {
-      new_password: new_passwords,
-      old_password: passwords,
-    }, {
-      headers: {
-        "x-access-token": token
-      }
-    })
-      .then(toast.success(`Edit Password Success`, {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      }), setShowEdit(false))
+    e.preventDefault();
+    axios
+      .patch(
+        `${process.env.REACT_APP_BACKEND_HOST}/users/editpwd`,
+        {
+          new_password: new_passwords,
+          old_password: passwords,
+        },
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      )
+      .then(
+        toast.success(`Edit Password Success`, {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }),
+        setShowEdit(false)
+      )
       .catch((err) =>
-        toast.error((err), {
+        toast.error(err, {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -131,10 +130,8 @@ function ProfileSeller() {
           progress: undefined,
           theme: "light",
         })
-      )
-
-
-  }
+      );
+  };
 
   // submitUpdateProfile => edit profile
   const submitUpdateProfile = async (e) => {
@@ -153,10 +150,10 @@ function ProfileSeller() {
       if (formData) {
         dispacth(profileActions.editProfileThunk(formData, token));
         dispacth(profileActions.getProfileThunk(token));
-        setEdit_display(true)
-        setEdit_gender(true)
-        setEdit_store_name(true)
-        setEdit_store_desc(true)
+        setEdit_display(true);
+        setEdit_gender(true);
+        setEdit_store_name(true);
+        setEdit_store_desc(true);
         toast.success(`Congrats! Data success change`, {
           position: "top-center",
           autoClose: 2000,
@@ -169,7 +166,7 @@ function ProfileSeller() {
         });
       }
     } catch (error) {
-      toast.error((error), {
+      toast.error(error, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -180,9 +177,7 @@ function ProfileSeller() {
         theme: "light",
       });
     }
-  }
-
-
+  };
 
   // inputImage => preview image
   const inputImage = (event) => {
@@ -194,15 +189,16 @@ function ProfileSeller() {
     }
   };
 
-
-
   // toLogin => navigate ke halaman login && logoutHandler => logout
-  const toLogin = () => navigate("/login");
+  const toLogin = () => {
+    stateClearer(dispacth);
+    navigate("/login");
+  };
   const logoutHandler = () => {
     dispacth(authActions.logoutThunk(token, toLogin));
+
     localStorage.removeItem("token");
   };
-
 
   // show modals
   const handleClose = () => setShowmodals(false);
@@ -210,15 +206,11 @@ function ProfileSeller() {
   const handleCloseEdit = () => setShowEdit(false);
   const handleShowEdit = () => setShowEdit(true);
 
-
   // disable to edit
-  const isEditdisplay = () => setEdit_display(false)
-  const isEditgender = () => setEdit_gender(false)
-  const isEditstore_name = () => setEdit_store_name(false)
-  const isEditstore_desc = () => setEdit_store_desc(false)
-
-
-
+  const isEditdisplay = () => setEdit_display(false);
+  const isEditgender = () => setEdit_gender(false);
+  const isEditstore_name = () => setEdit_store_name(false);
+  const isEditstore_desc = () => setEdit_store_desc(false);
 
   return (
     <>
@@ -230,9 +222,7 @@ function ProfileSeller() {
         <div className="row">
           <main className={`col-lg-12 ${css["page-title"]}`}>
             <h1>Profile</h1>
-            <p>
-              See your notifications for the latest updates
-            </p>
+            <p>See your notifications for the latest updates</p>
           </main>
         </div>
       </div>
@@ -243,19 +233,30 @@ function ProfileSeller() {
       <form className={`container ${css.top_1}`}>
         <div className={css.data_form}>
           <label htmlFor="profile-image">
-            <img src={display || "https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png"} alt="Profile" width='50px' height='50px' className='rounded-circle' />
+            <img
+              src={
+                display ||
+                "https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png"
+              }
+              alt="Profile"
+              width="50px"
+              height="50px"
+              className="rounded-circle"
+            />
             <input
               type="file"
-              name='file'
+              name="file"
               id="profile-image"
               onChange={inputImage}
-              className='d-none' />
+              className="d-none"
+            />
           </label>
           <div className={css.top_2}>
-            <input type="text"
+            <input
+              type="text"
               name="display_name"
               className={css["saller-name"]}
-              value={(display_name === null) ? "Displayname" : display_name}
+              value={display_name === null ? "Displayname" : display_name}
               disabled={edit_display}
               onChange={(e) => {
                 setDisplay_name(e.target.value);
@@ -264,11 +265,20 @@ function ProfileSeller() {
             />
             <p className={css["saller-role"]}>as {role}</p>
           </div>
-          <div className={css["edit-pencil"]} onClick={(e) => {
-            e.preventDefault()
-            isEditdisplay()
-          }}>
-            <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
+          <div
+            className={css["edit-pencil"]}
+            onClick={(e) => {
+              e.preventDefault();
+              isEditdisplay();
+            }}
+          >
+            <img
+              src={pencil}
+              alt="Pencil"
+              width="15px"
+              height="15px"
+              className="ms-3"
+            />
           </div>
         </div>
 
@@ -277,109 +287,179 @@ function ProfileSeller() {
           <div className={css.box_size_form}>
             <div className={css.box_size_form_1}>
               <label className={`${css["label-profile"]} mb-3`}>Gender</label>
-              <input className={css["input-profile"]}
+              <input
+                className={css["input-profile"]}
                 type="text"
-                name='gender'
+                name="gender"
                 value={gender}
                 disabled={edit_gender}
                 onChange={(e) => {
                   setGender(e.target.value);
                   console.log(gender);
                 }}
-                placeholder='Input gender' />
+                placeholder="Input gender"
+              />
             </div>
             <div className={css.top_content}>
-              <span className={css['edit-profile']} onClick={(e) => {
-                e.preventDefault()
-                isEditgender()
-              }}>Edit</span>
-              <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
+              <span
+                className={css["edit-profile"]}
+                onClick={(e) => {
+                  e.preventDefault();
+                  isEditgender();
+                }}
+              >
+                Edit
+              </span>
+              <img
+                src={pencil}
+                alt="Pencil"
+                width="15px"
+                height="15px"
+                className="ms-3"
+              />
             </div>
           </div>
           <div className={css.box_size_form}>
             <div className={css.box_size_form_1}>
-              <label className={`${css["label-profile"]} mb-3`}>Your Email</label>
-              <input className={css["input-profile"]}
+              <label className={`${css["label-profile"]} mb-3`}>
+                Your Email
+              </label>
+              <input
+                className={css["input-profile"]}
                 type="text"
-                name='email'
+                name="email"
                 value={email}
                 disabled
-                placeholder='Input your email address' />
+                placeholder="Input your email address"
+              />
             </div>
             <div className={css.top_content}>
-              <span className={css['edit-profile']}>Edit</span>
-              <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
+              <span className={css["edit-profile"]}>Edit</span>
+              <img
+                src={pencil}
+                alt="Pencil"
+                width="15px"
+                height="15px"
+                className="ms-3"
+              />
             </div>
           </div>
           <div className={css.box_size_form}>
             <div className={css.box_size_form_1}>
-              <label className={`${css["label-profile"]} mb-3`}>Store name</label>
-              <input className={css["input-profile"]}
+              <label className={`${css["label-profile"]} mb-3`}>
+                Store name
+              </label>
+              <input
+                className={css["input-profile"]}
                 type="textarea"
-                name='store_desc'
+                name="store_desc"
                 value={store_name}
                 disabled={edit_store_name}
                 onChange={(e) => {
                   setStore_name(e.target.value);
                   console.log(store_name);
                 }}
-                placeholder='Input store description' />
+                placeholder="Input store description"
+              />
             </div>
             <div className={css.top_content}>
-              <span className={css['edit-profile']} onClick={(e) => {
-                e.preventDefault()
-                isEditstore_name()
-              }}>Edit</span>
-              <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
+              <span
+                className={css["edit-profile"]}
+                onClick={(e) => {
+                  e.preventDefault();
+                  isEditstore_name();
+                }}
+              >
+                Edit
+              </span>
+              <img
+                src={pencil}
+                alt="Pencil"
+                width="15px"
+                height="15px"
+                className="ms-3"
+              />
             </div>
           </div>
           <div className={css.box_size_form}>
             <div className={css.box_size_form_1}>
-              <label className={`${css["label-profile"]} mb-3`}>Store Description</label>
-              <input className={css["input-profile"]}
+              <label className={`${css["label-profile"]} mb-3`}>
+                Store Description
+              </label>
+              <input
+                className={css["input-profile"]}
                 type="textarea"
-                name='store_desc'
+                name="store_desc"
                 value={store_desc}
                 disabled={edit_store_desc}
                 onChange={(e) => {
                   setStore_desc(e.target.value);
                   console.log(store_desc);
                 }}
-                placeholder='Input store description' />
+                placeholder="Input store description"
+              />
             </div>
             <div className={css.top_content}>
-              <span className={css['edit-profile']} onClick={(e) => {
-                e.preventDefault()
-                isEditstore_desc()
-              }}>Edit</span>
-              <img src={pencil} alt="Pencil" width="15px" height="15px" className='ms-3' />
+              <span
+                className={css["edit-profile"]}
+                onClick={(e) => {
+                  e.preventDefault();
+                  isEditstore_desc();
+                }}
+              >
+                Edit
+              </span>
+              <img
+                src={pencil}
+                alt="Pencil"
+                width="15px"
+                height="15px"
+                className="ms-3"
+              />
             </div>
           </div>
         </div>
 
         {/* Action Button */}
-        <div className={`${css['submit-form']}`}>
+        <div className={`${css["submit-form"]}`}>
           <div className="">
-            <button className={css['logout']} onClick={(e) => {
-              e.preventDefault();
-              handleShow();
-            }}><i className="fa-solid fa-right-from-bracket text-white me-4" />Logout</button>
-            <button className={css['edit-password']} onClick={(e) => {
-              e.preventDefault()
-              handleShowEdit()
-            }}>Edit Password</button>
+            <button
+              className={css["logout"]}
+              onClick={(e) => {
+                e.preventDefault();
+                handleShow();
+              }}
+            >
+              <i className="fa-solid fa-right-from-bracket text-white me-4" />
+              Logout
+            </button>
+            <button
+              className={css["edit-password"]}
+              onClick={(e) => {
+                e.preventDefault();
+                handleShowEdit();
+              }}
+            >
+              Edit Password
+            </button>
           </div>
-          <button className={`bg-dark ${css['save-change']}`} onClick={submitUpdateProfile}>Save Change</button>
+          <button
+            className={`bg-dark ${css["save-change"]}`}
+            onClick={submitUpdateProfile}
+          >
+            Save Change
+          </button>
         </div>
-
       </form>
 
       {/* Footer */}
       <Footer />
       <ToastContainer />
-      <Modal show={showmodals} onHide={handleClose}
-      // backdrop="static"
-      // keyboard={false}
+      <Modal
+        show={showmodals}
+        onHide={handleClose}
+        // backdrop="static"
+        // keyboard={false}
       >
         <Modal.Header closeButton>
           <Modal.Title>confirmation</Modal.Title>
@@ -403,9 +483,11 @@ function ProfileSeller() {
         </Modal.Footer>
       </Modal>
 
-      <Modal show={showEdit} onHide={handleCloseEdit}
-      // backdrop="static"
-      // keyboard={false}
+      <Modal
+        show={showEdit}
+        onHide={handleCloseEdit}
+        // backdrop="static"
+        // keyboard={false}
       >
         <Modal.Header closeButton>
           <Modal.Title>Edit Passwords</Modal.Title>
@@ -416,33 +498,40 @@ function ProfileSeller() {
               <label htmlFor="">Old Password *</label>
               <input
                 type={type}
-                name='password'
+                name="password"
                 value={passwords}
                 onChange={(e) => {
-                  setPasswords(e.target.value)
+                  setPasswords(e.target.value);
                   console.log(passwords);
-                }} />
+                }}
+              />
               <Icon icon={icon} onClick={handleToggle} />
             </div>
             <div className={css.old_pwd1}>
               <label htmlFor="">New Password *</label>
-              <input type={type_}
-                name='new_password'
+              <input
+                type={type_}
+                name="new_password"
                 value={new_passwords}
                 onChange={(e) => {
-                  setNew_Passwords(e.target.value)
+                  setNew_Passwords(e.target.value);
                   console.log(new_passwords);
-                }} />
+                }}
+              />
               <Icon icon={icon_} onClick={handleToggleOld} />
             </div>
           </div>
 
-          <button className={css.save_edit} onClick={editPassword}>Save</button>
-          <button className={css.cancel_edit} onClick={handleCloseEdit}>Cancel</button>
+          <button className={css.save_edit} onClick={editPassword}>
+            Save
+          </button>
+          <button className={css.cancel_edit} onClick={handleCloseEdit}>
+            Cancel
+          </button>
         </Modal.Body>
       </Modal>
     </>
-  )
+  );
 }
 
-export default ProfileSeller
+export default ProfileSeller;

@@ -67,6 +67,9 @@ const transactionData = (data) => {
     payload: { data },
   };
 };
+const resetTransactions = () => {
+  return { type: ACTION_STRING.resetTransactions };
+};
 const transactionActions = {
   addtoCartActions,
   updateCartItem,
@@ -74,6 +77,7 @@ const transactionActions = {
   cartReset,
   transactionData,
   createTransThunk,
+  resetTransactions,
 };
 
 export default transactionActions;
