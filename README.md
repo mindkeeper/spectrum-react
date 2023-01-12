@@ -91,5 +91,11 @@ listed on this website</tr>
           <sub><b>Rival Alfalah</b></sub>
         </a>
         </td>
+        <td align="center">
+        <a href="https://github.com/luqmanito">
+          <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
+          <sub><b>Rival Alfalah</b></sub>
+        </a>
+        </td>
   </table>
 </center>
