@@ -59,7 +59,7 @@ listed on this website</tr>
     </div>
 </div>
 
-##Related Projects
+## Related Projects
 [Spectrum Backend](https://github.com/mindkeeper/spectrum-backend)
 
 ## Contributors
