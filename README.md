@@ -25,7 +25,7 @@
 household needs such as tables, chairs etc. The purpose of this
 website is to increase sales of furniture items from every product
 listed on this website</tr>
-<tr>You can test the web online here: https://spectrum-react.vercel.app/</tr>
+<tr>You can test the web online here: https://spectrum-online.vercel.app/</tr>
 
 ## Features
 
