@@ -70,7 +70,7 @@ listed on this website</tr>
       <td align="center">
         <a href="https://github.com/mindkeeper">
           <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
-          <sub><b>Nur Cholis</b></sub>
+          <sub><b>Nur Cholis Majid</b></sub>
         </a>
         </td>
         <td align="center">
@@ -94,7 +94,7 @@ listed on this website</tr>
         <td align="center">
         <a href="https://github.com/luqmanito">
           <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
-          <sub><b>Rival Alfalah</b></sub>
+          <sub><b>Luqman Gharito</b></sub>
         </a>
         </td>
   </table>
