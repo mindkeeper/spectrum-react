@@ -25,7 +25,7 @@
 household needs such as tables, chairs etc. The purpose of this
 website is to increase sales of furniture items from every product
 listed on this website</tr>
-<tr>You can test the web online here: https://spectrum-react.vercel.app/</tr>
+<tr>You can test the web online here: https://spectrum-online.vercel.app/</tr>
 
 ## Features
 
@@ -51,13 +51,16 @@ listed on this website</tr>
 <div align="center">
     <div style='display:flex; gap:20px' >
       <img width="250" src="./src/asset/readme/spectrum_login.png">
-      <img width="250" src="./src/asset/readme/spectrum_register.png">
+      <img width="250" src="./src/asset/readme/spectrum_product.png">
     </div>
     <div style='display:flex; gap:20px; padding-top:20px' >
       <img width="250" src="./src/asset/readme/spectrum_blog.png">
       <img width="250" src="./src/asset/readme/spectrum_home.png">
     </div>
 </div>
+
+## Related Projects
+[Spectrum Backend](https://github.com/mindkeeper/spectrum-backend)
 
 ## Contributors
 
@@ -67,7 +70,7 @@ listed on this website</tr>
       <td align="center">
         <a href="https://github.com/mindkeeper">
           <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
-          <sub><b>Nur Cholis</b></sub>
+          <sub><b>Nur Cholis Majid</b></sub>
         </a>
         </td>
         <td align="center">
@@ -86,6 +89,12 @@ listed on this website</tr>
         <a href="https://github.com/rivalalfalah">
           <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
           <sub><b>Rival Alfalah</b></sub>
+        </a>
+        </td>
+        <td align="center">
+        <a href="https://github.com/luqmanito">
+          <img width="100" ; src="https://res.cloudinary.com/dx7cvqczn/image/upload/v1667811029/coffee_addict/pic_default.png" alt="pic_default"><br/>
+          <sub><b>Luqman Gharito</b></sub>
         </a>
         </td>
   </table>
