@@ -51,7 +51,7 @@ listed on this website</tr>
 <div align="center">
     <div style='display:flex; gap:20px' >
       <img width="250" src="./src/asset/readme/spectrum_login.png">
-      <img width="250" src="./src/asset/readme/spectrum_product.png">
+      <img width="250" src="./src/asset/readme/spectrum-product.png">
     </div>
     <div style='display:flex; gap:20px; padding-top:20px' >
       <img width="250" src="./src/asset/readme/spectrum_blog.png">
